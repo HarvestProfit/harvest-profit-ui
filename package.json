@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "build": "babel src -d dist",
+    "report-coverage": "coveralls < ./coverage/lcov.info",
     "test": "jest test/ --coverage"
   },
   "jest": {
@@ -33,6 +34,7 @@
     "babel-preset-airbnb": "^2.4.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "coveralls": "^3.0.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
     "eslint": "^4.9.0",
