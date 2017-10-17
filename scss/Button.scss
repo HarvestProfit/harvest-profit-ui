@@ -1,0 +1,23 @@
+@import './variables';
+
+.button {
+  padding: .6rem 1rem;
+
+  &.primary {
+    background-color: $green;
+    color: $white;
+
+    &:hover {
+      background-color: darken($green, 20%);
+    }
+  }
+
+  &.secondary {
+    color: $green;
+
+    &:hover {
+      border: 1px solid darken($green, 20%);
+      color: darken($green, 20%);
+    }
+  }
+}

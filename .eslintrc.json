@@ -1,0 +1,12 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+        "jest": true
+    },
+    "rules": {
+      // This is temporarily broken. See github.com/airbnb/javascript/issues/1584
+      "function-paren-newline": "off",
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    }
+}
