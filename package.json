@@ -1,0 +1,10 @@
+{
+  "name": "harvest-profit-ui",
+  "version": "1.0.0",
+  "description": "Harvest Profit UI Components",
+  "main": "dist/index.js",
+  "repository": "https://github.com/HarvestProfit/harvest-profit-ui",
+  "author": "Jaryd Krishnan",
+  "license": "MIT",
+  "private": false
+}
