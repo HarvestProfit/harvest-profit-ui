@@ -5,6 +5,11 @@ import PropTypes from 'prop-types';
 import InputInternal from './InputInternal';
 import numberWithCommas from './utilities/NumbersHelper';
 
+/**
+ * Renders a numeric input. This is a **controlled** component, so you will need
+ * handle input changes and values elsewhere in your application. See the [docs
+ * on controlled/uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html)
+ */
 export default class InputNumeric extends PureComponent {
   static defaultProps = {
     allowNegative: false,
@@ -14,16 +19,30 @@ export default class InputNumeric extends PureComponent {
     id: false,
     onChange: () => {},
     prefix: '',
+    style: { textAlign: 'right' },
   }
 
   static propTypes = {
+    /** Can the user start a number with "-". */
     allowNegative: PropTypes.bool,
+    /** Will we separate numbers with a comma, American-style, on blur. */
     commaSeparator: PropTypes.bool,
+    /** How many decimal places to render the number with. */
     decimalPlaces: PropTypes.number,
+    /** What is the value supplied to the field. */
     defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /** An ID to use with a label. Doesn't render if boolean. */
     id: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    /**
+     * Gets called whenever the user types a valid number.
+     *
+     * @param {string} value The new value
+     */
     onChange: PropTypes.func,
+    /** The prefix to apply to the number on blur. */
     prefix: PropTypes.string,
+    /** Styles to apply to the input. Boolean will not render default. */
+    style: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   }
 
   constructor(props) {
@@ -94,7 +113,7 @@ export default class InputNumeric extends PureComponent {
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         onFocus={this.handleFocus}
-        style={{ textAlign: 'right' }}
+        style={this.props.style}
         type="text"
         value={value || ''}
       />

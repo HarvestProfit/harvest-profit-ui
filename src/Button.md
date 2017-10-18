@@ -1,10 +1,14 @@
-Simple `<Button />` example:
+Simple `<Button />` examples:
 
 ```js
 // This function triggers a visible event
-function onClick() {
-  alert('Clicked!');
+function onClick(buttonNumber) {
+  alert(`Clicked button number: ${buttonNumber}`);
 }
 
-<Button className="primary" onClick={onClick}>Click Me</Button>
+<div>
+  <Button className="primary" onClick={() => onClick('one')}>Click Me, I&apos;m #1!</Button>
+  <span>&nbsp;</span>
+  <Button className="secondary" onClick={() => onClick('two')}>Click Me Instead!</Button>
+</div>
 ```

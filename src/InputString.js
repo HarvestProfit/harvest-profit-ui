@@ -2,6 +2,11 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import InputInternal from './InputInternal';
 
+/**
+ * Renders a string input. This is a **controlled** component, so you will need
+ * handle input changes and values elsewhere in your application. See the [docs
+ * on controlled/uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html)
+ */
 export default class InputString extends PureComponent {
   static defaultProps = {
     defaultValue: '',
@@ -14,12 +19,23 @@ export default class InputString extends PureComponent {
   }
 
   static propTypes = {
+    /** What is the value supplied to the field. */
     defaultValue: PropTypes.string,
+    /** An ID to use with a label. Doesn't render if boolean. */
     id: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    /**
+     * Gets called whenever the user types a valid number.
+     *
+     * @param {string} value The new value
+     */
     onChange: PropTypes.func,
+    /** Placeholder value before any input exists */
     placeholder: PropTypes.string,
+    /** The prefix to apply to the value on blur. */
     prefix: PropTypes.string,
+    /** Styles to apply to the input. Boolean will not render default. */
     style: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    /** The suffix to apply to the value on blur. */
     suffix: PropTypes.string,
   }
 

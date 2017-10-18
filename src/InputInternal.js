@@ -12,7 +12,7 @@ function pure(func) {
 
 const InputInternal = pure(props => (
   <input
-    className={props.className}
+    className={`input ${props.className}`}
     value={props.value}
     id={props.id}
     onBlur={props.onBlur}
