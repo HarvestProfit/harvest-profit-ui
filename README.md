@@ -17,7 +17,7 @@ yarn add harvest-profit-ui
 Each component is actually exported from the main package, so you would simply do
 the following:
 
-```js
+```js static
 import { Button, InputString } from 'harvest-profit-ui';
 ```
 
