@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import InputString from '../src/InputString';
+import InputString from '../../src/forms/InputString';
 
 describe('<InputNumeric />', () => {
   it('should render an input with the value of "hello" using defaults', () => {
     const input = shallow(
       <InputString
         defaultValue="world"
+        onChange={() => {}}
       />);
     expect(input.props().value).toEqual('world');
   });
@@ -15,6 +16,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputString
         defaultValue="world"
+        onChange={() => {}}
         prefix="hello "
       />);
     expect(input.props().value).toEqual('hello world');
@@ -24,6 +26,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputString
         defaultValue="hello"
+        onChange={() => {}}
         suffix=" world"
       />);
     expect(input.props().value).toEqual('hello world');
@@ -45,6 +48,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputString
         defaultValue="cruel"
+        onChange={() => {}}
         prefix="hello "
         suffix=" world"
       />);

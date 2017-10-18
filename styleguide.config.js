@@ -23,7 +23,11 @@ module.exports = {
     },
     {
       name: 'UI Components',
-      components: 'src/!(index).{js,jsx}',
+      components: 'src/*.{js,jsx}',
+    },
+    {
+      name: 'Form Components',
+      components: 'src/forms/*.{js,jsx}',
     },
   ],
   webpackConfig: createConfig([

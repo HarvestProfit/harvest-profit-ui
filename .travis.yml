@@ -11,7 +11,7 @@ script:
   - yarn run build
 after_script:
   - yarn run report-coverage
-after_success:
+before_deploy:
   - yarn run styleguide:build
 deploy:
   - provider: pages
@@ -21,12 +21,6 @@ deploy:
     name: Harvest Profit
     on:
       branch: master
-    skip_cleanup: true
-  - provider: npm
-    email: jaryd@harvestprofit.com
-    api_key: $NPM_TOKEN
-    on:
-      tags: true
     skip_cleanup: true
 branches:
   only:
