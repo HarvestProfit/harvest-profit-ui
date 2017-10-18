@@ -8,6 +8,11 @@ const {
 } = require('webpack-blocks');
 
 module.exports = {
+  assetsDir: 'assets',
+  title: 'Harvest Profit UI',
+  showCode: true,
+  showUsage: true,
+  skipComponentsWithoutExample: true,
   require: [
     path.join(__dirname, 'scss/index.scss'),
   ],
