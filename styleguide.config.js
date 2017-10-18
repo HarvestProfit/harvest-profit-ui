@@ -10,7 +10,6 @@ const {
 module.exports = {
   assetsDir: 'assets',
   title: 'Harvest Profit UI',
-  showCode: true,
   showUsage: true,
   skipComponentsWithoutExample: true,
   template: 'assets/template.html',
