@@ -22,7 +22,7 @@ import { Button, InputString } from 'harvest-profit-ui';
 ```
 
 ### Documentation
-The documentation for this project can be found in the `/docs` directory.
+The documentation for this project can be found [here](https://harvestprofit.github.io/harvest-profit-ui/).
 
 ### License
 This project is [MIT licensed](/LICENSE.md)
