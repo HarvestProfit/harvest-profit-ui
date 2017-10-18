@@ -1,6 +1,6 @@
 {
   "name": "harvest-profit-ui",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Harvest Profit UI Components",
   "main": "dist/index.js",
   "repository": "https://github.com/HarvestProfit/harvest-profit-ui",
@@ -10,7 +10,6 @@
   "scripts": {
     "build": "babel src -d dist",
     "clean": "rm -rf ./dist",
-    "publish": "yarn run clean && yarn run build && npm publish",
     "report-coverage": "coveralls < ./coverage/lcov.info",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
