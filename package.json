@@ -1,6 +1,6 @@
 {
   "name": "harvest-profit-ui",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "Harvest Profit UI Components",
   "main": "dist/index.js",
   "repository": "https://github.com/HarvestProfit/harvest-profit-ui",
@@ -14,6 +14,12 @@
     "styleguide:build": "styleguidist build",
     "test": "jest test/ --coverage"
   },
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "scss",
+    "dist"
+  ],
   "jest": {
     "collectCoverageFrom": [
       "src/**/!(index).{js,jsx}"
@@ -22,6 +28,19 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
+  },
+  "keywords": [
+    "harvest",
+    "profit",
+    "react",
+    "component",
+    "components",
+    "react-component",
+    "ui"
+  ],
+  "peerDependencies": {
+    "react": "^0.14.9 || ^15.3.0 || ^16.0.0",
+    "react-dom": "^0.14.9 || ^15.3.0 || ^16.0.0"
   },
   "dependencies": {
     "lodash.isfinite": "^3.3.2",

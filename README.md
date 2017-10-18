@@ -4,13 +4,21 @@
 A collection of React components used by [Harvest Profit](https://www.harvestprofit.com) to build out UI components quickly. Check out the [docs](https://harvestprofit.github.io/harvest-profit-ui/)!
 
 ### Installation
-You will need to install this via [NPM](https://www.npmjs.com/):
+You can install this via [NPM](https://www.npmjs.com/):
 ```bash
 npm install harvest-profit-ui
 ```
 Or [Yarn](https://yarnpkg.com/en/):
 ```bash
 yarn add harvest-profit-ui
+```
+
+### Usage
+Each component is actually exported from the main package, so you would simply do
+the following:
+
+```js
+import { Button, InputString } from 'harvest-profit-ui';
 ```
 
 ### Documentation

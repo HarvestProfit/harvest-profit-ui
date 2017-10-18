@@ -8,19 +8,27 @@ cache:
   - node_modules
 script:
   - yarn run test
+  - yarn run build
 after_script:
   - yarn run report-coverage
 after_success:
   - yarn run styleguide:build
 deploy:
-  email: awesome@harvestprofit.com
-  github_token: $GITHUB_TOKEN
-  local_dir: styleguide
-  name: Harvest Profit
-  on:
-    branch: master
-  provider: pages
-  skip_cleanup: true
+  - provider: pages
+    email: awesome@harvestprofit.com
+    github_token: $GITHUB_TOKEN
+    local_dir: styleguide
+    name: Harvest Profit
+    on:
+      branch: master
+    skip_cleanup: true
+  - provider: npm
+    email: jaryd@harvestprofit.com
+    api_key: $NPM_TOKEN
+    on:
+      tags: true
+      branch: master
+    skip_cleanup: true
 branches:
   only:
   - master
