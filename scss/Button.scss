@@ -1,23 +1,44 @@
-@import './variables';
-
 .button {
-  padding: .6rem 1rem;
+  border: 0;
+  border-radius: 2px;
+  font-size: 1rem;
+  padding: .8rem 2rem;
 
+  &:hover {
+    cursor: pointer;
+  }
+
+  //
+  // Colors
+  //
   &.primary {
     background-color: $green;
     color: $white;
 
     &:hover {
-      background-color: darken($green, 20%);
+      background-color: darken($green, 5%);
     }
   }
 
   &.secondary {
+    background-color: $white;
+    border: 1px solid darken($white, 5%);
     color: $green;
 
     &:hover {
-      border: 1px solid darken($green, 20%);
-      color: darken($green, 20%);
+      border: 1px solid darken($green, 5%);
+      color: darken($green, 5%);
     }
+  }
+
+  //
+  // Sizes
+  //
+  &.small {
+
+  }
+
+  &.large {
+
   }
 }
