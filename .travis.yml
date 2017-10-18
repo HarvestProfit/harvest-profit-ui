@@ -11,7 +11,7 @@ script:
   - yarn run build
 after_script:
   - yarn run report-coverage
-after_success:
+before_deploy:
   - yarn run styleguide:build
 deploy:
   - provider: pages
