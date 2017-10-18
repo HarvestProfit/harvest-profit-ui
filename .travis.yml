@@ -2,14 +2,25 @@ sudo: false
 dist: trusty
 language: node_js
 node_js:
-- 8
+  - 8
 cache:
   directories:
   - node_modules
 script:
-- yarn run test
+  - yarn run test
 after_script:
-- npm run report-coverage
+  - yarn run report-coverage
+after_success:
+  - yarn run styleguide:build
+deploy:
+  email: awesome@harvestprofit.com
+  github_token: $GITHUB_TOKEN
+  local_dir: styleguide
+  name: Harvest Profit
+  on:
+    branch: master
+  provider: pages
+  skip_cleanup: true
 branches:
   only:
   - master
