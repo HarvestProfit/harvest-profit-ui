@@ -3,7 +3,7 @@ import toNumber from 'lodash.tonumber';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import InputInternal from './InputInternal';
-import numberWithCommas from './utilities/NumbersHelper';
+import numberWithCommas from '../utilities/NumbersHelper';
 
 /**
  * Renders a numeric input. This is a **controlled** component, so you will need
@@ -19,7 +19,7 @@ export default class InputNumeric extends PureComponent {
     id: false,
     onChange: () => {},
     prefix: '',
-    style: { textAlign: 'right' },
+    style: false,
   }
 
   static propTypes = {

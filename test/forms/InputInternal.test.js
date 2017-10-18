@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import InputInternal from '../src/InputInternal';
+import InputInternal from '../../src/forms/InputInternal';
 
 describe('<InputInternal />', () => {
   it('should render an input with the value of "hello"', () => {

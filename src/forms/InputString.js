@@ -11,7 +11,6 @@ export default class InputString extends PureComponent {
   static defaultProps = {
     defaultValue: '',
     id: false,
-    onChange: () => {},
     placeholder: '',
     prefix: '',
     style: false,
@@ -28,7 +27,7 @@ export default class InputString extends PureComponent {
      *
      * @param {string} value The new value
      */
-    onChange: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
     /** Placeholder value before any input exists */
     placeholder: PropTypes.string,
     /** The prefix to apply to the value on blur. */

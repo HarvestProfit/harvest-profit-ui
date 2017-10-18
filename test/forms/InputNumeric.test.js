@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import InputNumeric from '../src/InputNumeric';
+import InputNumeric from '../../src/forms/InputNumeric';
 
 describe('<InputNumeric />', () => {
   it('should render an input with the value of "123" using defaults', () => {

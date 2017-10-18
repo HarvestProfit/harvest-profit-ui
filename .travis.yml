@@ -22,12 +22,6 @@ deploy:
     on:
       branch: master
     skip_cleanup: true
-  - provider: npm
-    email: jaryd@harvestprofit.com
-    api_key: $NPM_TOKEN
-    on:
-      tags: true
-    skip_cleanup: true
 branches:
   only:
   - master
