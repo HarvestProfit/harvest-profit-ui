@@ -10,7 +10,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "clean": "rm -rf ./dist",
-    "publish": "yarn run build && npm publish",
+    "publish": "yarn run clean && yarn run build && npm publish",
     "report-coverage": "coveralls < ./coverage/lcov.info",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
