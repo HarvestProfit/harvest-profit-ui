@@ -13,6 +13,7 @@ module.exports = {
   showCode: true,
   showUsage: true,
   skipComponentsWithoutExample: true,
+  template: 'assets/template.html',
   require: [
     path.join(__dirname, 'scss/index.scss'),
   ],
