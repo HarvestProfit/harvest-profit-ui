@@ -1,5 +1,9 @@
 import Button from './Button';
+import InputNumeric from './InputNumeric';
+import InputString from './InputString';
 
-export default {
+export {
   Button,
+  InputNumeric,
+  InputString,
 };
