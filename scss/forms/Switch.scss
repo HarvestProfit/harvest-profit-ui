@@ -1,0 +1,42 @@
+.switch {
+  display: inline-block;
+  height: 2rem;
+  position: relative;
+  width: 4rem;
+
+  .switch-screen-reader {
+    display: none;
+  }
+
+  .slider {
+    background-color: lighten($grey, 50%);
+    border-radius: 2rem;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+
+    &.on {
+      background-color: $green;
+    }
+
+    &.on::before {
+      transform: translateX(2rem);
+    }
+  }
+
+  .slider::before {
+    background-color: $white;
+    border-radius: 50%;
+    bottom: .2rem;
+    content: '';
+    height: 1.6rem;
+    left: .2rem;
+    position: absolute;
+    transition: .4s;
+    width: 1.6rem;
+  }
+}

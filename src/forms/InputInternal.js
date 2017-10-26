@@ -1,16 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import PureReactComponent from '../utilities/PureReactComponent';
 
-function pure(func) {
-  class PureComponentWrap extends PureComponent {
-    render() {
-      return func(this.props, this.context);
-    }
-  }
-  return PureComponentWrap;
-}
-
-const InputInternal = pure(props => (
+const InputInternal = PureReactComponent(props => (
   <input
     className={`input ${props.className}`}
     value={props.value}

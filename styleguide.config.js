@@ -22,11 +22,15 @@ module.exports = {
       content: 'README.md',
     },
     {
-      name: 'UI Components',
+      name: 'Layout',
+      components: 'src/layout/*.{js,jsx}',
+    },
+    {
+      name: 'UI',
       components: 'src/*.{js,jsx}',
     },
     {
-      name: 'Form Components',
+      name: 'Forms',
       components: 'src/forms/*.{js,jsx}',
     },
   ],
