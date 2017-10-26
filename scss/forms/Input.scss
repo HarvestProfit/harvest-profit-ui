@@ -8,4 +8,8 @@
     border: 1px solid $grey;
     outline: 0;
   }
+
+  &.error {
+    border: 1px solid $red;
+  }
 }
