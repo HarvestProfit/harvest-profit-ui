@@ -17,7 +17,6 @@ export default class InputNumeric extends PureComponent {
     decimalPlaces: 0,
     defaultValue: 0,
     id: false,
-    onChange: () => {},
     hasError: false,
     prefix: '',
     style: false,
@@ -41,7 +40,7 @@ export default class InputNumeric extends PureComponent {
      *
      * @param {string} value The new value
      */
-    onChange: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
     /** The prefix to apply to the number on blur. */
     prefix: PropTypes.string,
     /** Styles to apply to the input. Boolean will not render default. */
