@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import InputNumeric from '../../src/forms/InputNumeric';
 
 describe('<InputNumeric />', () => {
@@ -168,5 +168,16 @@ describe('<InputNumeric />', () => {
       />);
     input.simulate('focus');
     expect(input.props().value).toEqual('');
+  });
+
+  it('should add the error class to the input if hasError is set', () => {
+    const input = mount(
+      <InputNumeric
+        decimalPlaces={2}
+        defaultValue={0}
+        hasError
+        onChange={() => {}}
+      />);
+    expect(input.find('input').hasClass('error')).toEqual(true);
   });
 });

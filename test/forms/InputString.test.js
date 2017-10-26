@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import InputString from '../../src/forms/InputString';
 
 describe('<InputNumeric />', () => {
@@ -56,5 +56,15 @@ describe('<InputNumeric />', () => {
     expect(input.props().value).toEqual('cruel');
     input.simulate('blur');
     expect(input.props().value).toEqual('hello cruel world');
+  });
+
+  it('should add the error class to the input if hasError is set', () => {
+    const input = mount(
+      <InputString
+        defaultValue="Hello"
+        hasError
+        onChange={() => {}}
+      />);
+    expect(input.find('input').hasClass('error')).toEqual(true);
   });
 });
