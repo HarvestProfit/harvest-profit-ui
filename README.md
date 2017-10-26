@@ -61,5 +61,22 @@ $blue: #3d87bf;
 ## Documentation
 The documentation for this project can be found [here](https://harvestprofit.github.io/harvest-profit-ui/).
 
+## Development
+This project uses [React Styleguidist](https://react-styleguidist.js.org/) for documentation. While developing, you may find it useful to preview your components. You can do so by running the development server with:
+```bash
+yarn run styleguide
+```
+
+To deploy a new version to NPM, bump the version number, commit/merge to `master`, and run the following:
+```bash
+yarn run clean
+yarn run build
+
+# Either NPM
+npm publish
+# Or Yarn, they do the same thing
+yarn publish
+```
+
 ## License
 This project is [MIT licensed](https://github.com/HarvestProfit/harvest-profit-ui/blob/master/LICENSE.md)
