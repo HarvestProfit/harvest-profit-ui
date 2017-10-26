@@ -1,5 +1,6 @@
 /**
  * Formats a number to the American `1,000.00` format
+ *
  * @param {number|string} number The value to format
  * @return {string} The formatted number
  */

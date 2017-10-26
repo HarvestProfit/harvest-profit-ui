@@ -1,0 +1,14 @@
+.header {
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+
+    small {
+      color: lighten($grey, 20%);
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      margin-top: .2rem;
+    }
+  }
+}
