@@ -102,4 +102,14 @@ describe('<InputInternal />', () => {
       />);
     expect(input.find('input').props().style).toEqual({ color: 'red' });
   });
+
+  it('should use the id handed to it', () => {
+    const input = shallow(
+      <InputInternal
+        id="hello"
+        type="text"
+        value="hello"
+      />);
+    expect(input.find('input').props().id).toEqual('hello');
+  });
 });

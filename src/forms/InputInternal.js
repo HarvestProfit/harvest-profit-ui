@@ -6,7 +6,7 @@ const InputInternal = PureReactComponent(props => (
   <input
     className={`input ${props.className}`}
     value={props.value}
-    id={props.id}
+    id={props.id ? props.id : ''}
     onBlur={props.onBlur}
     onChange={props.onChange}
     onFocus={props.onFocus}
