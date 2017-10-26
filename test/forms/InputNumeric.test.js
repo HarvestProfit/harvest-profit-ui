@@ -7,6 +7,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         defaultValue={123}
+        onChange={() => {}}
       />);
     expect(input.props().value).toEqual('123');
   });
@@ -16,6 +17,7 @@ describe('<InputNumeric />', () => {
       <InputNumeric
         decimalPlaces={2}
         defaultValue={123}
+        onChange={() => {}}
       />);
     expect(input.props().value).toEqual('123.00');
   });
@@ -24,6 +26,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         defaultValue={123}
+        onChange={() => {}}
         prefix="$"
       />);
     expect(input.props().value).toEqual('$123');
@@ -33,6 +36,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         defaultValue={123}
+        onChange={() => {}}
       />);
 
     input.simulate('change', { target: { value: '123test' } });
@@ -43,6 +47,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         defaultValue="hello"
+        onChange={() => {}}
       />);
 
     expect(input.props().value).toEqual('hello');
@@ -53,6 +58,7 @@ describe('<InputNumeric />', () => {
       <InputNumeric
         decimalPlaces={2}
         defaultValue={123}
+        onChange={() => {}}
         prefix="$"
       />);
     input.simulate('focus');
@@ -64,6 +70,7 @@ describe('<InputNumeric />', () => {
       <InputNumeric
         decimalPlaces={2}
         defaultValue={123}
+        onChange={() => {}}
         prefix="$"
       />);
     input.simulate('focus');
@@ -78,6 +85,7 @@ describe('<InputNumeric />', () => {
         commaSeparator
         decimalPlaces={2}
         defaultValue={1230}
+        onChange={() => {}}
         prefix="$"
       />);
     input.simulate('focus');
@@ -156,6 +164,7 @@ describe('<InputNumeric />', () => {
       <InputNumeric
         decimalPlaces={2}
         defaultValue={0}
+        onChange={() => {}}
       />);
     input.simulate('focus');
     expect(input.props().value).toEqual('');

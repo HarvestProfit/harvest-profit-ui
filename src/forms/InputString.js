@@ -11,6 +11,7 @@ export default class InputString extends PureComponent {
   static defaultProps = {
     defaultValue: '',
     id: false,
+    hasError: false,
     placeholder: '',
     prefix: '',
     style: false,
@@ -22,6 +23,8 @@ export default class InputString extends PureComponent {
     defaultValue: PropTypes.string,
     /** An ID to use with a label. Doesn't render if boolean. */
     id: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    /** Is the component currently in error */
+    hasError: PropTypes.bool,
     /**
      * Gets called whenever the user types a valid number.
      *
@@ -71,6 +74,7 @@ export default class InputString extends PureComponent {
     return (
       <InputInternal
         id={this.props.id}
+        className={this.props.hasError ? 'error' : ''}
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         onFocus={this.handleFocus}
