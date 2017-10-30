@@ -11,7 +11,6 @@ function toggleSaving() {
 
 <div>
     <Button onClick={() => toggleSaving()}>Toggle Saving</Button>
-    
     <p>
     <Saving isSaving={state.isSaving} />
     </p>
@@ -19,6 +18,4 @@ function toggleSaving() {
       Saving: {state.isSaving ? 'yes':'no'}
     </p>
 </div>
-
-
 ```

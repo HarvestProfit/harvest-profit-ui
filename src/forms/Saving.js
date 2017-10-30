@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /* eslint-disable react/prefer-stateless-function */
+/**
+ * Displays "Saving" when button is pressed
+ */
 export default class Saving extends Component {
   static propTypes = {
+    /** Whether the component should be render "Saving" */
     isSaving: PropTypes.bool.isRequired,
   }
 
