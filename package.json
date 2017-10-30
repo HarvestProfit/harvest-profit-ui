@@ -44,6 +44,7 @@
     "react-dom": "^0.14.9 || ^15.3.0 || ^16.0.0"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "lodash.isfinite": "^3.3.2",
     "lodash.tonumber": "^4.0.3",
     "prop-types": "^15.6.0",

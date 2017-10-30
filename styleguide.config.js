@@ -2,6 +2,7 @@ const path = require('path');
 const {
   babel,
   createConfig,
+  file,
   match,
   postcss,
   sass,
@@ -39,6 +40,9 @@ module.exports = {
     match('*.scss', [
       postcss(),
       sass(),
+    ]),
+    match(['*.eot', '*.svg', '*.ttf', '*.woff', '*.woff2'], [
+      file(),
     ]),
   ]),
 };
