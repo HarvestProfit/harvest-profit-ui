@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-/* eslint-disable react/prefer-stateless-function */
 /**
  * Displays "Saving" when button is pressed
  */
-export default class Saving extends Component {
+export default class Saving extends PureComponent {
   static propTypes = {
     /** Whether the component should be render "Saving" */
-    isSaving: PropTypes.bool.isRequired,
+    isSaving: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    isSaving: false,
   }
 
   constructor(props) {
@@ -27,7 +30,6 @@ export default class Saving extends Component {
     }
   }
 
-
   render() {
     // Passed down from outside
     const { isSaving } = this.props;
@@ -45,4 +47,3 @@ export default class Saving extends Component {
     return (<span>&nbsp;</span>);
   }
 }
-/* eslint-enable react/prefer-stateless-function */

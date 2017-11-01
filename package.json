@@ -26,6 +26,7 @@
       "src/**/!(index).{js,jsx}"
     ],
     "setupTestFrameworkScriptFile": "./setupTests.test.js",
+    "timers": "fake",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
