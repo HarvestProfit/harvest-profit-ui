@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 import snakeCase from 'lodash.snakecase';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import InputString from './InputString';
@@ -42,10 +42,10 @@ export default class FilterDropdown extends PureComponent {
       })),
       PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
-     /** Name of item selected from Drop down*/
-     name: PropTypes.string.isRequired,
-     /** Default values in drop down*/
-     placeholder: PropTypes.bool,
+    /** Name of item selected from Drop down */
+    name: PropTypes.string.isRequired,
+    /** Default values in drop down */
+    placeholder: PropTypes.bool,
   }
 
   constructor(props) {
