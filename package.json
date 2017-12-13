@@ -11,7 +11,7 @@
     "build": "babel src -d dist",
     "clean": "rm -rf ./dist",
     "report-coverage": "coveralls < ./coverage/lcov.info",
-    "styleguide": "styleguidist server",
+    "start": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "test": "jest test/ --coverage"
   },
@@ -47,6 +47,7 @@
   "dependencies": {
     "font-awesome": "^4.7.0",
     "lodash.isfinite": "^3.3.2",
+    "lodash.snakecase": "^4.1.1",
     "lodash.tonumber": "^4.0.3",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
