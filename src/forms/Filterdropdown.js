@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
+import snakeCase from 'lodash.snakecase';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import InputString from './InputString';
 import ImmutabilityHelper from './ImmutabilityHelper';
@@ -168,7 +168,7 @@ export default class FilterDropdown extends PureComponent {
     const clearFilter = this.renderClearFilter();
 
     return (
-      <div style={{ display: 'inline-block' }} className={`filter-dropdown filter-${_.snakeCase(this.props.name)}`}>
+      <div style={{ display: 'inline-block' }} className={`filter-dropdown filter-${snakeCase(this.props.name)}`}>
         <Dropdown
           isOpen={this.state.open}
           toggle={() => this.toggleOpen()}
