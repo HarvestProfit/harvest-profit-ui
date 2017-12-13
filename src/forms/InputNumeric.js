@@ -3,7 +3,7 @@ import toNumber from 'lodash.tonumber';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import InputInternal from './InputInternal';
-import numberWithCommas from '../utilities/NumbersHelper';
+import NumbersHelper from '../utilities/NumbersHelper';
 
 /**
  * Renders a numeric input. This is a **controlled** component, so you will need
@@ -104,7 +104,7 @@ export default class InputNumeric extends PureComponent {
         value = checkedValue.toFixed(this.props.decimalPlaces);
       }
       if (this.props.commaSeparator) {
-        value = numberWithCommas(value);
+        value = NumbersHelper.numberWithCommas(value);
       }
       value = `${this.props.prefix}${value}`;
     }
