@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import snakeCase from 'lodash.snakecase';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import InputString from './InputString';
-import ImmutabilityHelper from './ImmutabilityHelper';
+import ImmutabilityHelper from '../utilities/ImmutabilityHelper';
 
 /*
  * Returns the value of the option;
@@ -28,7 +28,7 @@ const filterOptionText = (option) => {
 
 export default class FilterDropdown extends PureComponent {
   static defaultProps = {
-    placeholder: false,
+    placeholder: 'Search',
   }
 
   static propTypes = {
@@ -42,10 +42,10 @@ export default class FilterDropdown extends PureComponent {
       })),
       PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
-     /** Name of item selected from Drop down*/
-     name: PropTypes.string.isRequired,
-     /** Default values in drop down*/
-     placeholder: PropTypes.bool,
+    /** Name of item selected from Drop down */
+    name: PropTypes.string.isRequired,
+    /** Default values in drop down */
+    placeholder: PropTypes.string,
   }
 
   constructor(props) {
@@ -117,7 +117,7 @@ export default class FilterDropdown extends PureComponent {
    */
   renderSearchResults() {
     let results = this.props.values;
-    const search = this.state.search;
+    const { search } = this.state;
     if (search !== '') {
       results = results.filter((result) => {
         if (filterOptionText(result).toLowerCase().indexOf(search.toLowerCase()) !== -1) {
@@ -154,11 +154,13 @@ export default class FilterDropdown extends PureComponent {
    */
   renderClearFilter() {
     if (this.state.selected.length > 0) {
+      /* eslint-disable jsx-a11y/click-events-have-key-events */
       return (
         <div className="clear-filters" role="button" tabIndex={-1} onClick={this.clearFilters}>
           <i className="fa fa-times" /> Clear Selected
         </div>
       );
+      /* eslint-enable jsx-a11y/click-events-have-key-events */
     }
     return null;
   }
@@ -168,7 +170,7 @@ export default class FilterDropdown extends PureComponent {
     const clearFilter = this.renderClearFilter();
 
     return (
-      <div style={{ display: 'inline-block' }} className={`filter-dropdown filter-${_.snakeCase(this.props.name)}`}>
+      <div style={{ display: 'inline-block' }} className={`filter-dropdown filter-${snakeCase(this.props.name)}`}>
         <Dropdown
           isOpen={this.state.open}
           toggle={() => this.toggleOpen()}
@@ -184,7 +186,7 @@ export default class FilterDropdown extends PureComponent {
             <InputString
               defaultValue={this.state.search}
               onChange={this.handleSearch}
-              placeholder="Search"
+              placeholder={this.props.placeholder}
               style={{ margin: '0 .5rem', width: '90%' }}
             />
             <div className="filter-options">
