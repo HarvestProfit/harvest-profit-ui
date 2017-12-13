@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import snakeCase from 'lodash.snakecase';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import InputString from './InputString';
-import ImmutabilityHelper from './ImmutabilityHelper';
+import ImmutabilityHelper from '../utilities/ImmutabilityHelper';
 
 /*
  * Returns the value of the option;
