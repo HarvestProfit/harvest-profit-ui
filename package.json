@@ -10,6 +10,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "clean": "rm -rf ./dist",
+    "lint": "eslint --config .eslintrc.json src/",
     "report-coverage": "coveralls < ./coverage/lcov.info",
     "start": "styleguidist server",
     "styleguide:build": "styleguidist build",
