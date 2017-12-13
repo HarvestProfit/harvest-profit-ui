@@ -28,7 +28,7 @@ const filterOptionText = (option) => {
 
 export default class FilterDropdown extends PureComponent {
   static defaultProps = {
-    placeholder: false,
+    placeholder: 'Search',
   }
 
   static propTypes = {
@@ -45,7 +45,7 @@ export default class FilterDropdown extends PureComponent {
     /** Name of item selected from Drop down */
     name: PropTypes.string.isRequired,
     /** Default values in drop down */
-    placeholder: PropTypes.bool,
+    placeholder: PropTypes.string,
   }
 
   constructor(props) {
@@ -117,7 +117,7 @@ export default class FilterDropdown extends PureComponent {
    */
   renderSearchResults() {
     let results = this.props.values;
-    const search = this.state.search;
+    const { search } = this.state;
     if (search !== '') {
       results = results.filter((result) => {
         if (filterOptionText(result).toLowerCase().indexOf(search.toLowerCase()) !== -1) {
@@ -154,11 +154,13 @@ export default class FilterDropdown extends PureComponent {
    */
   renderClearFilter() {
     if (this.state.selected.length > 0) {
+      /* eslint-disable jsx-a11y/click-events-have-key-events */
       return (
         <div className="clear-filters" role="button" tabIndex={-1} onClick={this.clearFilters}>
           <i className="fa fa-times" /> Clear Selected
         </div>
       );
+      /* eslint-enable jsx-a11y/click-events-have-key-events */
     }
     return null;
   }
@@ -184,7 +186,7 @@ export default class FilterDropdown extends PureComponent {
             <InputString
               defaultValue={this.state.search}
               onChange={this.handleSearch}
-              placeholder="Search"
+              placeholder={this.props.placeholder}
               style={{ margin: '0 .5rem', width: '90%' }}
             />
             <div className="filter-options">
