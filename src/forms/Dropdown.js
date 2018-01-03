@@ -23,7 +23,7 @@ export default class Dropdown extends PureComponent {
     /** The class name to be applied to the component */
     className: PropTypes.string,
     /**
-     * Gets called whenever the user types a valid number.
+     * Gets called whenever the user selects a value
      *
      * @param {string|number|boolean} value The new value
      */
@@ -39,6 +39,7 @@ export default class Dropdown extends PureComponent {
       PropTypes.arrayOf(PropTypes.string),
       PropTypes.arrayOf(PropTypes.object),
     ]).isRequired,
+    /** Placeholder text */
     placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   }
 

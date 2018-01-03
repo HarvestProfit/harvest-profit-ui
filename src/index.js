@@ -17,6 +17,8 @@ import ModalBody from './modal/ModalBody';
 import ModalFooter from './modal/ModalFooter';
 import ModalHeader from './modal/ModalHeader';
 
+import NumbersHelper from './utilities/NumbersHelper';
+
 export {
   Button,
   Dropdown,
@@ -34,4 +36,5 @@ export {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  NumbersHelper,
 };
