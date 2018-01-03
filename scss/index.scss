@@ -8,3 +8,9 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 @import 'forms/Input';
 @import 'forms/Switch';
 @import 'layout/Header';
+@import 'Table';
+@import 'Modal';
+
+body {
+  font-family: "Open Sans", sans-serif;
+}

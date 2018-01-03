@@ -1,0 +1,331 @@
+@import './ColorPallet';
+$table-v2-header-color: $light-white;
+$table-v2-header-text-color: $dark-grey;
+$table-v2-header-border-color: $white;
+$table-v2-body-color: $true-white;
+$table-v2-body-text-color: $light-black;
+$table-v2-body-border-color: $white;
+$table-v2-footer-color: $light-white;
+$table-v2-footer-border-color: $white;
+
+$table-v2-greater-header-text-color: $dark-grey;
+$table-v2-lesser-header-text-color: $grey;
+
+$table-v2-header-text-size: 11px;
+
+
+$table-v2-greater-body-text-color: $black;
+$table-v2-lesser-body-text-color: $dark-grey;
+
+$table-v2-lesser-body-text-size: 12px;
+$table-v2-body-text-size: 14px;
+$table-v2-greater-body-text-size: 17px;
+
+$table-v2-break-points: 1200px 1100px 800px;
+
+.table.v2 {
+
+  & > div.header {
+    display: flex;
+    flex-flow: row;
+    font-size: $table-v2-header-text-size;
+    background: $table-v2-header-color;
+    border-bottom: 2px solid $table-v2-header-border-color;
+    font-weight: normal;
+    color: $table-v2-header-text-color;
+
+    & > div:not(.group),
+    & > div.group > div {
+      display: flex;
+      padding: 10px 7px;
+      flex-flow: column;
+      justify-content: flex-end;
+      text-transform: uppercase;
+
+      & > span:not(.allow-wrap) {
+        white-space: nowrap;
+      }
+
+      &.lesser {
+        font-weight: lighter;
+        color: $table-v2-lesser-header-text-color;
+      }
+
+      &.greater {
+        font-weight: bold;
+        color: $table-v2-greater-header-text-color;
+      }
+
+      &.spaced {
+        align-items: space-around;
+      }
+
+      &.center {
+        align-items: center;
+        text-align: center;
+      }
+
+      &.left {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      &.right {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+  }
+
+  .header,
+  .body > div {
+    padding: 0 13px;
+  }
+
+  .header > div,
+  .header > div.group > div,
+  .body > div > div,
+  .body > div > div.group > div {
+    display: flex;
+    flex: 3;
+    overflow: hidden;
+    min-width: 150px;
+
+    &.exsmall {
+      flex: 1;
+      min-width: 70px;
+
+      &.lesser {
+        min-width: 60px;
+      }
+
+      &.greater {
+        min-width: 75px;
+      }
+    }
+
+    &.small {
+      flex: 2;
+      min-width: 70px;
+
+      &.lesser {
+        min-width: 60px;
+      }
+    }
+
+    &.medium {
+      flex: 3;
+      min-width: 92px;
+    }
+
+    &.large {
+      flex: 4;
+      min-width: 100px;
+    }
+  }
+
+  & > div.body {
+    display: flex;
+    flex-flow: column;
+    font-weight: normal;
+    font-size: $table-v2-body-text-size;
+    color: $table-v2-body-text-color;
+    background: $table-v2-body-color;
+
+    & > div {
+      display: flex;
+      flex-flow: row;
+      border-bottom: 1px solid $table-v2-body-border-color;
+
+      &:last-child {
+        border-bottom: 0px;
+      }
+
+      & > div.group {
+        & > .ellipsis {
+          max-width: 100%;
+        }
+      }
+
+      & > div:not(.group),
+      & > div.group > div {
+        &.spaced > span {
+          flex: 1;
+          display: flex;
+          justify-content: space-around;
+          align-items: flex-end;
+        }
+
+        &.center {
+          justify-content: center;
+          text-align: center;
+        }
+
+        &.left {
+          justify-content: flex-start;
+          text-align: left;
+        }
+
+        &.right {
+          justify-content: flex-end;
+          text-align: right;
+        }
+      }
+
+      & > div:not(.group),
+      & > div.group > div {
+        display: flex;
+        padding: 10px 7px;
+        flex-flow: row;
+        align-items: flex-end;
+
+        & > span > button {
+          padding: 0px 3px;
+          font-size: 12px;
+          width: 100%;
+        }
+
+        &.ellipsis {
+          overflow: hidden;
+
+          & > span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+
+        &.lesser {
+          font-weight: lighter;
+          font-size: $table-v2-lesser-body-text-size;
+          color: $table-v2-lesser-body-text-color;
+        }
+
+        &.greater {
+          color: $table-v2-greater-body-text-color;
+          font-weight: normal;
+          font-size: $table-v2-greater-body-text-size;
+        }
+      }
+    }
+  }
+
+  & > div.footer {
+    font-size: 11px;
+    font-weight: lighter;
+    text-align: center;
+    padding: 10px 18px;
+    background: $table-v2-footer-color;
+    border-top: 1px solid $table-v2-footer-border-color;
+  }
+
+  & > div.body > div > div.group,
+  & > div.header > div.group  {
+    display: flex;
+    flex-flow: row;
+  }
+
+  @for $i from 1 through length($table-v2-break-points) {
+    @media screen and (max-width: nth($table-v2-break-points, $i)) {
+      & > div.body > div > div,
+      & > div.header > div, {
+        &.group.group-#{$i} {
+          flex-flow: column;
+          justify-content: flex-end;
+          padding: 10px 7px;
+
+          & > div {
+            padding: 0;
+            flex: auto;
+            text-align: inherit;
+
+            &:first-child {
+              flex: 20;
+            }
+          }
+
+          &.grp-exsmall {
+            flex: 1;
+            min-width: 70px;
+
+            &.lesser {
+              min-width: 60px;
+            }
+
+            &.greater {
+              min-width: 75px;
+            }
+          }
+
+          &.grp-small {
+            flex: 2;
+            min-width: 70px;
+
+            &.lesser {
+              min-width: 60px;
+            }
+          }
+
+          &.grp-medium {
+            flex: 3;
+            min-width: 92px;
+          }
+
+          &.grp-large {
+            flex: 4;
+            min-width: 100px;
+          }
+        }
+      }
+
+      & > div.body > div > div.group.group-#{$i} {
+
+        & > div {
+          justify-content: inherit;
+        }
+
+        &.left {
+          text-align: left;
+          justify-content: flex-start;
+        }
+
+        &.center {
+          text-align: center;
+          justify-content: center;
+        }
+
+        &.right {
+          text-align: right;
+          justify-content: flex-end;
+        }
+      }
+
+      & > div.header > div.group.group-#{$i} {
+        & > div {
+          align-items: inherit;
+
+          border-bottom: 1px solid $table-v2-header-border-color;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+
+        &.left {
+          text-align: left;
+          align-items: flex-start;
+        }
+
+        &.center {
+          text-align: center;
+          align-items: center;
+        }
+
+        &.right {
+          text-align: right;
+          align-items: flex-end;
+        }
+      }
+    }
+  }
+}

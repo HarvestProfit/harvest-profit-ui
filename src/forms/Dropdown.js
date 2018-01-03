@@ -11,6 +11,7 @@ export default class Dropdown extends PureComponent {
     id: false,
     className: '',
     selected: false,
+    placeholder: false,
   }
 
   static propTypes = {
@@ -38,16 +39,39 @@ export default class Dropdown extends PureComponent {
       PropTypes.arrayOf(PropTypes.string),
       PropTypes.arrayOf(PropTypes.object),
     ]).isRequired,
+    placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   }
 
   constructor(props) {
     super(props);
+    this.state = {
+      showPlaceholder: true,
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     const newValue = event.target.value;
+    if (newValue !== 'defaultplaceholder') {
+      this.setState({
+        showPlaceholder: false,
+      });
+    }
     this.props.onChange(newValue);
+  }
+
+  renderPlaceholder() {
+    if (this.state.showPlaceholder && this.props.placeholder) {
+      let { placeholder } = this.props;
+      if (typeof placeholder !== 'string') {
+        placeholder = '';
+      }
+      return (
+        <option value="defaultplaceholder" default>{placeholder}
+        </option>
+      );
+    }
+    return null;
   }
 
   render() {
@@ -62,11 +86,12 @@ export default class Dropdown extends PureComponent {
     });
     return (
       <select
-        id={this.props.id}
+        id={this.props.id ? this.props.id : undefined}
         className={`dropdown ${this.props.className}`}
         defaultValue={this.props.selected}
         onChange={this.handleChange}
       >
+        {this.renderPlaceholder()}
         {options}
       </select>
     );

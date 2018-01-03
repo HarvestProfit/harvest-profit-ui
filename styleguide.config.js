@@ -31,6 +31,14 @@ module.exports = {
       components: 'src/*.{js,jsx}',
     },
     {
+      name: 'Tables',
+      components: 'src/table/*.{js,jsx}',
+    },
+    {
+      name: 'Modals',
+      components: 'src/modal/*.{js,jsx}',
+    },
+    {
       name: 'Forms',
       components: 'src/forms/*.{js,jsx}',
     },

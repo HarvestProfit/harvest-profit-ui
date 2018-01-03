@@ -14,3 +14,20 @@ const values = [
   <p>&nbsp; Currently selected value is: {state.value}</p>
 </div>
 ```
+
+Dropdown with placeholder:
+
+```js
+initialState = { value: "" };
+
+const values = [
+  "One",
+  "Two",
+  "Three"
+];
+
+<div>
+  <Dropdown placeholder="Select" onChange={(value) => setState({ value })} selected={state.value} values={values} />
+  <p>&nbsp; Currently selected value is: {state.value}</p>
+</div>
+```
