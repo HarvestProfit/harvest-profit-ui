@@ -10,7 +10,7 @@ const TableHeaderItem = (props) => {
   if (props.unimportant) classList.push('lesser');
   if (props.ellipsis) classList.push('ellipsis');
   const styles = {};
-  if (props.width) {
+  if (props.width !== '') {
     styles.minWidth = props.width;
     styles.maxWidth = props.width;
   }
@@ -47,7 +47,7 @@ TableHeaderItem.defaultProps = {
   important: false,
   unimportant: false,
   ellipsis: false,
-  width: null,
+  width: '',
   children: null,
 };
 
