@@ -64,7 +64,7 @@ The documentation for this project can be found [here](https://harvestprofit.git
 ## Development
 This project uses [React Styleguidist](https://react-styleguidist.js.org/) for documentation. While developing, you may find it useful to preview your components. You can do so by running the development server with:
 ```bash
-yarn run styleguide
+yarn run start
 ```
 
 To deploy a new version to NPM, bump the version number, commit/merge to `master`, and run the following:

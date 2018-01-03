@@ -58,4 +58,18 @@ describe('<Dropdown />', () => {
       expect(dropdown.find('option').first().props().value).toEqual(optionsWithKeys[0].id);
     });
   });
+
+  describe('placeholder', () => {
+    it('should render a placeholder', () => {
+      const onChange = jest.fn();
+      const dropdown = shallow(
+        <Dropdown
+          onChange={onChange}
+          values={optionsWithKeys}
+          placeholder
+        />,
+      );
+      expect(dropdown.find('option').first().props().value).toEqual('defaultplaceholder');
+    });
+  });
 });

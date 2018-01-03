@@ -1,10 +1,13 @@
 {
   "name": "harvest-profit-ui",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Harvest Profit UI Components",
   "main": "dist/index.js",
   "repository": "https://github.com/HarvestProfit/harvest-profit-ui",
   "author": "Jaryd Krishnan",
+  "contributors": [
+    "Jake Humphrey"
+  ],
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -53,7 +56,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-transition-group": "^2.2.1",
-    "reactstrap": "^4.8.0"
+    "reactstrap": "^5.0.0-alpha.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -76,6 +79,6 @@
     "react-dom": "^16.0.0",
     "react-styleguidist": "^6.0.31",
     "webpack": "^3.8.1",
-    "webpack-blocks": "^1.0.0-rc"
+    "webpack-blocks": "^1.0.0-rc.2"
   }
 }

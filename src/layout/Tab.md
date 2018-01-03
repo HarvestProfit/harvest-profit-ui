@@ -3,7 +3,7 @@ Simple tab demo:
 ```js
 initialState = {
   activeTab: 1
-}
+};
 
 <div>
   <p>Current tab: {state.activeTab}</p>

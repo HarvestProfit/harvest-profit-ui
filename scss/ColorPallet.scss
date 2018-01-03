@@ -1,0 +1,70 @@
+$hue-green: 124;
+$hue-blue: 204;
+$hue-yellow: 44;
+$hue-orange: 24;
+$hue-red: 4;
+
+// HARVEST PROFIT COLOR SCHEME
+// ===========================
+// Default colors are defined below.
+//
+// To make custom colors use one of the following methods
+// ------------------------------------------------------
+//
+// 1. Mixins (darken/lighten)
+//   These can be used to slightly adjust a color's brightness
+//
+// 2. HSL: Create a new color using the HSL method.
+//    Start with one of the hues defined at the top of this page.
+//    Next decide on a saturation (should it be more washed out or more rich)
+//    Then decide on the brightness of the color.
+//       To define additional similar colors (like a lighter or darker version), adjust ONLY the
+//       brightness of the color (or use method 1).
+
+
+// Primary Green Color
+$green: hsl($hue-green, 43%, 60%);
+$light-green: hsl($hue-green, 43%, 80%);
+$dark-green: hsl($hue-green, 43%, 40%);
+
+// Grayscale shades.  have 9 options to choose from
+// White 1-3 (light, normal, dark)
+// Grey 4-6 (light, normal, dark)
+// Black 7-9 (light, normal, dark)
+$true-white: white;
+$white: hsl($hue-orange, 3%, 90%);
+$light-white: hsl($hue-orange, 3%, 98%);
+$dark-white: hsl($hue-orange, 3%, 80%);
+
+$grey: hsl($hue-orange, 5%, 50%);
+$light-grey: hsl($hue-orange, 5%, 60%);
+$dark-grey: hsl($hue-orange, 5%, 40%);
+
+$black: hsl($hue-orange, 3%, 20%);
+$light-black: hsl($hue-orange, 3%, 30%);
+$dark-black: hsl($hue-orange, 3%, 15%);
+$true-black: black;
+
+// Secondary Accent color is Blue
+$blue: hsl($hue-blue, 30%, 50%);
+$light-blue: hsl($hue-blue, 30%, 60%);
+$dark-blue: hsl($hue-blue, 30%, 40%);
+
+// Third color is an brown/orange (but desaturated and darkened into a brown)
+$brown: hsl($hue-orange, 7%, 25%);
+$light-brown: hsl($hue-orange, 7%, 35%);
+$dark-brown: hsl($hue-orange, 7%, 15%);
+
+
+// These can be are alert colors
+$orange: hsl($hue-orange, 80%, 60%);
+$light-orange: hsl($hue-orange, 80%, 75%);
+$dark-orange: hsl($hue-orange, 80%, 40%);
+
+$red: hsl($hue-red, 80%, 60%);
+$light-red: hsl($hue-red, 80%, 75%);
+$dark-red: hsl($hue-red, 80%, 40%);
+
+$yellow: hsl($hue-yellow, 80%, 60%);
+$light-yellow: hsl($hue-yellow, 80%, 75%);
+$dark-yellow: hsl($hue-yellow, 80%, 40%);
