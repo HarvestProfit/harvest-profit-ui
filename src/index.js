@@ -19,6 +19,7 @@ import ModalHeader from './modal/ModalHeader';
 
 import NumbersHelper from './utilities/NumbersHelper';
 import Filterdropdown from './forms/Filterdropdown';
+import SearchableDropdown from './forms/SearchableDropdown';
 
 export {
   Button,
@@ -39,4 +40,5 @@ export {
   ModalHeader,
   NumbersHelper,
   Filterdropdown,
+  SearchableDropdown,
 };
