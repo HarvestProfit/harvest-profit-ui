@@ -4,7 +4,7 @@ import PureReactComponent from '../utilities/PureReactComponent';
 
 const InputInternal = PureReactComponent(props => (
   <input
-    className={`input ${props.className}`}
+    className={props.className}
     value={props.value}
     id={props.id ? props.id : ''}
     onBlur={props.onBlur}
