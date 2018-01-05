@@ -18,6 +18,7 @@ import ModalFooter from './modal/ModalFooter';
 import ModalHeader from './modal/ModalHeader';
 
 import NumbersHelper from './utilities/NumbersHelper';
+import Filterdropdown from './forms/Filterdropdown';
 
 export {
   Button,
@@ -37,4 +38,5 @@ export {
   ModalFooter,
   ModalHeader,
   NumbersHelper,
+  Filterdropdown,
 };
