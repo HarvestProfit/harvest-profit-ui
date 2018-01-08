@@ -44,3 +44,24 @@ initialState = { value: '2001' };
 </div>
 
 ```
+
+And allow negative numbers
+
+```js
+initialState = { value: '4242' };
+
+<div>
+  <InputNumeric
+    commaSeparator
+    decimalPlaces={2}
+    defaultValue={state.value}
+    onChange={(value) => setState({ value })}
+    prefix="$"
+    allowNegative
+  />
+  <p>
+    Current Value: <code>{state.value}</code>
+  </p>
+</div>
+
+```

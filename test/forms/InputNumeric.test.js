@@ -134,6 +134,23 @@ describe('<InputNumeric />', () => {
     expect(onChange.mock.calls[0][0]).toEqual('-123');
   });
 
+  it('should allow you to enter a negative number with a prefix and the sign in front of the prefix', () => {
+    const input = shallow(
+      <InputNumeric
+        allowNegative
+        commaSeparator
+        decimalPlaces={2}
+        defaultValue={-1230}
+        onChange={() => {}}
+        prefix="$"
+      />);
+
+    input.simulate('focus');
+    expect(input.props().value).toEqual(-1230);
+    input.simulate('blur');
+    expect(input.props().value).toEqual('-$1,230.00');
+  });
+
   it('should add a "0" in front of a plain decimal "."', () => {
     const onChange = jest.fn();
     const input = shallow(
