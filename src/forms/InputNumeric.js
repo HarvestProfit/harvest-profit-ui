@@ -69,6 +69,10 @@ export default class InputNumeric extends PureComponent {
     let newValue = event.target.value;
     if (this.props.allowNegative) {
       newValue = newValue.replace(/[^0-9.-]/g, '');
+      if (/[-]/g.test(`${newValue}`)) {
+        newValue = newValue.replace(/[-]/g, '');
+        newValue = `-${newValue}`;
+      }
     } else {
       newValue = newValue.replace(/[^0-9.]/g, '');
     }
@@ -100,13 +104,19 @@ export default class InputNumeric extends PureComponent {
     let value = this.props.defaultValue;
     if (!this.state.isFocused) {
       const checkedValue = toNumber(value);
+      let negative = '';
       if (isFinite(checkedValue)) {
         value = checkedValue.toFixed(this.props.decimalPlaces);
       }
       if (this.props.commaSeparator) {
         value = NumbersHelper.numberWithCommas(value);
       }
-      value = `${this.props.prefix}${value}`;
+      if (this.props.allowNegative && checkedValue < 0) {
+        value = value.replace(/[-]/g, '');
+        negative = '-';
+      }
+
+      value = `${negative}${this.props.prefix}${value}`;
     }
 
     return (

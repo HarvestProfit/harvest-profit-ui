@@ -28,6 +28,18 @@ describe('NumbersHelper', () => {
     });
   });
 
+  describe('applyPrefix', () => {
+    it('should put a prefix in front of the number', () => {
+      const number = NumbersHelper.applyPrefix(NumbersHelper.numberWithCommas(1000), '$');
+      expect(number).toEqual('$1,000');
+    });
+
+    it('should put a prefix in front of the number with the sign in front of the prefix', () => {
+      const number = NumbersHelper.applyPrefix(NumbersHelper.numberWithCommas(-1000), '$');
+      expect(number).toEqual('-$1,000');
+    });
+  });
+
   describe('formatToShortNumber', () => {
     it('should convert a hundreds number into itself', () => {
       const shortNumber = NumbersHelper.formatToShortNumber(100);

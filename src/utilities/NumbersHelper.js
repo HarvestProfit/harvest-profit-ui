@@ -18,6 +18,17 @@ export default class NumbersHelper {
     return parts.join('.');
   }
 
+  static applyPrefix = (number, prefix) => {
+    let newNumber = number;
+    let negative = '';
+    if (/[-]/g.test(`${newNumber}`)) {
+      newNumber = newNumber.replace(/[-]/g, '');
+      negative = '-';
+    }
+
+    return `${negative}${prefix}${newNumber}`;
+  }
+
 
   /**
    * Formats a number to a short format with:
