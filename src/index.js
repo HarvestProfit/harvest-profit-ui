@@ -21,6 +21,10 @@ import NumbersHelper from './utilities/NumbersHelper';
 import Filterdropdown from './forms/Filterdropdown';
 import SearchableDropdown from './forms/SearchableDropdown';
 
+import Panel from './panel/Panel';
+import PanelTitle from './panel/PanelTitle';
+import PanelContents from './panel/PanelContents';
+
 export {
   Button,
   Dropdown,
@@ -41,4 +45,7 @@ export {
   NumbersHelper,
   Filterdropdown,
   SearchableDropdown,
+  Panel,
+  PanelTitle,
+  PanelContents,
 };
