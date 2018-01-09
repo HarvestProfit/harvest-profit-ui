@@ -39,6 +39,10 @@ module.exports = {
       components: 'src/modal/*.{js,jsx}',
     },
     {
+      name: 'Panels',
+      components: 'src/panel/*.{js,jsx}',
+    },
+    {
       name: 'Forms',
       components: 'src/forms/*.{js,jsx}',
     },

@@ -1,0 +1,52 @@
+@import './ColorPallet';
+$panel-v2-title-color: $light-white;
+$panel-v2-title-text-color: $dark-grey;
+$panel-v2-body-color: $light-white;
+$panel-v2-box-shadow-color: rgba($true-black, 0.1);
+$panel-v2-contents-color: $true-white;
+
+.panel.v2 {
+  background-color: $panel-v2-body-color;
+  border: 0;
+  box-shadow: 0 1px 2px 0 $panel-v2-box-shadow-color;
+  margin: 16px;
+  padding: 0;
+
+  & > div.title {
+    background-color: $panel-v2-title-color;
+    color: $panel-v2-title-text-color;
+    display: block;
+    font-weight: bold;
+    line-height: 1em;
+    margin: 0;
+    padding: 16px;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  & > div.content {
+    padding: 0;
+
+    & > div.panel-contents {
+      padding: 16px;
+    }
+
+    .empty-panel-instructions {
+      & > .instructions {
+        margin-bottom: 20px;
+        text-align: center;
+
+        & > * {
+          margin-bottom: 5px;
+        }
+      }
+
+      & > .actions {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

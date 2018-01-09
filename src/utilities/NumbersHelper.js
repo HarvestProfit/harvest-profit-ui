@@ -18,15 +18,15 @@ export default class NumbersHelper {
     return parts.join('.');
   }
 
-  static applyPrefix = (number, prefix) => {
-    let newNumber = number;
+  static toCurrency = (number, hideRemainderIfZero) => {
+    let newNumber = NumbersHelper.numberWithCommas(number, hideRemainderIfZero);
     let negative = '';
     if (/[-]/g.test(`${newNumber}`)) {
       newNumber = newNumber.replace(/[-]/g, '');
       negative = '-';
     }
 
-    return `${negative}${prefix}${newNumber}`;
+    return `${negative}$${newNumber}`;
   }
 
 

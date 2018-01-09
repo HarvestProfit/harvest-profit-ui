@@ -28,14 +28,14 @@ describe('NumbersHelper', () => {
     });
   });
 
-  describe('applyPrefix', () => {
-    it('should put a prefix in front of the number', () => {
-      const number = NumbersHelper.applyPrefix(NumbersHelper.numberWithCommas(1000), '$');
+  describe('toCurrency', () => {
+    it('should put a dollar sign in front of the number with commas', () => {
+      const number = NumbersHelper.toCurrency(1000);
       expect(number).toEqual('$1,000');
     });
 
-    it('should put a prefix in front of the number with the sign in front of the prefix', () => {
-      const number = NumbersHelper.applyPrefix(NumbersHelper.numberWithCommas(-1000), '$');
+    it('should put a dollar sign in front of the number with the sign in front of the prefix', () => {
+      const number = NumbersHelper.toCurrency(-1000);
       expect(number).toEqual('-$1,000');
     });
   });
