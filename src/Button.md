@@ -7,8 +7,8 @@ function onClick(buttonNumber) {
 }
 
 <div>
-  <Button className="primary" onClick={() => onClick('one')}>Click Me, I&apos;m #1!</Button>
-  <span>&nbsp;</span>
+  <Button className="primary" onClick={() => onClick('one')}>Click Me, I'm #1!</Button>
+  <span> </span>
   <Button className="secondary" onClick={() => onClick('two')}>Click Me Instead!</Button>
 </div>
 ```
