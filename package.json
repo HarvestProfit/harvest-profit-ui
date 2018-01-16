@@ -77,7 +77,7 @@
     "jest-enzyme": "^4.0.1",
     "postcss-smart-import": "^0.7.5",
     "react-dom": "^16.0.0",
-    "react-styleguidist": "^6.0.31",
+    "react-styleguidist": "^6.1.0",
     "webpack": "^3.8.1",
     "webpack-blocks": "^1.0.0-rc.2"
   }
