@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import InputNumeric from '../../src/forms/InputNumeric';
+import { InputNumeric } from '../../src/index';
 
 describe('<InputNumeric />', () => {
   it('should render an input with the value of "123" using defaults', () => {
     const input = shallow(
       <InputNumeric
-        defaultValue={123}
+        value={123}
         onChange={() => {}}
       />);
     expect(input.props().value).toEqual('123');
@@ -16,7 +16,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={() => {}}
       />);
     expect(input.props().value).toEqual('123.00');
@@ -25,7 +25,7 @@ describe('<InputNumeric />', () => {
   it('should use a prefix when specified, like "$123"', () => {
     const input = shallow(
       <InputNumeric
-        defaultValue={123}
+        value={123}
         onChange={() => {}}
         prefix="$"
       />);
@@ -35,7 +35,7 @@ describe('<InputNumeric />', () => {
   it('should stop you from entering letters', () => {
     const input = shallow(
       <InputNumeric
-        defaultValue={123}
+        value={123}
         onChange={() => {}}
       />);
 
@@ -46,7 +46,7 @@ describe('<InputNumeric />', () => {
   it('should render non-numeric characters if given them', () => {
     const input = shallow(
       <InputNumeric
-        defaultValue="hello"
+        value="hello"
         onChange={() => {}}
       />);
 
@@ -57,7 +57,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={() => {}}
         prefix="$"
       />);
@@ -69,7 +69,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={() => {}}
         prefix="$"
       />);
@@ -84,7 +84,7 @@ describe('<InputNumeric />', () => {
       <InputNumeric
         commaSeparator
         decimalPlaces={2}
-        defaultValue={1230}
+        value={1230}
         onChange={() => {}}
         prefix="$"
       />);
@@ -99,7 +99,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={onChange}
       />);
 
@@ -112,7 +112,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={onChange}
       />);
 
@@ -126,7 +126,7 @@ describe('<InputNumeric />', () => {
       <InputNumeric
         allowNegative
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={onChange}
       />);
 
@@ -140,7 +140,7 @@ describe('<InputNumeric />', () => {
         allowNegative
         commaSeparator
         decimalPlaces={2}
-        defaultValue={-1230}
+        value={-1230}
         onChange={() => {}}
         prefix="$"
       />);
@@ -156,7 +156,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={onChange}
       />);
 
@@ -169,7 +169,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={123}
+        value={123}
         onChange={onChange}
       />);
     input.simulate('change', { target: { value: '456' } });
@@ -180,7 +180,7 @@ describe('<InputNumeric />', () => {
     const input = shallow(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={0}
+        value={0}
         onChange={() => {}}
       />);
     input.simulate('focus');
@@ -191,7 +191,7 @@ describe('<InputNumeric />', () => {
     const input = mount(
       <InputNumeric
         decimalPlaces={2}
-        defaultValue={0}
+        value={0}
         hasError
         onChange={() => {}}
       />);

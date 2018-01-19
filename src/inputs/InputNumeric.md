@@ -7,7 +7,7 @@ initialState = { value: '4242' };
   <InputNumeric
     commaSeparator
     decimalPlaces={2}
-    defaultValue={state.value}
+    value={state.value}
     onChange={(value) => setState({ value })}
     prefix="$"
   />
@@ -27,7 +27,7 @@ initialState = { value: '2001' };
   <InputNumeric
     commaSeparator
     decimalPlaces={2}
-    defaultValue={state.value}
+    value={state.value}
     hasError={parseFloat(state.value) > 1000}
     onChange={(value) => setState({ value })}
     prefix="$"
@@ -54,7 +54,7 @@ initialState = { value: '4242' };
   <InputNumeric
     commaSeparator
     decimalPlaces={2}
-    defaultValue={state.value}
+    value={state.value}
     onChange={(value) => setState({ value })}
     prefix="$"
     allowNegative

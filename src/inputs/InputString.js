@@ -9,7 +9,7 @@ import InputInternal from './InputInternal';
  */
 export default class InputString extends PureComponent {
   static defaultProps = {
-    defaultValue: '',
+    value: '',
     id: false,
     hasError: false,
     placeholder: '',
@@ -20,7 +20,7 @@ export default class InputString extends PureComponent {
 
   static propTypes = {
     /** What is the value supplied to the field. */
-    defaultValue: PropTypes.string,
+    value: PropTypes.string,
     /** An ID to use with a label. Doesn't render if boolean. */
     id: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     /** Is the component currently in error */
@@ -66,7 +66,7 @@ export default class InputString extends PureComponent {
 
 
   render() {
-    let value = this.props.defaultValue;
+    let { value } = this.props;
     if (!this.state.isFocused) {
       value = `${this.props.prefix}${value}${this.props.suffix}`;
     }

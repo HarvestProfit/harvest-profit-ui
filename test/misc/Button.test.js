@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import Button from '../src/Button';
+import Button from '../../src/misc/Button';
 
 describe('<Button />', () => {
   // Test to see if it renders

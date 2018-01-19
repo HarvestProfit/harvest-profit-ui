@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ModalFooter from '../../src/modal/ModalFooter';
+import { ModalFooter } from '../../src/index';
 
 describe('<ModalFooter />', () => {
   it('should render a modal footer div', () => {

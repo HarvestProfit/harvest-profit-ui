@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ModalBody from '../../src/modal/ModalBody';
+import { ModalBody } from '../../src/index';
 
 describe('<ModalBody />', () => {
   it('should render a modal body div', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Dropdown from '../../src/forms/Dropdown';
+import { Dropdown } from '../../src/index';
 
 const options = [
   'value 1',

@@ -15,7 +15,7 @@ export default class InputNumeric extends PureComponent {
     allowNegative: false,
     commaSeparator: false,
     decimalPlaces: 0,
-    defaultValue: 0,
+    value: 0,
     id: false,
     hasError: false,
     prefix: '',
@@ -30,7 +30,7 @@ export default class InputNumeric extends PureComponent {
     /** How many decimal places to render the number with. */
     decimalPlaces: PropTypes.number,
     /** What is the value supplied to the field. */
-    defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /** An ID to use with a label. Doesn't render if boolean. */
     id: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     /** Is the component currently in error */
@@ -101,7 +101,7 @@ export default class InputNumeric extends PureComponent {
   }
 
   render() {
-    let value = this.props.defaultValue;
+    let { value } = this.props;
     if (!this.state.isFocused) {
       const checkedValue = toNumber(value);
       let negative = '';

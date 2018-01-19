@@ -1,0 +1,36 @@
+.column.v2 {
+  display: flex;
+  flex-flow: column;
+
+  &.fill > * {
+    flex: 1 0 auto;
+  }
+
+  &.v-center {
+    justify-content: center;
+  }
+
+  &.v-top {
+    justify-content: flex-start;
+  }
+
+  &.v-bottom {
+    justify-content: flex-end;
+  }
+
+  &.spaced {
+    padding: 0 5px;
+  }
+
+  &.h-center {
+    align-items: center;
+  }
+
+  &.h-right {
+    align-items: flex-end;
+  }
+
+  &.h-left {
+    align-items: flex-start;
+  }
+}

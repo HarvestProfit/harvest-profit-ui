@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TableItem from '../../src/table/TableItem';
+import { TableItem } from '../../src/index';
 
 describe('<TableItem />', () => {
   it('should render a table item div', () => {

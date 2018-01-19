@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Table from '../../src/table/Table';
-import TableFooter from '../../src/table/TableFooter';
+import { Table, TableFooter } from '../../src/index';
 
 describe('<Table />', () => {
   it('should render a table div', () => {

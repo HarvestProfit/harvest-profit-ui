@@ -5,7 +5,7 @@ initialState = { value: '' };
 
 <div>
   <InputString
-    defaultValue={state.value}
+    value={state.value}
     onChange={(value) => setState({ value })}
     placeholder="Type Something"
   />
@@ -22,7 +22,7 @@ initialState = { value: '10 or less characters' };
 
 <div>
   <InputString
-    defaultValue={state.value}
+    value={state.value}
     hasError={state.value.length > 10}
     onChange={(value) => setState({ value })}
     placeholder="10 Characters allowed"

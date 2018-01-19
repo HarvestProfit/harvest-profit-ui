@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Switch from '../../src/forms/Switch';
+import { Switch } from '../../src/index';
 
 describe('<Switch />', () => {
   it('should render a checked switch', () => {
