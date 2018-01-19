@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Fade } from 'reactstrap';
-import Modal from '../../src/modal/Modal';
+import { Modal } from '../../src/index';
 
 describe('<Modal />', () => {
   it('should render a the modal component', () => {

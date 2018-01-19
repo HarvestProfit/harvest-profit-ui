@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import snakeCase from 'lodash.snakecase';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import InputString from './InputString';
+import InputString from '../inputs/InputString';
 import ImmutabilityHelper from '../utilities/ImmutabilityHelper';
 
 /*

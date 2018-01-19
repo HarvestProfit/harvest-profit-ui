@@ -19,12 +19,15 @@ export default class Modal extends PureComponent {
     large: PropTypes.bool,
     /** Sets the min height to be smaller */
     small: PropTypes.bool,
+    /** Optional styles */
+    style: PropTypes.shape({}),
   }
 
   static defaultProps = {
     isOpen: false,
     large: false,
     small: false,
+    style: {},
   }
 
   constructor(props) {
@@ -66,7 +69,7 @@ export default class Modal extends PureComponent {
         in={this.props.isOpen}
         onExited={this.removeFromDOM}
       >
-        <div className={modalClasses}>
+        <div className={modalClasses} style={this.props.style}>
           <div className="contents">
             {this.props.children}
           </div>

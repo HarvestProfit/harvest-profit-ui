@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import InputString from '../../src/forms/InputString';
+import { InputString } from '../../src/index';
 
 describe('<InputNumeric />', () => {
   it('should render an input with the value of "hello" using defaults', () => {
     const input = shallow(
       <InputString
-        defaultValue="world"
+        value="world"
         onChange={() => {}}
       />);
     expect(input.props().value).toEqual('world');
@@ -15,7 +15,7 @@ describe('<InputNumeric />', () => {
   it('should use a prefix when specified, like "hello "', () => {
     const input = shallow(
       <InputString
-        defaultValue="world"
+        value="world"
         onChange={() => {}}
         prefix="hello "
       />);
@@ -25,7 +25,7 @@ describe('<InputNumeric />', () => {
   it('should use a suffix when specified, like " world"', () => {
     const input = shallow(
       <InputString
-        defaultValue="hello"
+        value="hello"
         onChange={() => {}}
         suffix=" world"
       />);
@@ -36,7 +36,7 @@ describe('<InputNumeric />', () => {
     const onChange = jest.fn();
     const input = shallow(
       <InputString
-        defaultValue="hello"
+        value="hello"
         onChange={onChange}
       />);
 
@@ -47,7 +47,7 @@ describe('<InputNumeric />', () => {
   it('should add prefix and suffix after leaving focus', () => {
     const input = shallow(
       <InputString
-        defaultValue="cruel"
+        value="cruel"
         onChange={() => {}}
         prefix="hello "
         suffix=" world"
@@ -61,7 +61,7 @@ describe('<InputNumeric />', () => {
   it('should add the error class to the input if hasError is set', () => {
     const input = mount(
       <InputString
-        defaultValue="Hello"
+        value="Hello"
         hasError
         onChange={() => {}}
       />);

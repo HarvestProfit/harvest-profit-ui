@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import InputString from './InputString';
+import InputString from '../inputs/InputString';
 
 /*
  * Returns the value of the option;

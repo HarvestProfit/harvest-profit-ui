@@ -1,0 +1,78 @@
+@import './ColorPallet';
+$form-v2-destructive-action-color: transparent;
+$form-v2-destructive-action-text-color: $red;
+$form-v2-action-color: $green;
+$form-v2-action-text-color: $true-white;
+$form-v2-background-color: $true-white;
+
+.form.v2 {
+  background: white;
+
+  &.padding {
+    padding: 16px;
+  }
+
+  input,
+  textarea {
+    width: 250px;
+  }
+
+  select {
+    max-width: 250px;
+  }
+
+  label.form-label {
+    font-weight: bold;
+    font-size: 14px;
+    width: 250px;
+
+    &.auto-width {
+      width: auto;
+    }
+  }
+
+  .form-text {
+    font-size: 14px;
+    width: 250px;
+    padding: 9px;
+
+    &.auto-width {
+      width: auto;
+    }
+
+    &.right {
+      text-align: right;
+    }
+    &.left {
+      text-align: left;
+    }
+    &.center {
+      text-align: center;
+    }
+  }
+
+  .form-action {
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: $form-v2-action-color;
+    border: 1px solid $form-v2-action-color;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    color: $form-v2-action-text-color;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    outline: none;
+    padding: 6px 12px;
+    text-decoration: none;
+    text-transform: none;
+
+    &.destructive {
+      background-color: $form-v2-destructive-action-color;
+      border: 0;
+      color: $form-v2-destructive-action-text-color;
+      box-shadow: none;
+    }
+  }
+}

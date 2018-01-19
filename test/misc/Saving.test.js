@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Saving from '../../src/forms/Saving';
+import Saving from '../../src/misc/Saving';
 
 describe('<Saving />', () => {
   it('should render nothing if `isSaving` is not set', () => {

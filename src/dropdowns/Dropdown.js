@@ -12,6 +12,7 @@ export default class Dropdown extends PureComponent {
     className: '',
     selected: false,
     placeholder: false,
+    style: {},
   }
 
   static propTypes = {
@@ -41,6 +42,8 @@ export default class Dropdown extends PureComponent {
     ]).isRequired,
     /** Placeholder text */
     placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    /** Optional styles */
+    style: PropTypes.shape({}),
   }
 
   constructor(props) {
@@ -91,6 +94,7 @@ export default class Dropdown extends PureComponent {
         className={`dropdown ${this.props.className}`}
         defaultValue={this.props.selected}
         onChange={this.handleChange}
+        style={this.props.style}
       >
         {this.renderPlaceholder()}
         {options}

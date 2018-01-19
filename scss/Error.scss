@@ -1,0 +1,10 @@
+@import './ColorPallet';
+$error-v2-color: $dark-red;
+
+.error.v2 {
+  color: $error-v2-color;
+
+  & > i {
+    margin-right: 5px;
+  }
+}
