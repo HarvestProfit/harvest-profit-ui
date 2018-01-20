@@ -23,6 +23,11 @@ $table-v2-greater-body-text-size: 17px;
 
 $table-v2-break-points: 1200px 1100px 800px;
 
+$table-v2-exsmall-min-width: 50px;
+$table-v2-small-min-width: 60px;
+$table-v2-medium-min-width: 70px;
+$table-v2-large-min-width: 80px;
+
 .table.v2 {
 
   & > div.header {
@@ -93,34 +98,22 @@ $table-v2-break-points: 1200px 1100px 800px;
 
     &.exsmall {
       flex: 1;
-      min-width: 70px;
-
-      &.lesser {
-        min-width: 60px;
-      }
-
-      &.greater {
-        min-width: 75px;
-      }
+      min-width: $table-v2-exsmall-min-width;
     }
 
     &.small {
       flex: 2;
-      min-width: 70px;
-
-      &.lesser {
-        min-width: 60px;
-      }
+      min-width: $table-v2-small-min-width;
     }
 
     &.medium {
       flex: 3;
-      min-width: 92px;
+      min-width: $table-v2-medium-min-width;
     }
 
     &.large {
       flex: 4;
-      min-width: 100px;
+      min-width: $table-v2-large-min-width;
     }
   }
 
