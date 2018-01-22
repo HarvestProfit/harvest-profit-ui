@@ -35,9 +35,9 @@ export default class Switch extends PureComponent {
 
     /* eslint-disable */
     return (
-      <div className={`switch ${className}`} onClick={onClick} style={style ? style : {}}>
+      <div className={`switch v2 ${className}`} onClick={onClick} style={style ? style : {}}>
         <span className={value ? 'slider on' : 'slider'} />
-        <input className="switch-screen-reader" id={id} onClick={onClick} type="checkbox" checked={value} />
+        <input className="switch-screen-reader" id={id} onClick={onClick} type="checkbox" checked={value} readOnly />
       </div>
     );
     /* eslint-enable */

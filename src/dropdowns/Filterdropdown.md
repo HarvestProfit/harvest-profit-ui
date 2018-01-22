@@ -7,6 +7,6 @@ initialState = { }
     onChange={() => {}}
     values={["hello", "goodbye"]}
     name = {"NAME"}
-    placeholder = {true}  
+    placeholder = {"Search"}  
   />
 </div>

@@ -29,6 +29,7 @@ const optionText = (option) => {
 export default class SearchableDropdown extends PureComponent {
   static defaultProps = {
     placeholder: false,
+    className: '',
   }
 
   static propTypes = {
@@ -48,6 +49,8 @@ export default class SearchableDropdown extends PureComponent {
       PropTypes.bool,
       PropTypes.string,
     ]),
+    /** Optional class names for the component */
+    className: PropTypes.string,
   }
 
   constructor(props) {
@@ -97,7 +100,7 @@ export default class SearchableDropdown extends PureComponent {
   render() {
     const filteredSearchResults = this.renderSearchResults();
     return (
-      <div style={{ display: 'inline-block', minWidth: '10rem' }}>
+      <div style={{ display: 'inline-block', minWidth: '10rem' }} className={`searchable-dropdown v2 ${this.props.className}`}>
         <Dropdown
           isOpen={this.state.open}
           toggle={() => this.toggleOpen()}
@@ -110,7 +113,7 @@ export default class SearchableDropdown extends PureComponent {
           </DropdownToggle>
           <DropdownMenu className="center" flip={false}>
             <InputString
-              defaultValue={this.state.search}
+              value={this.state.search}
               onChange={this.handleSearch}
               placeholder="Search"
               style={{ margin: '0 .5rem', width: '90%' }}

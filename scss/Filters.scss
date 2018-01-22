@@ -1,8 +1,17 @@
-.filters-v2 {
-  &.pull-right {
-    margin: -0.5em 0 0 1em;
-  }
+@import './ColorPallet';
+$filter-dropdown-v2-underline: $white;
+$filter-dropdown-v2-item-background: $true-white;
+$filter-dropdown-v2-item-background-hover: $light-white;
+$filter-dropdown-v2-clear-background: $light-white;
+$filter-dropdown-v2-clear-text-color: $dark-grey;
+$filter-dropdown-v2-clear-overline: $dark-white;
 
+$filter-dropdown-v2-button-color: $true-white;
+$filter-dropdown-v2-button-text-color: $grey;
+$filter-dropdown-v2-button-has-filter-color: $green;
+
+
+.filter-dropdown.v2 {
   .dropdown-menu {
     outline: none;
   }
@@ -18,15 +27,16 @@
 
     button {
       border-radius: 0;
-      border-bottom: 1px solid #d8d8d8;
+      border-bottom: 1px solid $filter-dropdown-v2-underline;
       box-shadow: none;
+      background: $filter-dropdown-v2-item-background;
 
       &:hover {
         box-shadow: none;
       }
 
       &:active {
-        background: #eee;
+        background: $filter-dropdown-v2-item-background-hover;
         color: inherit;
       }
     }
@@ -38,12 +48,12 @@
   }
 
   .clear-filters {
-    background: #f6f6f6;
-    color: #333;
+    background: $filter-dropdown-v2-clear-background;
+    color: $filter-dropdown-v2-clear-text-color;
     font-size: 10px;
     text-align: center;
     padding: 5px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $filter-dropdown-v2-clear-overline;
     cursor: pointer;
     opacity: 0.8;
     transition: opacity 0.4s;
@@ -61,14 +71,15 @@
   }
 
   button {
-    color: #888;
+    background: $filter-dropdown-v2-button-color;
+    color: $filter-dropdown-v2-button-text-color;
 
     &:active {
       cursor: pointer;
     }
 
     &.has-filters i {
-      color: $green;
+      color: $filter-dropdown-v2-button-has-filter-color;
       transition: color 0.3s;
     }
   }

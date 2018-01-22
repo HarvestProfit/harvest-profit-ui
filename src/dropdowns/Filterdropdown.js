@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import snakeCase from 'lodash.snakecase';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import InputString from '../inputs/InputString';
 import ImmutabilityHelper from '../utilities/ImmutabilityHelper';
@@ -9,10 +8,10 @@ import ImmutabilityHelper from '../utilities/ImmutabilityHelper';
  * Returns the value of the option;
  */
 const filterOptionValue = (option) => {
-  if (option.value === undefined) {
+  if (option.id === undefined) {
     return option;
   }
-  return option.value;
+  return option.id;
 };
 
 /*
@@ -28,7 +27,8 @@ const filterOptionText = (option) => {
 
 export default class FilterDropdown extends PureComponent {
   static defaultProps = {
-    placeholder: 'Search',
+    placeholder: false,
+    className: '',
   }
 
   static propTypes = {
@@ -38,14 +38,19 @@ export default class FilterDropdown extends PureComponent {
     values: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
-        value: PropTypes.isRequired,
+        id: PropTypes.isRequired,
       })),
       PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
     /** Name of item selected from Drop down */
     name: PropTypes.string.isRequired,
-    /** Default values in drop down */
-    placeholder: PropTypes.string,
+    /** Placeholder text */
+    placeholder: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
+    ]),
+    /** Optional class names for the component */
+    className: PropTypes.string,
   }
 
   constructor(props) {
@@ -112,6 +117,13 @@ export default class FilterDropdown extends PureComponent {
     return classList;
   }
 
+  placeholderText() {
+    if (this.props.placeholder && typeof this.props.placeholder === 'string') {
+      return this.props.placeholder;
+    }
+    return '';
+  }
+
   /*
    * Renders filter options based on search results.
    */
@@ -170,7 +182,7 @@ export default class FilterDropdown extends PureComponent {
     const clearFilter = this.renderClearFilter();
 
     return (
-      <div style={{ display: 'inline-block' }} className={`filter-dropdown filter-${snakeCase(this.props.name)}`}>
+      <div style={{ display: 'inline-block' }} className={`filter-dropdown v2 ${this.props.className}`}>
         <Dropdown
           isOpen={this.state.open}
           toggle={() => this.toggleOpen()}
@@ -184,9 +196,9 @@ export default class FilterDropdown extends PureComponent {
           </DropdownToggle>
           <DropdownMenu className="center" flip={false}>
             <InputString
-              defaultValue={this.state.search}
+              value={this.state.search}
               onChange={this.handleSearch}
-              placeholder={this.props.placeholder}
+              placeholder={this.placeholderText()}
               style={{ margin: '0 .5rem', width: '90%' }}
             />
             <div className="filter-options">
