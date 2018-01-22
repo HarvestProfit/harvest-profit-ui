@@ -42,6 +42,7 @@ import TableHeaderItem from './table/TableHeaderItem';
 
 
 import NumbersHelper from './utilities/NumbersHelper';
+import ImmutabilityHelper from './utilities/ImmutabilityHelper';
 
 export {
   Dropdown,
@@ -82,4 +83,5 @@ export {
   TableHeaderItem,
 
   NumbersHelper,
+  ImmutabilityHelper,
 };
