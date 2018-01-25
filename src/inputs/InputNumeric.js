@@ -59,10 +59,26 @@ export default class InputNumeric extends PureComponent {
 
   handleBlur() {
     this.setState({ isFocused: false });
+    this.props.onChange(this.prepareNumber());
   }
 
   handleFocus() {
     this.setState({ isFocused: true });
+    this.props.onChange(this.prepareNumber());
+  }
+
+  prepareNumber() {
+    let { value } = this.props;
+    if (this.props.decimalPlaces > 0) {
+      const checkedValue = toNumber(value);
+      if (isFinite(checkedValue)) {
+        const stringValue = checkedValue.toFixed(this.props.decimalPlaces);
+        const [valueAfterDecimal] = stringValue.match(/\.\d*/);
+        value = `${value}`.replace(/\.\d*/, '');
+        value = `${value}${valueAfterDecimal}`;
+      }
+    }
+    return value;
   }
 
   handleChange(event) {
