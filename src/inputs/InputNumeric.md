@@ -1,7 +1,7 @@
 Simple numeric input example:
 
 ```js
-initialState = { value: '4242' };
+initialState = { value: '4242.125' };
 
 <div>
   <InputNumeric
