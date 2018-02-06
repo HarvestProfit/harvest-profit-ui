@@ -14,6 +14,9 @@ import Switch from './inputs/Switch';
 
 import Column from './layout/Column';
 import Row from './layout/Row';
+import TabSwitcher from './layout/TabSwitcher';
+import TabSwitcherItem from './layout/TabSwitcherItem';
+import Divider from './layout/Divider';
 
 
 import Button from './misc/Button';
@@ -60,6 +63,9 @@ export {
 
   Column,
   Row,
+  TabSwitcher,
+  TabSwitcherItem,
+  Divider,
 
   Button,
   Error,
