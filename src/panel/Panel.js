@@ -6,7 +6,9 @@ import PropTypes from 'prop-types';
  */
 const Panel = props => (
   <div className={`panel v2 ${props.className}`} style={props.style}>
-    {props.children}
+    <div>
+      {props.children}
+    </div>
   </div>
 );
 
