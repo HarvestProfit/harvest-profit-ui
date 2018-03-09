@@ -21,7 +21,7 @@ const values = [
 ```
 Search with different values and labels
 ```js
-initialState = { value: "" };
+initialState = { value: '' };
 
 const values = [
   {
