@@ -19,6 +19,7 @@ export default class InputNumeric extends PureComponent {
     id: false,
     hasError: false,
     prefix: '',
+    suffix: '',
     style: false,
   }
 
@@ -43,6 +44,8 @@ export default class InputNumeric extends PureComponent {
     onChange: PropTypes.func.isRequired,
     /** The prefix to apply to the number on blur. */
     prefix: PropTypes.string,
+    /** The suffix to apply to the number on blur. */
+    suffix: PropTypes.string,
     /** Styles to apply to the input. Boolean will not render default. */
     style: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   }
@@ -132,7 +135,7 @@ export default class InputNumeric extends PureComponent {
         negative = '-';
       }
 
-      value = `${negative}${this.props.prefix}${value}`;
+      value = `${negative}${this.props.prefix}${value}${this.props.suffix}`;
     }
 
     return (

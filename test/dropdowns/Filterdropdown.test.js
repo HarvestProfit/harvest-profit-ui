@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SearchableDropdown } from '../../src/index';
+import { FilterDropdown } from '../../src/index';
 
 const objectValues = [
   {
@@ -23,15 +23,15 @@ const objectValues = [
 
 const stringValues = ['First Names', 'Last Names', 'Family', 'Friends'];
 
-describe('<SearchableDropdown />', () => {
-  describe('provides the ability to control the selected option', () => {
-    it('should set the selected option with object values', () => {
+describe('<FilterDropdown />', () => {
+  describe('provides the ability to control the selected options', () => {
+    it('should set the selected options with object values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <SearchableDropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={objectValues}
-          value=""
+          value={[1]}
           name="Filter"
         />,
       );
@@ -43,16 +43,16 @@ describe('<SearchableDropdown />', () => {
 
       filter.find('DropdownItem').simulate('click');
       expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual(2);
+      expect(changeFunc.mock.calls[0][0]).toEqual([1, 2]);
     });
 
-    it('should set the selected option with string values', () => {
+    it('should set the selected options with string values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <SearchableDropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={stringValues}
-          value=""
+          value={['first names']}
           name="Filter"
         />,
       );
@@ -64,18 +64,18 @@ describe('<SearchableDropdown />', () => {
 
       filter.find('DropdownItem').simulate('click');
       expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual('Last Names');
+      expect(changeFunc.mock.calls[0][0]).toEqual(['first names', 'last names']);
     });
   });
 
-  describe('provides the ability to select an option', () => {
+  describe('provides the ability to select options', () => {
     it('should select the first option with object values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <SearchableDropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={objectValues}
-          value=""
+          value={[]}
           name="Filter"
         />,
       );
@@ -87,16 +87,16 @@ describe('<SearchableDropdown />', () => {
 
       filter.find('DropdownItem').simulate('click');
       expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual(1);
+      expect(changeFunc.mock.calls[0][0]).toEqual([1]);
     });
 
     it('should select the first option with string values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <SearchableDropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={stringValues}
-          value=""
+          value={[]}
           name="Filter"
         />,
       );
@@ -108,7 +108,7 @@ describe('<SearchableDropdown />', () => {
 
       filter.find('DropdownItem').simulate('click');
       expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual('First Names');
+      expect(changeFunc.mock.calls[0][0]).toEqual(['first names']);
     });
   });
 
@@ -116,10 +116,10 @@ describe('<SearchableDropdown />', () => {
     it('should filter to "first" with object values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <SearchableDropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={objectValues}
-          value=""
+          value={[]}
           name="Filter"
         />,
       );
@@ -135,10 +135,10 @@ describe('<SearchableDropdown />', () => {
     it('should filter to "first" with string values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <SearchableDropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={stringValues}
-          value=""
+          value={[]}
           name="Filter"
         />,
       );

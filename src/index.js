@@ -1,6 +1,7 @@
 import Dropdown from './dropdowns/Dropdown';
-import Filterdropdown from './dropdowns/Filterdropdown';
+import FilterDropdown from './dropdowns/FilterDropdown';
 import SearchableDropdown from './dropdowns/SearchableDropdown';
+import SearchableDropdownList from './dropdowns/SearchableDropdownList';
 
 import Form from './forms/Form';
 import FormLabel from './forms/FormLabel';
@@ -46,8 +47,9 @@ import ImmutabilityHelper from './utilities/ImmutabilityHelper';
 
 export {
   Dropdown,
-  Filterdropdown,
+  FilterDropdown,
   SearchableDropdown,
+  SearchableDropdownList,
 
   Form,
   FormLabel,
