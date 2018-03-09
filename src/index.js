@@ -1,5 +1,5 @@
 import Dropdown from './dropdowns/Dropdown';
-import FilterDropdown from './dropdowns/FilterDropdown';
+import FilterDropdown from './dropdowns/Filterdropdown';
 import SearchableDropdown from './dropdowns/SearchableDropdown';
 import SearchableDropdownList from './dropdowns/SearchableDropdownList';
 
