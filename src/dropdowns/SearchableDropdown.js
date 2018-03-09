@@ -31,6 +31,7 @@ export default class SearchableDropdown extends PureComponent {
   static defaultProps = {
     placeholder: 'Select',
     className: '',
+    value: undefined,
   }
 
   static propTypes = {
@@ -49,7 +50,7 @@ export default class SearchableDropdown extends PureComponent {
     value: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.string,
-    ]).isRequired,
+    ]),
     /** Placeholder text */
     placeholder: PropTypes.string,
     /** Optional class names for the component */
@@ -94,7 +95,7 @@ export default class SearchableDropdown extends PureComponent {
       let selectedClass = '';
       const filterValue = optionValue(result);
       const filterText = optionText(result);
-      if (this.props.value === filterValue) selectedClass = 'selected';
+      if (this.props.value !== undefined && this.props.value === filterValue) selectedClass = 'selected';
 
       return (
         <DropdownItem
@@ -112,7 +113,7 @@ export default class SearchableDropdown extends PureComponent {
   render() {
     const filteredSearchResults = this.renderSearchResults();
     const selectedValue = this.props.values.filter(v =>
-      (this.props.value === optionValue(v)));
+      (this.props.value !== undefined && this.props.value === optionValue(v)));
 
     let selectedValueText;
     if (selectedValue.length > 0) {
