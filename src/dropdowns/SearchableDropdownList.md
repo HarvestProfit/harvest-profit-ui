@@ -1,4 +1,4 @@
-Simple Searchable Dropdown:
+Simple Searchable Dropdown List:
 
 ```js
 initialState = { value: "One" };
@@ -10,11 +10,10 @@ const values = [
 ];
 <div>
   <h1>Value: {state.value}</h1>
-  <SearchableDropdown
+  <SearchableDropdownList
     onChange={(value) => setState({ value })}
     placeholder="Select"
     values={values}
-    value={state.value}
   />
 </div>
 
@@ -39,11 +38,10 @@ const values = [
 ];
 <div>
   <h1>Value: {state.value}</h1>
-  <SearchableDropdown
+  <SearchableDropdownList
     onChange={(value) => setState({ value })}
     placeholder="Select"
     values={values}
-    value={state.value}
   />
 </div>
 

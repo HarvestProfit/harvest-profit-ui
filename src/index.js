@@ -1,6 +1,7 @@
 import Dropdown from './dropdowns/Dropdown';
 import Filterdropdown from './dropdowns/Filterdropdown';
 import SearchableDropdown from './dropdowns/SearchableDropdown';
+import SearchableDropdownList from './dropdowns/SearchableDropdownList';
 
 import Form from './forms/Form';
 import FormLabel from './forms/FormLabel';
@@ -48,6 +49,7 @@ export {
   Dropdown,
   Filterdropdown,
   SearchableDropdown,
+  SearchableDropdownList,
 
   Form,
   FormLabel,

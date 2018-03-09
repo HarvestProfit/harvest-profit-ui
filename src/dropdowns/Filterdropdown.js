@@ -2,13 +2,15 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import InputString from '../inputs/InputString';
-import ImmutabilityHelper from '../utilities/ImmutabilityHelper';
 
 /*
  * Returns the value of the option;
  */
 const filterOptionValue = (option) => {
   if (option.id === undefined) {
+    if (typeof option === 'string') {
+      return option.toLowerCase();
+    }
     return option;
   }
   return option.id;
@@ -25,7 +27,7 @@ const filterOptionText = (option) => {
 };
 
 
-export default class FilterDropdown extends PureComponent {
+export default class Filterdropdown extends PureComponent {
   static defaultProps = {
     placeholder: false,
     className: '',
@@ -42,6 +44,13 @@ export default class FilterDropdown extends PureComponent {
       })),
       PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
+    /** The current selected values */
+    value: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ]),
+    ).isRequired,
     /** Name of item selected from Drop down */
     name: PropTypes.string.isRequired,
     /** Placeholder text */
@@ -58,7 +67,6 @@ export default class FilterDropdown extends PureComponent {
     this.state = {
       open: false,
       search: '',
-      selected: [],
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.toggleOpen = this.toggleOpen.bind(this);
@@ -70,7 +78,6 @@ export default class FilterDropdown extends PureComponent {
    * Clears all the filtered items
    */
   clearFilters() {
-    this.setState({ selected: [] });
     this.props.onChange([]);
   }
 
@@ -86,16 +93,21 @@ export default class FilterDropdown extends PureComponent {
    */
   handleFilterChange(result) {
     const value = filterOptionValue(result);
-    const idxOfItem = this.state.selected.indexOf(value);
+    const idxOfItem = this.props.value.indexOf(value);
     let newSelected;
 
     if (idxOfItem >= 0) {
-      newSelected = ImmutabilityHelper.removeItemFromArrayByIndex(this.state.selected, idxOfItem);
+      newSelected = [
+        ...this.props.value.slice(0, idxOfItem),
+        ...this.props.value.slice(idxOfItem + 1),
+      ];
     } else {
-      newSelected = ImmutabilityHelper.insertItemIntoArray(this.state.selected, value);
+      newSelected = [
+        ...this.props.value,
+        value,
+      ];
     }
 
-    this.setState({ selected: newSelected });
     this.props.onChange(newSelected);
   }
 
@@ -111,7 +123,7 @@ export default class FilterDropdown extends PureComponent {
    */
   buttonClasses() {
     let classList = 'negative';
-    if (this.state.selected.length > 0) {
+    if (this.props.value.length > 0) {
       classList += ' has-filters';
     }
     return classList;
@@ -143,7 +155,7 @@ export default class FilterDropdown extends PureComponent {
       let isChecked = false;
       const filterValue = filterOptionValue(result);
       const filterText = filterOptionText(result);
-      if (this.state.selected.indexOf(filterValue) >= 0) isChecked = true;
+      if (this.props.value.indexOf(filterValue) >= 0) isChecked = true;
 
       return (
         <DropdownItem
@@ -165,7 +177,7 @@ export default class FilterDropdown extends PureComponent {
    * Renders the clear filter button if there are any filters
    */
   renderClearFilter() {
-    if (this.state.selected.length > 0) {
+    if (this.props.value.length > 0) {
       /* eslint-disable jsx-a11y/click-events-have-key-events */
       return (
         <div className="clear-filters" role="button" tabIndex={-1} onClick={this.clearFilters}>
