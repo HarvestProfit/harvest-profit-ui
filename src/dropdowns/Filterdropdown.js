@@ -27,7 +27,7 @@ const filterOptionText = (option) => {
 };
 
 
-export default class Filterdropdown extends PureComponent {
+export default class FilterDropdown extends PureComponent {
   static defaultProps = {
     placeholder: false,
     className: '',

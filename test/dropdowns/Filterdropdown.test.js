@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Filterdropdown } from '../../src/index';
+import { FilterDropdown } from '../../src/index';
 
 const objectValues = [
   {
@@ -23,12 +23,12 @@ const objectValues = [
 
 const stringValues = ['First Names', 'Last Names', 'Family', 'Friends'];
 
-describe('<Filterdropdown />', () => {
+describe('<FilterDropdown />', () => {
   describe('provides the ability to control the selected options', () => {
     it('should set the selected options with object values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <Filterdropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={objectValues}
           value={[1]}
@@ -49,7 +49,7 @@ describe('<Filterdropdown />', () => {
     it('should set the selected options with string values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <Filterdropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={stringValues}
           value={['first names']}
@@ -72,7 +72,7 @@ describe('<Filterdropdown />', () => {
     it('should select the first option with object values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <Filterdropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={objectValues}
           value={[]}
@@ -93,7 +93,7 @@ describe('<Filterdropdown />', () => {
     it('should select the first option with string values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <Filterdropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={stringValues}
           value={[]}
@@ -116,7 +116,7 @@ describe('<Filterdropdown />', () => {
     it('should filter to "first" with object values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <Filterdropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={objectValues}
           value={[]}
@@ -135,7 +135,7 @@ describe('<Filterdropdown />', () => {
     it('should filter to "first" with string values', () => {
       const changeFunc = jest.fn();
       const filter = shallow(
-        <Filterdropdown
+        <FilterDropdown
           onChange={changeFunc}
           values={stringValues}
           value={[]}
