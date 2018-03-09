@@ -24,12 +24,11 @@ const optionText = (option) => {
 };
 
 /**
- * Creates a searchable dropdown allowing for quick searching in large dropdown lists
- * and selecting a value like with a normal select box
+ * Creates a searchable list allowing for quick searching in large dropdown lists
  */
-export default class SearchableDropdown extends PureComponent {
+export default class SearchableDropdownList extends PureComponent {
   static defaultProps = {
-    placeholder: 'Select',
+    placeholder: false,
     className: '',
   }
 
@@ -45,13 +44,11 @@ export default class SearchableDropdown extends PureComponent {
       PropTypes.arrayOf(PropTypes.object),
       PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
-    /** The current selected values */
-    value: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string,
-    ]).isRequired,
     /** Placeholder text */
-    placeholder: PropTypes.string,
+    placeholder: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
+    ]),
     /** Optional class names for the component */
     className: PropTypes.string,
   }
@@ -69,7 +66,6 @@ export default class SearchableDropdown extends PureComponent {
 
   handleClick(itemValue) {
     this.props.onChange(itemValue);
-    this.setState({ open: false, search: '' });
   }
 
   handleSearch(string) {
@@ -84,46 +80,25 @@ export default class SearchableDropdown extends PureComponent {
     let results = this.props.values;
     if (this.state.search !== '') {
       results = results.filter((result) => {
-        if (optionText(result).toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) {
+        const resultText = `${optionText(result)}`;
+        if (resultText.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) {
           return true;
         }
         return false;
       });
     }
-    return results.map((result) => {
-      let selectedClass = '';
-      const filterValue = optionValue(result);
-      const filterText = optionText(result);
-      if (this.props.value === filterValue) selectedClass = 'selected';
-
-      return (
-        <DropdownItem
-          key={filterValue}
-          toggle={false}
-          onClick={() => this.handleClick(filterValue)}
-          className={selectedClass}
-        >
-          {filterText}
-        </DropdownItem>
-      );
-    });
+    return results.map(result => (
+      <DropdownItem
+        key={optionValue(result)}
+        onClick={() => this.handleClick(optionValue(result))}
+      >
+        {optionText(result)}
+      </DropdownItem>
+    ));
   }
 
   render() {
     const filteredSearchResults = this.renderSearchResults();
-    const selectedValue = this.props.values.filter(v =>
-      (this.props.value === optionValue(v)));
-
-    let selectedValueText;
-    if (selectedValue.length > 0) {
-      selectedValueText = optionText(selectedValue[0]);
-    }
-
-    if (typeof selectedValueText === 'string' && selectedValueText.length < 1) {
-      selectedValueText = this.props.placeholder;
-    }
-
-    selectedValueText = selectedValueText || this.props.placeholder;
     return (
       <div style={{ display: 'inline-block', minWidth: '10rem' }} className={`searchable-dropdown v2 ${this.props.className}`}>
         <Dropdown
@@ -134,7 +109,7 @@ export default class SearchableDropdown extends PureComponent {
             tag="button"
             type="button"
           >
-            {selectedValueText}
+            {this.props.placeholder || 'Select'}
           </DropdownToggle>
           <DropdownMenu className="center" flip={false}>
             <InputString
