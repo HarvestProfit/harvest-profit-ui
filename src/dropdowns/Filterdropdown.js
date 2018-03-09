@@ -26,7 +26,9 @@ const filterOptionText = (option) => {
   return option.text.toString();
 };
 
-
+/**
+ * A multi select filter dropdown with search ability
+ */
 export default class FilterDropdown extends PureComponent {
   static defaultProps = {
     placeholder: false,

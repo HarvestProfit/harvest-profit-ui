@@ -24,7 +24,7 @@ const optionText = (option) => {
 };
 
 /**
- * Creates a searchable dropdown allowing for quick searching in large dropdown lists
+ * Creates a searchable list allowing for quick searching in large dropdown lists
  */
 export default class SearchableDropdownList extends PureComponent {
   static defaultProps = {
