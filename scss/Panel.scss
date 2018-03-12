@@ -7,55 +7,65 @@ $panel-v2-box-shadow-color: rgba($true-black, 0.1);
 $panel-v2-contents-color: $true-white;
 
 .panel.v2 {
-  background-color: $panel-v2-body-color;
+  background: transparent;
+  box-shadow: none;
   border: 0;
-  box-shadow: 0 1px 2px 0 $panel-v2-box-shadow-color;
-  margin: 16px;
   padding: 0;
+  display: inline-flex;
+  flex-flow: column;
+  width: 100%;
+  margin: 0;
 
-  & > div.title {
-    background-color: $panel-v2-title-color;
-    color: $panel-v2-title-text-color;
-    display: block;
-    font-weight: bold;
-    line-height: 1em;
-    margin: 0;
-    padding: 16px;
-    text-transform: uppercase;
-    width: 100%;
+  & > div {
+    flex: 1;
+    margin: 16px;
+    box-shadow: 0 1px 2px 0 $panel-v2-box-shadow-color;
+    background-color: $panel-v2-body-color;
 
-    & > small {
-      color: $panel-v2-subtitle-text-color;
-      font-weight: normal;
-      margin: 2px 0 0;
+    & > div.title {
+      background-color: $panel-v2-title-color;
+      color: $panel-v2-title-text-color;
       display: block;
-      font-size: 12px;
-      text-transform: none;
-    }
-  }
-
-  & > div.content {
-    padding: 0;
-
-    & > div.panel-contents {
+      font-weight: bold;
+      line-height: 1em;
+      margin: 0;
       padding: 16px;
+      text-transform: uppercase;
+      width: 100%;
+
+      & > small {
+        color: $panel-v2-subtitle-text-color;
+        font-weight: normal;
+        margin: 2px 0 0;
+        display: block;
+        font-size: 12px;
+        text-transform: none;
+      }
     }
 
-    .empty-panel-instructions {
-      & > .instructions {
-        margin-bottom: 20px;
-        text-align: center;
+    & > div.content {
+      padding: 0;
 
-        & > * {
-          margin-bottom: 5px;
-        }
+      & > div.panel-contents {
+        padding: 16px;
       }
 
-      & > .actions {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-around;
-        margin-bottom: 20px;
+      .empty-panel-instructions {
+        & > .instructions {
+          margin-bottom: 20px;
+          text-align: center;
+
+          & > * {
+            margin-bottom: 5px;
+          }
+        }
+
+        & > .actions {
+          display: flex;
+          flex-flow: row;
+          justify-content: space-around;
+          margin-bottom: 20px;
+        }
       }
     }
   }
