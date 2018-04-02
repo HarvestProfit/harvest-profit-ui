@@ -15,7 +15,7 @@ const TableHeaderItem = (props) => {
     styles.maxWidth = props.width;
   }
   return (
-    <div className={classList.join(' ')} style={styles}>
+    <div className={`table-header-item v2 ${classList.join(' ')}`} style={styles}>
       {props.children}
     </div>
   );

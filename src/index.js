@@ -40,10 +40,18 @@ import TableItem from './table/TableItem';
 import TableGroup from './table/TableGroup';
 import TableRow from './table/TableRow';
 import TableHeaderItem from './table/TableHeaderItem';
-
+import SortableTableBody from './table/SortableTableBody';
+import SortableTableHeaderItem from './table/SortableTableHeaderItem';
+import SortableTableItemHandle from './table/SortableTableItemHandle';
+import SortableTableHeaderItemHandle from './table/SortableTableHeaderItemHandle';
 
 import NumbersHelper from './utilities/NumbersHelper';
 import ImmutabilityHelper from './utilities/ImmutabilityHelper';
+
+TableBody.Sortable = SortableTableBody;
+TableItem.SortHandle = SortableTableItemHandle;
+TableHeaderItem.SortHandle = SortableTableHeaderItemHandle;
+TableHeaderItem.Sortable = SortableTableHeaderItem;
 
 export {
   Dropdown,
@@ -83,6 +91,10 @@ export {
   TableGroup,
   TableRow,
   TableHeaderItem,
+  SortableTableBody,
+  SortableTableHeaderItem,
+  SortableTableItemHandle,
+  SortableTableHeaderItemHandle,
 
   NumbersHelper,
   ImmutabilityHelper,
