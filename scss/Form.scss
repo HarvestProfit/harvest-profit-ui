@@ -6,14 +6,21 @@ $form-v2-action-text-color: $true-white;
 $form-v2-background-color: $true-white;
 
 .form.v2 {
-  background: white;
+  &:not(.transparent) {
+    background: $form-v2-background-color;
+  }
+
+  &.transparent {
+    background: transparent;
+  }
 
   &.padding {
     padding: 16px;
   }
 
   input,
-  textarea {
+  textarea,
+  .relational-textfield-input {
     width: 250px;
   }
 

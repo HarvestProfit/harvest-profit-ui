@@ -7,8 +7,20 @@ function onClick(buttonNumber) {
 }
 
 <div>
-  <Button className="primary" onClick={() => onClick('one')}>Click Me, I&apos;m #1!</Button>
+  <Button onClick={() => onClick('1')}>Standard Button</Button>
   <span>&nbsp;</span>
-  <Button className="secondary" onClick={() => onClick('two')}>Click Me Instead!</Button>
+  <Button float onClick={() => onClick('2')}>Floating Button</Button>
+  <span>&nbsp;</span>
+  <Button color onClick={() => onClick('3')}>Colored Button</Button>
+  <span>&nbsp;</span>
+  <Button float color danger onClick={() => onClick('4')}>Floating Colored Danger Button</Button>
+  <span>&nbsp;</span>
+  <Button float onClick={() => onClick('5')}>Button <p>with a label</p></Button>
+  <span>&nbsp;</span>
+  <Button mono onClick={() => onClick('6')}>Mono Button <p>with a label</p></Button>
+  <span>&nbsp;</span>
+  <Button color mono onClick={() => onClick('7')}>Float Mono Button</Button>
+  <span>&nbsp;</span>
+  <Button disabled color onClick={() => onClick('8')}>Disabled</Button>
 </div>
 ```

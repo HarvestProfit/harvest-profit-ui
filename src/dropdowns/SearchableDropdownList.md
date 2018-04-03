@@ -14,6 +14,7 @@ const values = [
     onChange={(value) => setState({ value })}
     placeholder="Select"
     values={values}
+    buttonFloat
   />
 </div>
 

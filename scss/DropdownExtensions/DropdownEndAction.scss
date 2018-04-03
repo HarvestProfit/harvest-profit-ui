@@ -1,0 +1,23 @@
+@import '../ColorPallet';
+$dropdown-end-action-v2-txt-color: $dark-green;
+$dropdown-end-action-v2-hover-color: rgba($light-grey, 0.2);
+$dropdown-end-action-v2-option-border: $white;
+$dropdown-end-action-v2-option-hover-bg: $light-white;
+
+.dropdown-end-action.v2 {
+  border-top: 1px solid $dropdown-end-action-v2-option-border;
+  transition: all 0.2s;
+
+  button {
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 12px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  &:hover {
+    background: $dropdown-end-action-v2-option-hover-bg;
+  }
+}

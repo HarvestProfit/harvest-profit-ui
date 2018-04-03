@@ -1,68 +1,31 @@
 @import './ColorPallet';
-$filter-dropdown-v2-underline: $white;
-$filter-dropdown-v2-item-background: $true-white;
-$filter-dropdown-v2-item-background-hover: $light-white;
 $filter-dropdown-v2-clear-background: $light-white;
 $filter-dropdown-v2-clear-text-color: $dark-grey;
 $filter-dropdown-v2-clear-overline: $dark-white;
 
-$filter-dropdown-v2-button-color: $true-white;
-$filter-dropdown-v2-button-text-color: $grey;
 $filter-dropdown-v2-button-has-filter-color: $green;
 
 
 .filter-dropdown.v2 {
-  .dropdown-menu {
-    outline: none;
-  }
-
-  .dropdown-item > * {
-    cursor: pointer;
-    display: inline-block;
-  }
-
-  .filter-options {
-    max-height: 300px;
-    overflow-y: scroll;
-
-    button {
-      border-radius: 0;
-      border-bottom: 1px solid $filter-dropdown-v2-underline;
-      box-shadow: none;
-      background: $filter-dropdown-v2-item-background;
-
-      &:hover {
-        box-shadow: none;
-      }
-
-      &:active {
-        background: $filter-dropdown-v2-item-background-hover;
-        color: inherit;
-      }
-    }
-  }
-
+  // Adds space to the checkbox
   input[type="checkbox"] {
-    width: auto;
     margin-right: 5px;
   }
 
-  .clear-filters {
+  // The end component
+  .filterdropdown-end-action.v2 button {
     background: $filter-dropdown-v2-clear-background;
     color: $filter-dropdown-v2-clear-text-color;
     font-size: 10px;
-    text-align: center;
-    padding: 5px;
     border-top: 1px solid $filter-dropdown-v2-clear-overline;
-    cursor: pointer;
     opacity: 0.8;
     transition: opacity 0.4s;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-radius: 0;
+    width: 100%;
+    white-space: nowrap;
 
     &:hover {
       opacity: 1;
-      transition: opacity 0.4s;
 
       i::before {
         content: '\f057';
@@ -70,26 +33,8 @@ $filter-dropdown-v2-button-has-filter-color: $green;
     }
   }
 
-  button {
-    background: $filter-dropdown-v2-button-color;
-    color: $filter-dropdown-v2-button-text-color;
-
-    &:active {
-      cursor: pointer;
-    }
-
-    &.has-filters i {
-      color: $filter-dropdown-v2-button-has-filter-color;
-      transition: color 0.3s;
-    }
-  }
-
-  & > * {
-    display: inline-block;
-    position: relative;
-
-    & > div {
-      padding: 2px;
-    }
+  // Styles the icon green if there is a filter
+  .dropdown-toggle.v2 .has-filters i {
+    color: $filter-dropdown-v2-button-has-filter-color;
   }
 }

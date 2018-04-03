@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
  * Renders a form.
  */
 const Form = (props) => {
-  let paddingClass = '';
-  if (props.padding) paddingClass = 'padding';
+  const styleClasses = [];
+  if (props.padding) { styleClasses.push('padding'); }
+  if (props.transparent) { styleClasses.push('transparent'); }
+
   return (
-    <div className={`form v2 ${paddingClass} ${props.className}`} style={props.style}>
+    <div className={`form v2 ${styleClasses.join(' ')} ${props.className}`} style={props.style}>
       {props.children}
     </div>
   );
@@ -23,6 +25,8 @@ Form.propTypes = {
   style: PropTypes.shape({}),
   /** pads the form */
   padding: PropTypes.bool,
+  /** Removes the background color */
+  transparent: PropTypes.bool,
 };
 
 Form.defaultProps = {
@@ -30,6 +34,7 @@ Form.defaultProps = {
   children: '',
   style: {},
   padding: false,
+  transparent: false,
 };
 
 export default Form;

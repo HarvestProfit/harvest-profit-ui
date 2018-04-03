@@ -1,7 +1,13 @@
 import Dropdown from './dropdowns/Dropdown';
+import DropdownItem from './dropdowns/DropdownItem';
 import FilterDropdown from './dropdowns/Filterdropdown';
 import SearchableDropdown from './dropdowns/SearchableDropdown';
 import SearchableDropdownList from './dropdowns/SearchableDropdownList';
+import SearchableDropdownBase from './dropdowns/SearchableDropdownBase';
+
+import DropdownEndAction from './dropdown_extensions/DropdownEndAction';
+import EditableDropdownOption from './dropdown_extensions/EditableDropdownOption';
+
 
 import Form from './forms/Form';
 import FormLabel from './forms/FormLabel';
@@ -10,6 +16,7 @@ import FormText from './forms/FormText';
 import InputNumeric from './inputs/InputNumeric';
 import InputString from './inputs/InputString';
 import InputTextArea from './inputs/InputTextArea';
+import RelationalTextfield from './inputs/RelationalTextfield';
 import Switch from './inputs/Switch';
 
 
@@ -55,9 +62,13 @@ TableHeaderItem.Sortable = SortableTableHeaderItem;
 
 export {
   Dropdown,
+  DropdownItem,
   FilterDropdown,
   SearchableDropdown,
   SearchableDropdownList,
+  SearchableDropdownBase,
+  EditableDropdownOption,
+  DropdownEndAction,
 
   Form,
   FormLabel,
@@ -67,6 +78,7 @@ export {
   InputString,
   InputTextArea,
   Switch,
+  RelationalTextfield,
 
   Column,
   Row,

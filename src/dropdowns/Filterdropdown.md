@@ -7,8 +7,8 @@ initialState = { value: []};
     onChange={(value) => setState({ value })}
     values={["hello", "goodbye"]}
     value={state.value}
-    name = {"NAME"}
-    placeholder = {"Search"}  
+    name={"Name"}
+    placeholder={"Search"}  
   />
 </div>
 ```

@@ -4,10 +4,17 @@ import {
   SortableHandle,
 } from 'react-sortable-hoc';
 
-import SortHandleIcon from './sort-handle.svg';
+import SortHandleIcon from '../../images/table/sort-handle.svg';
 
 import TableItem from './TableItem';
 
+/**
+ * This is a `TableItem` that can be used as a handle for the drag and drop
+ * `SortableTableBody`.  This is useful for when the `SortableTableBody` has
+ * `useDragHandle`, that will disable dragging on the table row and sorting
+ * will not be available unless you have a handle.  See the `SortableTableBody`
+ * documentation for how to define a custom sort handle.
+ */
 const SortableTableItemHandle = SortableHandle(props => (
   <TableItem
     important={props.important}

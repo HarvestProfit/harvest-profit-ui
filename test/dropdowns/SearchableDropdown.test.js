@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { SearchableDropdown } from '../../src/index';
+import { mount } from 'enzyme';
+import { SearchableDropdown } from '../../src';
 
 const objectValues = [
   {
@@ -21,134 +21,17 @@ const objectValues = [
   },
 ];
 
-const stringValues = ['First Names', 'Last Names', 'Family', 'Friends'];
-
 describe('<SearchableDropdown />', () => {
-  describe('provides the ability to control the selected option', () => {
-    it('should set the selected option with object values', () => {
-      const changeFunc = jest.fn();
-      const filter = shallow(
-        <SearchableDropdown
-          onChange={changeFunc}
-          values={objectValues}
-          value=""
-          name="Filter"
-        />,
-      );
+  it('should render', () => {
+    const changeFunc = jest.fn();
+    const dd = mount(
+      <SearchableDropdown
+        onChange={changeFunc}
+        values={objectValues}
+        value=""
+      />,
+    );
 
-      filter.setState({
-        search: 'last',
-      });
-
-
-      filter.find('DropdownItem').simulate('click');
-      expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual(2);
-    });
-
-    it('should set the selected option with string values', () => {
-      const changeFunc = jest.fn();
-      const filter = shallow(
-        <SearchableDropdown
-          onChange={changeFunc}
-          values={stringValues}
-          value=""
-          name="Filter"
-        />,
-      );
-
-      filter.setState({
-        search: 'last',
-      });
-
-
-      filter.find('DropdownItem').simulate('click');
-      expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual('Last Names');
-    });
-  });
-
-  describe('provides the ability to select an option', () => {
-    it('should select the first option with object values', () => {
-      const changeFunc = jest.fn();
-      const filter = shallow(
-        <SearchableDropdown
-          onChange={changeFunc}
-          values={objectValues}
-          value=""
-          name="Filter"
-        />,
-      );
-
-      filter.setState({
-        search: 'first',
-      });
-
-
-      filter.find('DropdownItem').simulate('click');
-      expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual(1);
-    });
-
-    it('should select the first option with string values', () => {
-      const changeFunc = jest.fn();
-      const filter = shallow(
-        <SearchableDropdown
-          onChange={changeFunc}
-          values={stringValues}
-          value=""
-          name="Filter"
-        />,
-      );
-
-      filter.setState({
-        search: 'first',
-      });
-
-
-      filter.find('DropdownItem').simulate('click');
-      expect(changeFunc.mock.calls.length).toEqual(1);
-      expect(changeFunc.mock.calls[0][0]).toEqual('First Names');
-    });
-  });
-
-  describe('provides the ability to search options', () => {
-    it('should filter to "first" with object values', () => {
-      const changeFunc = jest.fn();
-      const filter = shallow(
-        <SearchableDropdown
-          onChange={changeFunc}
-          values={objectValues}
-          value=""
-          name="Filter"
-        />,
-      );
-
-      filter.setState({
-        search: 'first',
-      });
-
-      const options = filter.find('DropdownItem');
-      expect(options.length).toEqual(1);
-    });
-
-    it('should filter to "first" with string values', () => {
-      const changeFunc = jest.fn();
-      const filter = shallow(
-        <SearchableDropdown
-          onChange={changeFunc}
-          values={stringValues}
-          value=""
-          name="Filter"
-        />,
-      );
-
-      filter.setState({
-        search: 'first',
-      });
-
-      const options = filter.find('DropdownItem');
-      expect(options.length).toEqual(1);
-    });
+    expect(dd.find('SearchableDropdownBase').exists()).toEqual(true);
   });
 });

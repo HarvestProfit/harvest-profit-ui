@@ -1,0 +1,73 @@
+@import '~bootstrap/scss/dropdown';
+@import "ColorPallet";
+
+@import "DropdownExtensions/DropdownEndAction";
+@import "DropdownExtensions/EditableDropdownOption";
+
+$dropdown-menu-v2-option-bg: $true-white;
+$dropdown-menu-v2-option-hover-bg: $light-white;
+$dropdown-menu-v2-option-txt: $light-black;
+$dropdown-menu-v2-option-selected: $white;
+$dropdown-menu-v2-option-border: $white;
+
+.dropdown-toggle.v2 {
+  display: flex;
+  flex-flow: column;
+
+  &::after {
+    display: none;
+  }
+}
+
+.dropdown-menu.v2 {
+  outline: none;
+  overflow: hidden;
+
+  &.show {
+    display: block;
+    padding: .5rem 0 0;
+  }
+
+  & > .dropdown-options {
+    max-height: 300px;
+    overflow-y: scroll;
+    border-top: 1px solid $dropdown-menu-v2-option-border;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-item.v2 {
+    margin: 0;
+    font-size: 14px;
+    padding: .75em;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    color: $dropdown-menu-v2-option-txt;
+    background: $dropdown-menu-v2-option-bg;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background: $dropdown-menu-v2-option-hover-bg;
+    }
+
+    &.selected,
+    .selected {
+      background: $dropdown-menu-v2-option-selected;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $dropdown-menu-v2-option-border;
+    }
+  }
+
+  small.dropdown-item.v2 {
+    font-style: italic;
+    font-size: 12px;
+    opacity: 0.8;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}

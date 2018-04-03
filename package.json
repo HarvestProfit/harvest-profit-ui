@@ -1,6 +1,6 @@
 {
   "name": "harvest-profit-ui",
-  "version": "1.0.0-alpha.19",
+  "version": "1.0.0",
   "description": "Harvest Profit UI Components",
   "main": "dist/index.js",
   "repository": "https://github.com/HarvestProfit/harvest-profit-ui",
@@ -23,7 +23,8 @@
     "LICENSE.md",
     "README.md",
     "scss",
-    "dist"
+    "dist",
+    "images"
   ],
   "jest": {
     "collectCoverageFrom": [
@@ -32,7 +33,8 @@
     "setupTestFrameworkScriptFile": "./setupTests.test.js",
     "timers": "fake",
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.jsx?$": "babel-jest",
+      "\\.(svg|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js"
     }
   },
   "keywords": [
@@ -49,12 +51,15 @@
     "react-dom": "^0.14.9 || ^15.3.0 || ^16.0.0"
   },
   "dependencies": {
+    "bootstrap": "4.0.0-beta",
     "font-awesome": "^4.7.0",
+    "lodash": "^4.17.5",
     "lodash.isfinite": "^3.3.2",
     "lodash.snakecase": "^4.1.1",
     "lodash.tonumber": "^4.0.3",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
+    "react-sortable-hoc": "^0.6.8",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^5.0.0-alpha.4"
   },

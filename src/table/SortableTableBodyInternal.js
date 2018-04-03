@@ -7,8 +7,11 @@ import {
 
 import TableBody from './TableBody';
 
+// Defines each child as a sortable element
 const SortableItem = SortableElement(props => props.item);
 
+
+// This is the sort container
 const SortableForm = SortableContainer((props) => {
   let bodyClasses = `sortable-table-body ${props.tableBodyClassName || ''}`;
   if (props.disabled) {

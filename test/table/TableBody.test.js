@@ -9,6 +9,6 @@ describe('<TableBody />', () => {
         <TableRow>1</TableRow>
       </TableBody>,
     );
-    expect(table.find('.body').exists()).toEqual(true);
+    expect(table.find('.table-body').exists()).toEqual(true);
   });
 });

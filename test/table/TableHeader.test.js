@@ -8,6 +8,6 @@ describe('<TableHeader />', () => {
       <TableHeader>
         <TableHeaderItem>Header Item</TableHeaderItem>
       </TableHeader>);
-    expect(table.find('.header').exists()).toEqual(true);
+    expect(table.find('.table-header').exists()).toEqual(true);
   });
 });

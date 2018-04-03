@@ -1,0 +1,66 @@
+@import './ColorPallet';
+$searchable-dropdown-v2-button-bg: $light-white;
+$searchable-dropdown-v2-button-border: $white;
+$searchable-dropdown-v2-button-txt: $light-black;
+$searchable-dropdown-v2-option-active: $light-white;
+$searchable-dropdown-v2-option-selected: $white;
+$searchable-dropdown-v2-option-border: $white;
+$searchable-dropdown-v2-arrow-color: $light-black;
+
+
+$relational-textfield-v2-background-color: $light-white;
+$relational-textfield-v2-border-color: $white;
+$relational-textfield-v2-focus-background-color: $true-white;
+$relational-textfield-v2-focus-border-color: $dark-white;
+
+.relational-textfield.v2 {
+  // Hides the default toggle button
+  .relational-textfield-dropdown-toggle {
+    height: 0;
+  }
+
+  // No search box so remove the extra padding
+  .dropdown-menu.v2 {
+    padding: 0;
+  }
+
+  // Styles similar to an input.
+  .relational-textfield-input {
+    width: 150px;
+    background-color: $relational-textfield-v2-background-color;
+    border: 1px solid $relational-textfield-v2-border-color;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    padding: 8px;
+
+    &.focus {
+      background-color: $relational-textfield-v2-focus-background-color;
+      border: 1px solid $relational-textfield-v2-focus-border-color;
+    }
+
+    i {
+      margin-right: .5rem;
+    }
+
+    input {
+      border: none;
+      background: transparent;
+      padding: 0;
+      width: 90%;
+      outline: none;
+      font-size: inherit;
+
+      &::-webkit-contacts-auto-fill-button,
+      &::-webkit-credentials-auto-fill-button,
+      &:focus::-webkit-textfield-decoration-container {
+        visibility: hidden;
+        display: none !important;
+        pointer-events: none;
+        height: 0;
+        width: 0;
+        margin: 0;
+      }
+    }
+  }
+}
