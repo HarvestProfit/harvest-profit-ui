@@ -1,27 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import InputString from '../inputs/InputString';
+import SearchableDropdownBase from './SearchableDropdownBase';
+import Button from '../misc/Button';
 
-/*
- * Returns the value of the option;
- */
-const optionValue = (option) => {
-  if (option.id === undefined) {
-    return option;
-  }
-  return option.id;
-};
-
-/*
- * Returns the string text of the option;
- */
-const optionText = (option) => {
-  if (option.text === undefined) {
-    return option;
-  }
-  return option.text;
-};
 
 /**
  * Creates a searchable list allowing for quick searching in large dropdown lists
@@ -29,99 +10,45 @@ const optionText = (option) => {
 export default class SearchableDropdownList extends PureComponent {
   static defaultProps = {
     placeholder: false,
-    className: '',
+    defaultEmptyText: 'No options found',
+    buttonColor: false,
+    buttonPrimary: false,
+    buttonDanger: false,
+    buttonFloat: false,
   }
 
   static propTypes = {
-    /**
-     * Gets called whenever the user selects an option
-     *
-     * @param {string|number|boolean} value The new value
-     */
-    onChange: PropTypes.func.isRequired,
-    /** An array of values available to the user */
-    values: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.object),
-      PropTypes.arrayOf(PropTypes.string),
-    ]).isRequired,
     /** Placeholder text */
     placeholder: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.string,
     ]),
-    /** Optional class names for the component */
-    className: PropTypes.string,
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false,
-      search: '',
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
-    this.toggleOpen = this.toggleOpen.bind(this);
-  }
-
-  handleClick(itemValue) {
-    this.props.onChange(itemValue);
-  }
-
-  handleSearch(string) {
-    this.setState({ search: string });
-  }
-
-  toggleOpen() {
-    this.setState({ open: !this.state.open });
-  }
-
-  renderSearchResults() {
-    let results = this.props.values;
-    if (this.state.search !== '') {
-      results = results.filter((result) => {
-        const resultText = `${optionText(result)}`;
-        if (resultText.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) {
-          return true;
-        }
-        return false;
-      });
-    }
-    return results.map(result => (
-      <DropdownItem
-        key={optionValue(result)}
-        onClick={() => this.handleClick(optionValue(result))}
-      >
-        {optionText(result)}
-      </DropdownItem>
-    ));
+    defaultEmptyText: PropTypes.string,
+    buttonColor: PropTypes.bool,
+    buttonPrimary: PropTypes.bool,
+    buttonDanger: PropTypes.bool,
+    buttonFloat: PropTypes.bool,
   }
 
   render() {
-    const filteredSearchResults = this.renderSearchResults();
+    const dropdownButton = () => (
+      <Button
+        color={this.props.buttonColor}
+        primary={this.props.buttonPrimary}
+        danger={this.props.buttonDanger}
+        float={this.props.buttonFloat}
+      >
+        {this.props.placeholder || 'Select'}
+      </Button>
+    );
+
     return (
-      <div style={{ display: 'inline-block', minWidth: '10rem' }} className={`searchable-dropdown v2 ${this.props.className}`}>
-        <Dropdown
-          isOpen={this.state.open}
-          toggle={() => this.toggleOpen()}
-        >
-          <DropdownToggle
-            tag="button"
-            type="button"
-          >
-            {this.props.placeholder || 'Select'}
-          </DropdownToggle>
-          <DropdownMenu className="center" flip={false}>
-            <InputString
-              value={this.state.search}
-              onChange={this.handleSearch}
-              placeholder="Search"
-              style={{ margin: '0 .5rem', width: '90%' }}
-            />
-            {filteredSearchResults}
-          </DropdownMenu>
-        </Dropdown>
-      </div>
+      <SearchableDropdownBase
+        {...this.props}
+        placeholder={this.props.placeholder || 'Select'}
+        dropdownToggleComponent={dropdownButton}
+        closeOnSelect
+      />
     );
   }
 }

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
  * data as well as possible error notification.
  */
 const TableFooter = props => (
-  <div className={`footer ${props.className}`} style={props.style}>
+  <div className={`table-footer v2 ${props.className}`} style={props.style}>
     {props.children}
   </div>
 );

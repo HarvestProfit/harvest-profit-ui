@@ -1,13 +1,20 @@
 $fa-font-path: '../node_modules/font-awesome/fonts';
 @import './node_modules/font-awesome/scss/font-awesome';
 
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/transitions';
+
+@import 'Dropdown';
 @import 'variables';
 @import 'Button';
-@import  'Filters';
-@import 'forms/Dropdown';
-@import 'forms/Input';
+@import 'Filters';
+@import 'Input';
 @import 'layout/Header';
 @import 'Table';
+@import 'RelationalTextfield';
+@import 'SearchableDropdown';
 @import 'Modal';
 @import 'Panel';
 @import 'Form';

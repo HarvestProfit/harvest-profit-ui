@@ -1,0 +1,54 @@
+@import './ColorPallet';
+$searchable-dropdown-v2-button-bg: $light-white;
+$searchable-dropdown-v2-button-border: $white;
+$searchable-dropdown-v2-button-txt: $light-black;
+$searchable-dropdown-v2-arrow-color: $light-black;
+
+.searchable-dropdown.v2 {
+
+  // Adds up/down arrows to the toggle button
+  &.toggle-select-arrows .dropdown-toggle.v2 button {
+    background-color: $searchable-dropdown-v2-button-bg;
+    border: 1px solid $searchable-dropdown-v2-button-border;
+    color: $searchable-dropdown-v2-button-txt;
+    padding: 8px;
+    min-width: 150px;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    &::before {
+      content: '';
+      height: 100%;
+      width: 25px;
+      background: linear-gradient(to right, rgba($searchable-dropdown-v2-button-bg, 0.18), $searchable-dropdown-v2-button-bg 50%);
+    }
+
+    &::after {
+      font: normal normal normal 14px/1 FontAwesome;
+      padding: 0 5px;
+      line-height: 10px;
+      margin: auto;
+      height: 10px;
+      color: $searchable-dropdown-v2-arrow-color;
+      opacity: 0.3;
+      transition: all 0.2s;
+      content: '\f0dc';
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

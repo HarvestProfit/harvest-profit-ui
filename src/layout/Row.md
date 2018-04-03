@@ -24,3 +24,21 @@ Items that wrap
   <p style={{minWidth: "50%"}}>Item</p>
 </Row>
 ```
+
+Items gapped (space-between)
+```js
+<Row hAlign="gap">
+  <p>Item</p>
+  <p>Item</p>
+  <p>Item</p>
+</Row>
+```
+
+Items padded (space-around)
+```js
+<Row hAlign="pad">
+  <p>Item</p>
+  <p>Item</p>
+  <p>Item</p>
+</Row>
+```

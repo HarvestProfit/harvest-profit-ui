@@ -43,6 +43,10 @@ module.exports = {
       components: 'src/dropdowns/*.{js,jsx}',
     },
     {
+      name: 'Dropdown Extensions',
+      components: 'src/dropdown_extensions/*.{js,jsx}',
+    },
+    {
       name: 'Tables',
       components: 'src/table/*.{js,jsx}',
     },

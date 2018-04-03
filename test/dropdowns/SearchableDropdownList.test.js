@@ -1,21 +1,37 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { SearchableDropdownList } from '../../src/index';
+import { mount } from 'enzyme';
+import { SearchableDropdownList } from '../../src';
 
-const options = [
-  'value 1',
-  'value 2',
+const objectValues = [
+  {
+    id: 1,
+    text: 'First Names',
+  },
+  {
+    id: 2,
+    text: 'Last Names',
+  },
+  {
+    id: 3,
+    text: 'Family',
+  },
+  {
+    id: 4,
+    text: 'Friends',
+  },
 ];
 
-describe('<SearchableList />', () => {
-  it('should render a searchable list', () => {
-    const onChange = jest.fn();
-    const dropdown = shallow(
+describe('<SearchableDropdownList />', () => {
+  it('should render', () => {
+    const changeFunc = jest.fn();
+    const dd = mount(
       <SearchableDropdownList
-        onChange={onChange}
-        values={options}
+        onChange={changeFunc}
+        values={objectValues}
+        value=""
       />,
     );
-    expect(dropdown.find('div').exists()).toEqual(true);
+
+    expect(dd.find('SearchableDropdownBase').exists()).toEqual(true);
   });
 });

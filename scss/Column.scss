@@ -18,6 +18,14 @@
     justify-content: flex-end;
   }
 
+  &.v-gap {
+    justify-content: space-between;
+  }
+
+  &.v-pad {
+    justify-content: space-around;
+  }
+
   &.spaced {
     padding: 0 5px;
   }

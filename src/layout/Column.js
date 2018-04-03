@@ -38,7 +38,7 @@ Column.propTypes = {
   children: PropTypes.node,
   /** if the children should fill the space */
   fill: PropTypes.bool,
-  vAlign: PropTypes.oneOf(['center', 'bottom', 'top']),
+  vAlign: PropTypes.oneOf(['center', 'bottom', 'top', 'gap', 'pad']),
   hAlign: PropTypes.oneOf(['center', 'right', 'left']),
   style: PropTypes.shape({}),
   spaced: PropTypes.bool,

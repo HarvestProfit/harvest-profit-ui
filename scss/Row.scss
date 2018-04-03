@@ -37,4 +37,12 @@
   &.h-left {
     justify-content: flex-start;
   }
+
+  &.h-gap {
+    justify-content: space-between;
+  }
+
+  &.h-pad {
+    justify-content: space-around;
+  }
 }

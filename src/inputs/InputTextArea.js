@@ -49,7 +49,7 @@ export default class InputTextArea extends Component {
   render() {
     return (
       <textarea
-        className={this.props.className}
+        className={`input v2 ${this.props.className}`}
         value={this.props.value}
         id={this.props.id ? this.props.id : ''}
         onChange={this.handleChange}

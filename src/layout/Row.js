@@ -41,7 +41,7 @@ Row.propTypes = {
   fill: PropTypes.bool,
   wrap: PropTypes.bool,
   vAlign: PropTypes.oneOf(['center', 'bottom', 'top']),
-  hAlign: PropTypes.oneOf(['center', 'right', 'left']),
+  hAlign: PropTypes.oneOf(['center', 'right', 'left', 'gap', 'pad']),
   style: PropTypes.shape({}),
   spaced: PropTypes.bool,
 };

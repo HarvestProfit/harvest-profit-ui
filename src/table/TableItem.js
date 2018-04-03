@@ -15,7 +15,7 @@ const TableItem = (props) => {
     styles.maxWidth = props.width;
   }
   return (
-    <div className={classList.join(' ')} style={styles}>
+    <div className={`table-item v2 ${classList.join(' ')}`} style={styles}>
       <span>
         {props.children}
       </span>

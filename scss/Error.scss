@@ -1,10 +1,28 @@
 @import './ColorPallet';
-$error-v2-color: $dark-red;
+$error-v2-text-color: $dark-red;
+$error-v2-color-text-color: $true-white;
+$error-v2-color-background: $dark-red;
 
 .error.v2 {
-  color: $error-v2-color;
+  color: $error-v2-text-color;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
 
   & > i {
     margin-right: 5px;
+  }
+
+  & > .column > .error-message {
+    margin: 0;
+  }
+
+  & > .column > .error-details {
+    font-size: 12px;
+  }
+
+  &.color {
+    color: $error-v2-color-text-color;
+    background: $error-v2-color-background;
   }
 }

@@ -17,12 +17,26 @@ $panel-v2-contents-color: $true-white;
     background-color: $panel-v2-title-color;
     color: $panel-v2-title-text-color;
     display: block;
+
     font-weight: bold;
     line-height: 1em;
     margin: 0;
     padding: 16px;
     text-transform: uppercase;
-    width: 100%;
+
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1em;
+      margin: 0;
+      padding: 0;
+      text-transform: uppercase;
+    }
+
+    & > * {
+      text-transform: initial;
+      font-weight: initial;
+    }
 
     & > small {
       color: $panel-v2-subtitle-text-color;

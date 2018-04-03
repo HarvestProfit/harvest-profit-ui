@@ -1,0 +1,54 @@
+@import '../ColorPallet';
+$editable-dropdown-option-v2-txt-color: $light-black;
+$editable-dropdown-option-v2-edit-color: $dark-green;
+$editable-dropdown-option-v2-hover-color: $light-white;
+$editable-dropdown-option-v2-option-border: $white;
+$editable-dropdown-option-v2-option-selected: $white;
+
+.editable-dropdown-option.v2 {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  &.selected {
+    background: $editable-dropdown-option-v2-option-selected;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $editable-dropdown-option-v2-option-border;
+  }
+
+  button {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    color: $editable-dropdown-option-v2-txt-color;
+    padding: 12px;
+    margin: 0;
+    text-align: left;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 12px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.editable-dropdown-option-action {
+      color: $editable-dropdown-option-v2-edit-color;
+      max-width: 34px;
+      min-width: 34px;
+      text-align: center;
+
+      i {
+        display: block;
+      }
+    }
+
+    &:hover {
+      transition: all 0.2s;
+      background: $editable-dropdown-option-v2-hover-color;
+    }
+  }
+}

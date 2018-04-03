@@ -91,7 +91,7 @@ export default class Dropdown extends PureComponent {
     return (
       <select
         id={this.props.id ? this.props.id : undefined}
-        className={`dropdown ${this.props.className}`}
+        className={`dropdown v2 ${this.props.className}`}
         defaultValue={this.props.selected}
         onChange={this.handleChange}
         style={this.props.style}

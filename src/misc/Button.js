@@ -5,6 +5,13 @@ const defaultProps = {
   className: 'primary',
   disabled: false,
   tag: 'button',
+  title: '',
+  color: false,
+  float: false,
+  primary: false,
+  danger: false,
+  mono: false,
+  onClick: () => {},
 };
 
 const propTypes = {
@@ -13,9 +20,16 @@ const propTypes = {
   /** Is the button disabled. */
   disabled: PropTypes.bool,
   /** The onClick Handler. */
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   /** The tag type to be used for the button. */
   tag: PropTypes.string,
+  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  color: PropTypes.bool,
+  float: PropTypes.bool,
+  primary: PropTypes.bool,
+  danger: PropTypes.bool,
+  mono: PropTypes.bool,
 };
 
 /**
@@ -27,17 +41,33 @@ class Button extends PureComponent {
       className,
       disabled,
       onClick,
+      title,
       tag: Tag,
-      ...attributes
+      children,
+      color,
+      primary,
+      float,
+      danger,
+      mono,
     } = this.props;
+
+    const styleClassNames = [];
+    if (color) { styleClassNames.push('color'); }
+    if (primary) { styleClassNames.push('primary'); }
+    if (float) { styleClassNames.push('float'); }
+    if (danger) { styleClassNames.push('danger'); }
+    if (mono) { styleClassNames.push('mono'); }
+    if (disabled) { styleClassNames.push('disabled'); }
 
     return (
       <Tag
-        className={`button ${className}`}
+        className={`button v2 ${styleClassNames.join(' ')} ${className}`}
         disabled={disabled}
         onClick={() => onClick()}
-        {...attributes}
-      />
+        title={title}
+      >
+        {children}
+      </Tag>
     );
   }
 }

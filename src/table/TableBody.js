@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
  * Placed directly under the `<Table>` component to render the table body
  */
 const TableBody = props => (
-  <div className={`body ${props.className}`} style={props.style}>
+  <div className={`table-body v2 ${props.className}`} style={props.style}>
     {props.children}
   </div>
 );
