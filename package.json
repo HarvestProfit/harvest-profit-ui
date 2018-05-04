@@ -66,6 +66,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6",
     "babel-eslint": "7",
     "babel-polyfill": "^6.26.0",
     "babel-preset-airbnb": "^2.4.0",
@@ -83,8 +84,8 @@
     "jest-enzyme": "^4.0.1",
     "postcss-smart-import": "^0.7.5",
     "react-dom": "^16.0.0",
-    "react-styleguidist": "^6.0.31",
+    "react-styleguidist": "^7.0.0",
     "webpack": "^3.8.1",
-    "webpack-blocks": "^1.0.0-rc.2"
+    "webpack-blocks": "^1.0.0"
   }
 }
