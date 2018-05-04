@@ -27,6 +27,7 @@ export default class Dropdown extends PureComponent {
      * Gets called whenever the user selects a value
      *
      * @param {string|number|boolean} value The new value
+     * @param {string|number|Object} meta The entire new value
      */
     onChange: PropTypes.func.isRequired,
     /** The selected value */
@@ -71,7 +72,8 @@ export default class Dropdown extends PureComponent {
         showPlaceholder: false,
       });
     }
-    this.props.onChange(newValue);
+    const value = this.props.values.find(v => v === newValue || v.id === newValue);
+    this.props.onChange(newValue, value);
   }
 
   renderPlaceholder() {
@@ -81,7 +83,8 @@ export default class Dropdown extends PureComponent {
         placeholder = '';
       }
       return (
-        <option value="defaultplaceholder" default>{placeholder}
+        <option value="defaultplaceholder" default>
+          {placeholder}
         </option>
       );
     }

@@ -34,6 +34,22 @@ describe('<Dropdown />', () => {
     );
     dropdown.simulate('change', { target: { value: options[1] } });
     expect(onChange.mock.calls.length).toEqual(1);
+    expect(onChange.mock.calls[0][0]).toEqual(options[1]);
+  });
+
+  it('should handle changes when an object with keys is given', () => {
+    const onChange = jest.fn();
+    const dropdown = shallow(
+      <Dropdown
+        onChange={onChange}
+        selected={2}
+        values={optionsWithKeys}
+      />,
+    );
+    dropdown.simulate('change', { target: { value: optionsWithKeys[1].id } });
+    expect(onChange.mock.calls.length).toEqual(1);
+    expect(onChange.mock.calls[0][0]).toEqual(optionsWithKeys[1].id);
+    expect(onChange.mock.calls[0][1]).toEqual(optionsWithKeys[1]);
   });
 
   describe('values without ids', () => {
