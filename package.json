@@ -17,7 +17,8 @@
     "report-coverage": "coveralls < ./coverage/lcov.info",
     "start": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "jest test/ --coverage"
+    "test": "jest",
+    "test-coverage": "jest test/ --coverage"
   },
   "files": [
     "LICENSE.md",
