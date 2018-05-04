@@ -27,6 +27,7 @@ export default class Dropdown extends PureComponent {
      * Gets called whenever the user selects a value
      *
      * @param {string|number|boolean} value The new value
+     * @param {string|number|Object} meta The entire new value
      */
     onChange: PropTypes.func.isRequired,
     /** The selected value */
@@ -35,10 +36,20 @@ export default class Dropdown extends PureComponent {
       PropTypes.string,
       PropTypes.number,
     ]),
-    /** An array of values available to the user */
+    /**
+     * An array of values available to the user.
+     *
+     * If passing an array of key-values,
+     * use the format `[{ id: 1, text: 'label' }]`.
+     *
+     * Or just use a simple array ['one', 'two', 'three'].
+     */
     values: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.string),
-      PropTypes.arrayOf(PropTypes.object),
+      PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
+      PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        text: PropTypes.string,
+      })),
     ]).isRequired,
     /** Placeholder text */
     placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -61,7 +72,8 @@ export default class Dropdown extends PureComponent {
         showPlaceholder: false,
       });
     }
-    this.props.onChange(newValue);
+    const value = this.props.values.find(v => v === newValue || v.id === newValue);
+    this.props.onChange(newValue, value);
   }
 
   renderPlaceholder() {
@@ -71,7 +83,8 @@ export default class Dropdown extends PureComponent {
         placeholder = '';
       }
       return (
-        <option value="defaultplaceholder" default>{placeholder}
+        <option value="defaultplaceholder" default>
+          {placeholder}
         </option>
       );
     }
