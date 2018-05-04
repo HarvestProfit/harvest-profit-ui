@@ -30,7 +30,7 @@
     "collectCoverageFrom": [
       "src/**/!(index).{js,jsx}"
     ],
-    "setupTestFrameworkScriptFile": "./setupTests.test.js",
+    "setupTestFrameworkScriptFile": "./setupTests.js",
     "timers": "fake",
     "transform": {
       "^.+\\.jsx?$": "babel-jest",
