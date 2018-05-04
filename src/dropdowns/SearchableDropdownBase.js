@@ -179,15 +179,16 @@ export default class SearchableDropdownBase extends PureComponent {
       const text = optionText(result);
       const isSelected = this.optionValueIsSelected(value);
 
-      return this.renderOption(text, value, isSelected);
+      return this.renderOption(text, value, isSelected, result);
     });
   }
 
-  renderOption(text, value, selected) {
+  renderOption(text, value, selected, result) {
     if (this.props.component) {
       return (
         <this.props.component
           key={value}
+          meta={result}
           text={text}
           value={value}
           selected={selected}
