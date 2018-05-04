@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const TableGroup = (props) => {
   const classList = ['group', `group-${props.group}`, props.className, props.align, props.size, `grp-${props.condensedSize}`];
   return (
-    <div className={classList.join(' ')}>
+    <div className={classList.join(' ')} style={props.style}>
       {props.children}
     </div>
   );
@@ -26,6 +26,8 @@ TableGroup.propTypes = {
   condensedSize: PropTypes.oneOf(['', 'exsmall', 'small', 'medium', 'large']),
   /** Either TableHeaderItems or TableItems */
   children: PropTypes.node,
+  /** Optional styles */
+  style: PropTypes.shape({}),
 };
 
 TableGroup.defaultProps = {
@@ -35,6 +37,7 @@ TableGroup.defaultProps = {
   size: '',
   condensedSize: '',
   children: null,
+  style: {},
 };
 
 export default TableGroup;

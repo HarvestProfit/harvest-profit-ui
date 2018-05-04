@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import PanelContents from '../../src/panel/PanelContents';
+import { PanelContents } from '../../src/index';
 
 describe('<PanelContents />', () => {
   it('should render a the panel contents component', () => {

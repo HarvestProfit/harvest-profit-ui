@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
  * Renders a panel.
  */
 const Panel = props => (
-  <div className={`panel v2 ${props.className}`}>
+  <div className={`panel v2 ${props.className}`} style={props.style}>
     {props.children}
   </div>
 );
@@ -15,11 +15,14 @@ Panel.propTypes = {
   className: PropTypes.string,
   /** Contents for the panel */
   children: PropTypes.node,
+  /** Optional styles */
+  style: PropTypes.shape({}),
 };
 
 Panel.defaultProps = {
   className: '',
   children: '',
+  style: {},
 };
 
 export default Panel;

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const PanelContents = (props) => {
   if (props.padding) {
     return (
-      <div className={`content ${props.className}`}>
+      <div className={`content ${props.className}`} style={props.style}>
         <div className="panel-contents">
           {props.children}
         </div>
@@ -15,7 +15,7 @@ const PanelContents = (props) => {
     );
   }
   return (
-    <div className={`content ${props.className}`}>
+    <div className={`content ${props.className}`} style={props.style}>
       {props.children}
     </div>
   );
@@ -28,12 +28,15 @@ PanelContents.propTypes = {
   children: PropTypes.node,
   /** Adds padding to the panel */
   padding: PropTypes.bool,
+  /** Optional styles */
+  style: PropTypes.shape({}),
 };
 
 PanelContents.defaultProps = {
   className: '',
   padding: false,
   children: '',
+  style: {},
 };
 
 export default PanelContents;

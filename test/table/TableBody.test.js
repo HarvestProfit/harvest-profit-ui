@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TableBody from '../../src/table/TableBody';
-import TableRow from '../../src/table/TableRow';
+import { TableRow, TableBody } from '../../src/index';
 
 describe('<TableBody />', () => {
   it('should render a table body div', () => {
@@ -10,6 +9,6 @@ describe('<TableBody />', () => {
         <TableRow>1</TableRow>
       </TableBody>,
     );
-    expect(table.find('.body').exists()).toEqual(true);
+    expect(table.find('.table-body').exists()).toEqual(true);
   });
 });

@@ -9,13 +9,13 @@ const TableItem = (props) => {
   if (props.important) classList.push('greater');
   if (props.unimportant) classList.push('lesser');
   if (props.ellipsis) classList.push('ellipsis');
-  const styles = {};
+  const styles = { ...props.style };
   if (props.width !== '') {
     styles.minWidth = props.width;
     styles.maxWidth = props.width;
   }
   return (
-    <div className={classList.join(' ')} style={styles}>
+    <div className={`table-item v2 ${classList.join(' ')}`} style={styles}>
       <span>
         {props.children}
       </span>
@@ -40,6 +40,8 @@ TableItem.propTypes = {
   width: PropTypes.string,
   /** Text or aditional HTML */
   children: PropTypes.node,
+  /** Optional styles */
+  style: PropTypes.shape({}),
 };
 
 TableItem.defaultProps = {
@@ -51,6 +53,7 @@ TableItem.defaultProps = {
   ellipsis: false,
   width: '',
   children: null,
+  style: {},
 };
 
 export default TableItem;

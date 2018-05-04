@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
  * data as well as possible error notification.
  */
 const TableFooter = props => (
-  <div className={`footer ${props.className}`}>
+  <div className={`table-footer v2 ${props.className}`} style={props.style}>
     {props.children}
   </div>
 );
@@ -17,11 +17,14 @@ TableFooter.propTypes = {
   className: PropTypes.string,
   /** Table footer information, text or nodes */
   children: PropTypes.node,
+  /** Optional styles */
+  style: PropTypes.shape({}),
 };
 
 TableFooter.defaultProps = {
   className: '',
   children: null,
+  style: {},
 };
 
 export default TableFooter;

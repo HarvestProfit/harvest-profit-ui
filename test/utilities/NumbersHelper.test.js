@@ -1,4 +1,4 @@
-import NumbersHelper from '../../src/utilities/NumbersHelper';
+import { NumbersHelper } from '../../src/index';
 
 describe('NumbersHelper', () => {
   describe('numberWithCommas', () => {

@@ -23,12 +23,28 @@ module.exports = {
       content: 'README.md',
     },
     {
+      name: 'Page Design',
+      content: 'PageDesign.md',
+    },
+    {
       name: 'Layout',
       components: 'src/layout/*.{js,jsx}',
     },
     {
-      name: 'UI',
-      components: 'src/*.{js,jsx}',
+      name: 'Form Layouts',
+      components: 'src/forms/*.{js,jsx}',
+    },
+    {
+      name: 'Inputs',
+      components: 'src/inputs/*.{js,jsx}',
+    },
+    {
+      name: 'Dropdowns',
+      components: 'src/dropdowns/*.{js,jsx}',
+    },
+    {
+      name: 'Dropdown Extensions',
+      components: 'src/dropdown_extensions/*.{js,jsx}',
     },
     {
       name: 'Tables',
@@ -43,8 +59,8 @@ module.exports = {
       components: 'src/panel/*.{js,jsx}',
     },
     {
-      name: 'Forms',
-      components: 'src/forms/*.{js,jsx}',
+      name: 'Misc',
+      components: 'src/misc/*.{js,jsx}',
     },
   ],
   webpackConfig: createConfig([

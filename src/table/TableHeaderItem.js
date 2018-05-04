@@ -9,13 +9,13 @@ const TableHeaderItem = (props) => {
   if (props.important) classList.push('greater');
   if (props.unimportant) classList.push('lesser');
   if (props.ellipsis) classList.push('ellipsis');
-  const styles = {};
+  const styles = { ...props.style };
   if (props.width !== '') {
     styles.minWidth = props.width;
     styles.maxWidth = props.width;
   }
   return (
-    <div className={classList.join(' ')} style={styles}>
+    <div className={`table-header-item v2 ${classList.join(' ')}`} style={styles}>
       {props.children}
     </div>
   );
@@ -38,6 +38,8 @@ TableHeaderItem.propTypes = {
   width: PropTypes.string,
   /** Text or aditional HTML */
   children: PropTypes.node,
+  /** Optional styles */
+  style: PropTypes.shape({}),
 };
 
 TableHeaderItem.defaultProps = {
@@ -49,6 +51,7 @@ TableHeaderItem.defaultProps = {
   ellipsis: false,
   width: '',
   children: null,
+  style: {},
 };
 
 export default TableHeaderItem;

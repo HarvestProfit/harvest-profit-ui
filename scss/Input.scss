@@ -1,0 +1,25 @@
+@import "ColorPallet";
+
+$input-v2-background-color: $light-white;
+$input-v2-border-color: $white;
+$input-v2-focus-background-color: $true-white;
+$input-v2-focus-border-color: $dark-white;
+$input-v2-text-color: $light-black;
+
+
+.input.v2 {
+  box-sizing: border-box;
+  background-color: $input-v2-background-color;
+  border: 1px solid $input-v2-border-color;
+  border-radius: 2px;
+  color: $input-v2-text-color;
+  font-size: 14px;
+  outline: none;
+  padding: 8px;
+  -webkit-font-smoothing: antialiased;
+
+  &:focus {
+    background-color: $input-v2-focus-background-color;
+    border-color: $input-v2-focus-border-color;
+  }
+}

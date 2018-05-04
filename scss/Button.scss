@@ -1,44 +1,105 @@
-.button {
+@import "ColorPallet";
+
+$button-v2-text: $dark-green;
+$button-v2-text-danger: $dark-red;
+$button-v2-text-mono: $light-grey;
+$button-v2-float-background: $true-white;
+$button-v2-float-text: $dark-grey;
+$button-v2-color-primary-background: $green;
+$button-v2-color-danger-background: $dark-red;
+$button-v2-color-text: $true-white;
+$button-v2-color-mono-background: $light-grey;
+
+.button.v2 {
   border: 0;
   border-radius: 2px;
-  font-size: 1rem;
-  padding: .8rem 2rem;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  transition: all 0.2s;
+  background: transparent;
+  font-weight: normal;
+  color: $button-v2-text;
+  -webkit-font-smoothing: antialiased;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  opacity: 1;
+
+  p {
+    font-weight: bold;
+    margin: 0;
+    display: inline-block;
+    font-size: inherit;
+  }
 
   &:hover {
-    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: none;
   }
 
-  //
-  // Colors
-  //
-  &.primary {
-    background-color: $green;
-    color: $white;
+  &.danger {
+    color: $button-v2-text-danger;
+  }
+
+  &.mono {
+    color: $button-v2-text-mono;
+    opacity: 0.8;
 
     &:hover {
-      background-color: darken($green, 5%);
+      opacity: 1;
     }
   }
 
-  &.secondary {
-    background-color: $white;
-    border: 1px solid darken($white, 5%);
-    color: $green;
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
 
     &:hover {
-      border: 1px solid darken($green, 5%);
-      color: darken($green, 5%);
+      opacity: 0.7;
     }
   }
 
-  //
-  // Sizes
-  //
-  &.small {
+  &.float {
+    font-weight: bold;
+    border: 1px solid $button-v2-float-background;
+    background: $button-v2-float-background;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    color: $button-v2-float-text;
 
+    p {
+      font-weight: normal;
+    }
+
+    &:hover:not(.disabled) {
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      opacity: 1;
+    }
   }
 
-  &.large {
+  &.color {
+    font-weight: bold;
+    color: $button-v2-color-text;
+    background: $button-v2-color-primary-background;
+    border-color: $button-v2-color-primary-background;
 
+    p {
+      font-weight: normal;
+    }
+
+    &.primary {
+      border-color: $button-v2-color-primary-background;
+      background: $button-v2-color-primary-background;
+    }
+
+    &.danger {
+      border-color: $button-v2-color-danger-background;
+      background: $button-v2-color-danger-background;
+    }
+
+    &.mono {
+      border-color: $button-v2-color-mono-background;
+      background: $button-v2-color-mono-background;
+    }
   }
 }

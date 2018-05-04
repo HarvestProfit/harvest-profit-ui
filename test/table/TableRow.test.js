@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TableRow from '../../src/table/TableRow';
+import { TableRow } from '../../src/index';
 
 describe('<TableRow />', () => {
   it('should render a table row div', () => {

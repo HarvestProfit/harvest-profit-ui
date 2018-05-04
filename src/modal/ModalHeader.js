@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
  * Renders a modal header with a close button and the ability to add a title and subtitle.
  */
 export default class ModalHeader extends PureComponent {
+  static defaultProps = {
+    style: {},
+  }
   static propTypes = {
     /** The title of the modal */
     title: PropTypes.string,
@@ -14,6 +17,8 @@ export default class ModalHeader extends PureComponent {
     children: PropTypes.node,
     /** An optional CB to close the modal, the cancel button will not render without this. */
     toggle: PropTypes.func,
+    /** Optional styles */
+    style: PropTypes.shape({}),
   }
 
   static defaultProps = {
@@ -59,7 +64,7 @@ export default class ModalHeader extends PureComponent {
       );
     }
     return (
-      <div className="title">
+      <div className="title" style={this.props.style}>
         {this.renderModalTitleText()}
         {this.renderModalSubtitleText()}
         {this.renderCancelButton()}

@@ -19,12 +19,10 @@ body.modal-v2-noscroll {
 
   &.small > .contents {
     min-height: 250px;
-    max-height: 350px;
   }
 
   &.large > .contents {
     min-height: 500px;
-    max-height: 600px;
   }
 
   & > .contents {
@@ -32,8 +30,6 @@ body.modal-v2-noscroll {
     top: 5%;
     right: 0;
     left: 0;
-    bottom: 0;
-    height: 50%;
     width: 50%;
     background: $modal-v2-background-color;
     z-index: 1002;
@@ -42,12 +38,11 @@ body.modal-v2-noscroll {
     min-width: 500px;
     min-height: 350px;
     max-width: 700px;
-    max-height: 500px;
 
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    overflow: scroll;
+    overflow: visible;
 
     & > .body {
       flex: 1;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TableItem from '../../src/table/TableItem';
-import TableGroup from '../../src/table/TableGroup';
+import { TableItem, TableGroup } from '../../src/index';
 
 describe('<TableGroup />', () => {
   it('should render a table group div', () => {

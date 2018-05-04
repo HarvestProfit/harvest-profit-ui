@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TableHeaderItem from '../../src/table/TableHeaderItem';
+import { TableHeaderItem } from '../../src/index';
 
 describe('<TableHeaderItem />', () => {
   it('should render a table header item div', () => {

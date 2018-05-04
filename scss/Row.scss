@@ -1,0 +1,48 @@
+.row.v2 {
+  display: flex;
+  flex-flow: row;
+
+  &.fill > * {
+    flex: 1 0 auto;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.v-center {
+    align-items: center;
+  }
+
+  &.v-top {
+    align-items: flex-start;
+  }
+
+  &.v-bottom {
+    align-items: flex-end;
+  }
+
+  &.spaced {
+    padding: 5px 0;
+  }
+
+  &.h-center {
+    justify-content: center;
+  }
+
+  &.h-right {
+    justify-content: flex-end;
+  }
+
+  &.h-left {
+    justify-content: flex-start;
+  }
+
+  &.h-gap {
+    justify-content: space-between;
+  }
+
+  &.h-pad {
+    justify-content: space-around;
+  }
+}

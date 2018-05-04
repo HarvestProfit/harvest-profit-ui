@@ -1,4 +1,4 @@
-import ImmutabilityHelper from '../../src/utilities/ImmutabilityHelper';
+import { ImmutabilityHelper } from '../../src/index';
 
 describe('ImmutabilityHelper', () => {
   describe('updateObjectPropertyInArray', () => {

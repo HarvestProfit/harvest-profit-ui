@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ModalHeader from '../../src/modal/ModalHeader';
+import { ModalHeader } from '../../src/index';
 
 describe('<ModalHeader />', () => {
   it('should render a modal header with title div', () => {
