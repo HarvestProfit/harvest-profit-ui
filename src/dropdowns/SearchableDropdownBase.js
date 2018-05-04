@@ -50,6 +50,7 @@ export default class SearchableDropdownBase extends PureComponent {
      * Gets called whenever the user selects an option
      *
      * @param {string|number|boolean} value The new value
+     * @param {string|number|Object} meta The entire value
      */
     onChange: PropTypes.func.isRequired,
     /** An array of values available to the user */
@@ -145,7 +146,7 @@ export default class SearchableDropdownBase extends PureComponent {
       }
     }
 
-    this.props.onChange(selectedValue);
+    this.props.onChange(selectedValue, option);
 
     let menuIsOpen = this.state.open;
     if (this.props.closeOnSelect) {
@@ -178,15 +179,16 @@ export default class SearchableDropdownBase extends PureComponent {
       const text = optionText(result);
       const isSelected = this.optionValueIsSelected(value);
 
-      return this.renderOption(text, value, isSelected);
+      return this.renderOption(text, value, isSelected, result);
     });
   }
 
-  renderOption(text, value, selected) {
+  renderOption(text, value, selected, result) {
     if (this.props.component) {
       return (
         <this.props.component
           key={value}
+          meta={result}
           text={text}
           value={value}
           selected={selected}

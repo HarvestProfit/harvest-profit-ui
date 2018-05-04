@@ -21,6 +21,7 @@ export default class SearchableDropdown extends PureComponent {
      * Gets called whenever the user selects an option
      *
      * @param {string|number|boolean} value The new value
+     * @param {string|number|Object} meta The entire value
      */
     onChange: PropTypes.func.isRequired,
     /** An array of values available to the user */
