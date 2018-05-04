@@ -1,0 +1,48 @@
+@import './ColorPallet';
+$tab-switcher-v2-active-color: $dark-green;
+$tab-switcher-v2-inactive-color: $dark-white;
+
+
+.tab-switcher.v2 {
+
+  &.center-aligned {
+    text-align: center;
+  }
+
+  &.left-aligned {
+    text-align: left;
+  }
+
+  &.right-aligned {
+    text-align: right;
+  }
+
+
+  .tab-switcher-item {
+    border-bottom: 3px solid $tab-switcher-v2-inactive-color;
+    margin-bottom: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+
+    &:hover {
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
+
+    &.active {
+      border-color: $tab-switcher-v2-active-color;
+      opacity: 1;
+    }
+  }
+
+
+    &.large-size .tab-switcher-item {
+      font-size: 16px;
+    }
+
+    &.small-size .tab-switcher-item {
+      font-size: 12px;
+    }
+}

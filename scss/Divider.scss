@@ -1,0 +1,19 @@
+@import './ColorPallet';
+$divider-v2-line-color: $dark-grey;
+$divider-v2-name-color: $dark-grey;
+
+.divider.v2 {
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 2px solid $divider-v2-line-color;
+  margin: 32px 16px;
+  padding: 0 16px;
+
+  & > legend {
+    color: $divider-v2-name-color;
+    font-weight: bold;
+    padding: 0 3px;
+    text-transform: uppercase;
+  }
+}
