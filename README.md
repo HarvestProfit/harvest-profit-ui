@@ -1,6 +1,4 @@
-<div style="text-align: center">
-  <img src="https://www.harvestprofit.com/logo.png" alt="Harvest Profit"></img>
-</div>
+![Harvest Profit](https://www.harvestprofit.com/logo.png)
 
 [![npm](https://img.shields.io/npm/v/harvest-profit-ui.svg)](https://www.npmjs.com/package/harvest-profit-ui)  [![Build Status](https://travis-ci.org/HarvestProfit/harvest-profit-ui.svg?branch=master)](https://travis-ci.org/HarvestProfit/harvest-profit-ui) [![Coverage Status](https://coveralls.io/repos/github/HarvestProfit/harvest-profit-ui/badge.svg?branch=master)](https://coveralls.io/github/HarvestProfit/harvest-profit-ui?branch=master) [![npm](https://img.shields.io/npm/l/harvest-profit-ui.svg)](https://github.com/HarvestProfit/harvest-profit-ui/blob/master/LICENSE.md)
 
