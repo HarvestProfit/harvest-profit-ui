@@ -35,10 +35,20 @@ export default class Dropdown extends PureComponent {
       PropTypes.string,
       PropTypes.number,
     ]),
-    /** An array of values available to the user */
+    /**
+     * An array of values available to the user.
+     *
+     * If passing an array of key-values,
+     * use the format `[{ id: 1, text: 'label' }]`.
+     *
+     * Or just use a simple array ['one', 'two', 'three'].
+     */
     values: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.string),
-      PropTypes.arrayOf(PropTypes.object),
+      PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
+      PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        text: PropTypes.string,
+      })),
     ]).isRequired,
     /** Placeholder text */
     placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
