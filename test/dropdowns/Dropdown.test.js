@@ -23,6 +23,7 @@ describe('<Dropdown />', () => {
     );
     expect(dropdown.find('select').exists()).toEqual(true);
   });
+
   it('should handle changes', () => {
     const onChange = jest.fn();
     const dropdown = shallow(
@@ -34,6 +35,7 @@ describe('<Dropdown />', () => {
     dropdown.simulate('change', { target: { value: options[1] } });
     expect(onChange.mock.calls.length).toEqual(1);
   });
+
   describe('values without ids', () => {
     it('should render values using the value text', () => {
       const onChange = jest.fn();
@@ -46,6 +48,7 @@ describe('<Dropdown />', () => {
       expect(dropdown.find('option').first().props().value).toEqual(options[0]);
     });
   });
+
   describe('values with ids', () => {
     it('should render values using the value id', () => {
       const onChange = jest.fn();
