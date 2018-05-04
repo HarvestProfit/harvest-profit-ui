@@ -11,7 +11,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "babel src -d dist --source-maps",
     "clean": "rm -rf ./dist",
     "lint": "eslint --config .eslintrc.json src/",
     "report-coverage": "coveralls < ./coverage/lcov.info",
