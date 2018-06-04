@@ -17,7 +17,7 @@ import SortableTableBodyInternal from './SortableTableBodyInternal';
  * also `TableItem.SortHandle`).  You can define a custom sort handle by using the
  * `SortableTableBody.createSortHandle`.
  * Example:
- * ```
+ * ```js
  * const Handle = SortableTableBody.createSortHandle(props => (<div>Sort</div>));
  * ```
  */

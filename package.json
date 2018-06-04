@@ -11,7 +11,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "babel src -d dist --source-maps",
     "clean": "rm -rf ./dist",
     "lint": "eslint --config .eslintrc.json src/",
     "report-coverage": "coveralls < ./coverage/lcov.info",
@@ -66,7 +66,9 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6",
     "babel-eslint": "7",
+    "babel-jest": "^22.4.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-airbnb": "^2.4.0",
     "babel-preset-react": "^6.24.1",
@@ -83,8 +85,8 @@
     "jest-enzyme": "^4.0.1",
     "postcss-smart-import": "^0.7.5",
     "react-dom": "^16.2.0",
-    "react-styleguidist": "^6.0.31",
+    "react-styleguidist": "^7.0.0",
     "webpack": "^3.8.1",
-    "webpack-blocks": "^1.0.0-rc.2"
+    "webpack-blocks": "^1.0.0"
   }
 }

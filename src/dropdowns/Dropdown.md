@@ -11,7 +11,7 @@ const values = [
 
 <div>
   <Dropdown onChange={(value) => setState({ value })} selected={state.value} values={values} />
-  <p>&nbsp; Currently selected value is: {state.value}</p>
+  <p>Currently selected value is: {state.value}</p>
 </div>
 ```
 
@@ -28,7 +28,7 @@ const values = [
 
 <div>
   <Dropdown placeholder="Select" onChange={(value) => setState({ value })} selected={state.value} values={values} />
-  <p>&nbsp; Currently selected value is: {state.value}</p>
+  <p>Currently selected value is: {state.value}</p>
 </div>
 ```
 Also allow empty
