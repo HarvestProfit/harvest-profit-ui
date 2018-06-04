@@ -82,6 +82,10 @@ export default class Dropdown extends PureComponent {
     return _.find(this.props.values, v => _.toString(optionValue(v)) === _.toString(value));
   }
 
+  hasSelection() {
+    return (this.getOptionForValue(this.props.selected) !== undefined);
+  }
+
   handleChange(event) {
     let selectedValue = null;
     const option = this.getOptionForValue(event.target.value);
@@ -93,17 +97,8 @@ export default class Dropdown extends PureComponent {
   }
 
   renderPlaceholder() {
-    if (!this.props.placeholder) { return null; }
-
-    // Show empty option
-    if (this.props.allowEmpty) {
-      return (
-        <option value="null" default>
-          {this.props.emptyOptionText}
-        </option>
-      );
-    // Show placeholder option
-    } else if (this.props.selected === null) {
+    if (!this.hasSelection(this.props.selected) && this.props.placeholder) {
+      // Show placeholder option
       let { placeholder } = this.props;
       if (typeof placeholder !== 'string') {
         placeholder = '';
@@ -111,6 +106,12 @@ export default class Dropdown extends PureComponent {
       return (
         <option value="null" default>
           {placeholder}
+        </option>
+      );
+    } else if (this.props.allowEmpty) {
+      return (
+        <option value="null">
+          {this.props.emptyOptionText}
         </option>
       );
     }
@@ -127,6 +128,7 @@ export default class Dropdown extends PureComponent {
         </option>
       );
     });
+
     return (
       <select
         id={this.props.id ? this.props.id : undefined}
