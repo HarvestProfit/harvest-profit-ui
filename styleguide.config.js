@@ -13,7 +13,9 @@ module.exports = {
   title: 'Harvest Profit UI',
   showUsage: true,
   skipComponentsWithoutExample: true,
-  template: 'assets/template.html',
+  template: {
+    favicon: 'https://www.harvestprofit.com/favicon.ico',
+  },
   require: [
     path.join(__dirname, 'scss/index.scss'),
   ],
