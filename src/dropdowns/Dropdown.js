@@ -12,6 +12,16 @@ const optionValue = (option) => {
   return option.id;
 };
 
+/*
+ * Returns the string text of the option;
+ */
+const optionText = (option) => {
+  if (option === null || option === undefined || option.text === undefined) {
+    return option;
+  }
+  return option.text;
+};
+
 /**
  * Renders a dropdown, with the specified option and other options available.
  * This is technically a **controlled** component, even though you can select a
@@ -120,8 +130,8 @@ export default class Dropdown extends PureComponent {
 
   render() {
     const options = this.props.values.map((option) => {
-      const value = option.id || option;
-      const text = option.text || value;
+      const value = optionValue(option);
+      const text = optionText(option);
       return (
         <option key={value} value={value}>
           {text}
