@@ -3,9 +3,9 @@ $searchable-dropdown-v2-button-bg: $light-white;
 $searchable-dropdown-v2-button-border: $white;
 $searchable-dropdown-v2-button-txt: $light-black;
 $searchable-dropdown-v2-arrow-color: $light-black;
+$searchable-dropdown-v2-placeholder-color: #aaaaaa;
 
 .searchable-dropdown.v2 {
-
   // Adds up/down arrows to the toggle button
   &.toggle-select-arrows .dropdown-toggle.v2 button {
     background-color: $searchable-dropdown-v2-button-bg;
@@ -17,6 +17,11 @@ $searchable-dropdown-v2-arrow-color: $light-black;
     white-space: nowrap;
     text-overflow: ellipsis;
     position: relative;
+
+    &.no-selection {
+      color: $searchable-dropdown-v2-placeholder-color;
+      font-style: italic;
+    }
 
     &::before,
     &::after {

@@ -1,0 +1,102 @@
+@import "ColorPallet";
+$label-value-v2-label-color: $light-grey;
+$label-value-v2-value-color: $light-black;
+
+.label-value.v2 {
+  h4 {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    white-space: nowrap;
+    font-size: 1em;
+  }
+
+  // Value
+  .value {
+    color: $label-value-v2-value-color;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // Label
+  .label {
+    text-transform: uppercase;
+    color: $label-value-v2-label-color;
+    font-weight: normal;
+  }
+
+  &.horizontal {
+    .value {
+      margin-left: 0.3em;
+    }
+
+    &.important {
+      .value,
+      .label {
+        font-size: 1.2em;
+      }
+    }
+
+    &.unimportant {
+      .value,
+      .label {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &.horizontal.swapped {
+    .value {
+      margin-left: 0;
+    }
+
+    .label {
+      margin-left: 0.3em;
+    }
+  }
+
+  &.vertical {
+    .value {
+      margin-bottom: 0.3em;
+    }
+
+    .label {
+      font-size: 0.7em;
+    }
+
+    &.important {
+      .value {
+        font-size: 1.2em;
+      }
+    }
+
+    &.unimportant {
+      .value {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &.vertical.swapped {
+    .label {
+      font-size: 0.7em;
+    }
+
+    .value {
+      margin-bottom: 0.3em;
+    }
+
+    &.important {
+      .value {
+        font-size: 1.2em;
+      }
+    }
+
+    &.unimportant {
+      .value {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

@@ -15,8 +15,6 @@ export default class ModalHeader extends PureComponent {
     subtitle: PropTypes.string,
     /** By providing children, you will disable the title/subtitle/cancel rendering */
     children: PropTypes.node,
-    /** An optional CB to close the modal, the cancel button will not render without this. */
-    toggle: PropTypes.func,
     /** Optional styles */
     style: PropTypes.shape({}),
   }
@@ -25,7 +23,6 @@ export default class ModalHeader extends PureComponent {
     title: null,
     subtitle: null,
     children: null,
-    toggle: null,
   }
 
   renderModalTitleText() {
@@ -46,15 +43,6 @@ export default class ModalHeader extends PureComponent {
     return null;
   }
 
-  renderCancelButton() {
-    if (this.props.toggle) {
-      return (
-        <button className="action v2" onClick={this.props.toggle}>Cancel</button>
-      );
-    }
-    return null;
-  }
-
   render() {
     if (this.props.children) {
       return (
@@ -67,7 +55,6 @@ export default class ModalHeader extends PureComponent {
       <div className="title" style={this.props.style}>
         {this.renderModalTitleText()}
         {this.renderModalSubtitleText()}
-        {this.renderCancelButton()}
       </div>
     );
   }

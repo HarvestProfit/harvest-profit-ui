@@ -12,7 +12,7 @@ import Button from '../misc/Button';
  * Returns the value of the option;
  */
 const optionValue = (option) => {
-  if (option.id === undefined) {
+  if (option === null || option === undefined || option.id === undefined) {
     return option;
   }
   return option.id;
@@ -22,7 +22,7 @@ const optionValue = (option) => {
  * Returns the string text of the option;
  */
 const optionText = (option) => {
-  if (option.text === undefined) {
+  if (option === null || option === undefined || option.text === undefined) {
     return option;
   }
   return option.text;
@@ -36,13 +36,17 @@ export default class SearchableDropdownBase extends PureComponent {
   static defaultProps = {
     placeholder: 'Select',
     className: '',
-    value: undefined,
+    value: null,
     component: false,
     endComponent: false,
     defaultEmptyText: 'No options found',
     dropdownToggleComponent: false,
     closeOnSelect: true,
     multiSelect: false,
+    groups: [],
+    hideEmptyGroups: false,
+    allowEmpty: false,
+    emptyOptionText: 'None',
   }
 
   static propTypes = {
@@ -53,38 +57,79 @@ export default class SearchableDropdownBase extends PureComponent {
      * @param {string|number|Object} meta The entire value
      */
     onChange: PropTypes.func.isRequired,
-    /** An array of values available to the user */
+    /**
+     * An array of values available to the user. For objects, use `id` for the value and `text`
+     * for display value.  Additionally, provide a `group` attribute to specify which group the
+     * value belongs to.
+     */
     values: PropTypes.arrayOf(
       PropTypes.oneOfType([
-        PropTypes.object,
+        PropTypes.shape({
+          id: PropTypes.any,
+          text: PropTypes.any,
+          group: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        }),
         PropTypes.string,
+        PropTypes.number,
+        PropTypes.bool,
       ]),
     ).isRequired,
-    /** The current selected values */
+    /** The current selected value(s) */
     value: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.string,
+      PropTypes.bool,
       PropTypes.arrayOf(PropTypes.any),
     ]),
     /** Placeholder text */
-    placeholder: PropTypes.string,
-    /** Optional class names for the component */
-    className: PropTypes.string,
+    placeholder: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.bool,
+      PropTypes.string,
+      PropTypes.node,
+    ]),
+    /** Optionally provide a unique component to render each option from */
     component: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.bool,
     ]),
+    /** Optionally provide a unique component that gets rendered at the bottom of the option menu */
     endComponent: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.bool,
     ]),
+    /** The text to render if no option is found in a search */
+    defaultEmptyText: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node,
+    ]),
+    /** Allow for more than one option to be selected.  Value becomes an array. */
+    multiSelect: PropTypes.bool,
+    /**
+     * Groups the provided values into the provided groups.  `key` matches to the `group` attribute
+     * on each value.  `name` is the displayed group name.  `emptyText` is the text displayed if
+     * there are no options for the group.
+     */
+    groups: PropTypes.arrayOf(PropTypes.shape({
+      key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      name: PropTypes.string,
+      emptyText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+    })),
+    /** If a group is empty, it will not show the group in the option menu. */
+    hideEmptyGroups: PropTypes.bool,
+    /** Allow for the users to select `none`, clearing the value. */
+    allowEmpty: PropTypes.bool,
+    /** The text for the select none option. */
+    emptyOptionText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+    /** Optional class names for the component */
+    className: PropTypes.string,
+    /** The component used to render the button that opens the option menu */
     dropdownToggleComponent: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.bool,
     ]),
-    defaultEmptyText: PropTypes.string,
+    /** Closes the option menu on selection */
     closeOnSelect: PropTypes.bool,
-    multiSelect: PropTypes.bool,
   }
 
   constructor(props) {
@@ -119,7 +164,7 @@ export default class SearchableDropdownBase extends PureComponent {
       return [];
     }
 
-    return undefined;
+    return null;
   }
 
   handleClick(itemValue) {
@@ -128,18 +173,22 @@ export default class SearchableDropdownBase extends PureComponent {
     if (option) {
       const value = optionValue(option);
       if (this.props.multiSelect) {
-        const idxOfItem = this.props.value.indexOf(value);
-
-        if (idxOfItem >= 0) {
-          selectedValue = [
-            ...this.props.value.slice(0, idxOfItem),
-            ...this.props.value.slice(idxOfItem + 1),
-          ];
+        if (itemValue === null) {
+          selectedValue = [];
         } else {
-          selectedValue = [
-            ...this.props.value,
-            value,
-          ];
+          const idxOfItem = this.props.value.indexOf(value);
+
+          if (idxOfItem >= 0) {
+            selectedValue = [
+              ...this.props.value.slice(0, idxOfItem),
+              ...this.props.value.slice(idxOfItem + 1),
+            ];
+          } else {
+            selectedValue = [
+              ...this.props.value,
+              value,
+            ];
+          }
         }
       } else {
         selectedValue = value;
@@ -174,13 +223,41 @@ export default class SearchableDropdownBase extends PureComponent {
         return false;
       });
     }
-    return results.map((result) => {
+
+    const resultMapFunc = (result) => {
       const value = optionValue(result);
       const text = optionText(result);
       const isSelected = this.optionValueIsSelected(value);
 
       return this.renderOption(text, value, isSelected, result);
-    });
+    };
+
+    if (this.props.groups.length > 0) {
+      return this.props.groups.map((group) => {
+        let options = results
+          .filter(result => result.group === group.key)
+          .map(result => resultMapFunc(result));
+
+        if (options.length < 1) {
+          if (this.props.hideEmptyGroups) {
+            return null;
+          }
+          options = (
+            <EmptyDropdownItem>
+              {group.emptyText || this.props.defaultEmptyText}
+            </EmptyDropdownItem>
+          );
+        }
+
+        return (
+          <React.Fragment key={group.key}>
+            <h5 className="group-title">{group.name}</h5>
+            {options}
+          </React.Fragment>
+        );
+      });
+    }
+    return results.map(result => resultMapFunc(result));
   }
 
   renderOption(text, value, selected, result) {
@@ -196,11 +273,13 @@ export default class SearchableDropdownBase extends PureComponent {
         />
       );
     }
+
     let selectedClass = '';
     if (selected) selectedClass = 'selected';
+    if (value === null) selectedClass = `${selectedClass} select-none`;
     return (
       <DropdownItem
-        key={value}
+        key={value || Math.random() * 1000}
         toggle={this.props.closeOnSelect}
         onClick={() => this.handleClick(value)}
         className={selectedClass}
@@ -227,10 +306,16 @@ export default class SearchableDropdownBase extends PureComponent {
 
   render() {
     let filteredSearchResults = this.renderSearchResults();
-
     if (filteredSearchResults.length < 1) {
       filteredSearchResults = (
         <EmptyDropdownItem>{this.props.defaultEmptyText}</EmptyDropdownItem>
+      );
+    } else if (this.props.allowEmpty) {
+      filteredSearchResults = (
+        <React.Fragment>
+          {this.renderOption(this.props.emptyOptionText, null, false, { isEmptyOption: true })}
+          {filteredSearchResults}
+        </React.Fragment>
       );
     }
 
@@ -252,8 +337,13 @@ export default class SearchableDropdownBase extends PureComponent {
 
     let DropdownToggleComponent = this.props.dropdownToggleComponent;
     if (!DropdownToggleComponent) {
+      let selectionClass = 'no-selection';
+      if (hasSelection) {
+        selectionClass = '';
+      }
+
       DropdownToggleComponent = props => (
-        <Button>
+        <Button className={selectionClass}>
           {props.selectedValue}
         </Button>
       );

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { Fade } from 'reactstrap';
+import Button from '../misc/Button';
 
 /**
  * Renders a modal container.  This will fade in (if supported) a modal attached to
@@ -76,6 +77,9 @@ export default class Modal extends PureComponent {
         <div className={modalClasses} style={this.props.style}>
           <div className="contents">
             {this.props.children}
+            <Button className="exit-button" onClick={this.props.toggle}>
+              <i className="fa fa-times" />
+            </Button>
           </div>
           <div className="overlay" onClick={this.props.toggle} />
         </div>

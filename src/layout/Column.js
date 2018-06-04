@@ -39,7 +39,7 @@ Column.propTypes = {
   /** if the children should fill the space */
   fill: PropTypes.bool,
   vAlign: PropTypes.oneOf(['center', 'bottom', 'top', 'gap', 'pad']),
-  hAlign: PropTypes.oneOf(['center', 'right', 'left']),
+  hAlign: PropTypes.oneOf(['center', 'right', 'left', 'stretch']),
   style: PropTypes.shape({}),
   spaced: PropTypes.bool,
 };

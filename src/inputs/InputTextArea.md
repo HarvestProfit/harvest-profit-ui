@@ -5,6 +5,7 @@ initialState = { value: '4242' };
   <InputTextArea
     value={state.value}
     onChange={(value) => setState({ value })}
+    placeholder="type something"
   />
   <p>
     Current Value: <code>{state.value}</code>
