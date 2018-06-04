@@ -173,7 +173,7 @@ export default class SearchableDropdownBase extends PureComponent {
     if (option) {
       const value = optionValue(option);
       if (this.props.multiSelect) {
-        if (itemValue === null) {
+        if (itemValue === null && this.props.allowEmpty) {
           selectedValue = [];
         } else {
           const idxOfItem = this.props.value.indexOf(value);

@@ -1,5 +1,16 @@
+import _ from 'lodash';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+
+/*
+ * Returns the value of the option;
+ */
+const optionValue = (option) => {
+  if (option === null || option === undefined || option.id === undefined) {
+    return option;
+  }
+  return option.id;
+};
 
 /**
  * Renders a dropdown, with the specified option and other options available.
@@ -10,9 +21,11 @@ export default class Dropdown extends PureComponent {
   static defaultProps = {
     id: false,
     className: '',
-    selected: false,
+    selected: null,
     placeholder: false,
     style: {},
+    allowEmpty: false,
+    emptyOptionText: 'None',
   }
 
   static propTypes = {
@@ -55,35 +68,48 @@ export default class Dropdown extends PureComponent {
     placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /** Optional styles */
     style: PropTypes.shape({}),
+    /** Allows selecting "null" */
+    allowEmpty: PropTypes.bool,
+    emptyOptionText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   }
 
   constructor(props) {
     super(props);
-    this.state = {
-      showPlaceholder: true,
-    };
     this.handleChange = this.handleChange.bind(this);
   }
 
+  getOptionForValue(value) {
+    return _.find(this.props.values, v => _.toString(optionValue(v)) === _.toString(value));
+  }
+
   handleChange(event) {
-    const newValue = event.target.value;
-    if (newValue !== 'defaultplaceholder') {
-      this.setState({
-        showPlaceholder: false,
-      });
+    let selectedValue = null;
+    const option = this.getOptionForValue(event.target.value);
+    if (option) {
+      selectedValue = optionValue(option);
     }
-    const value = this.props.values.find(v => v === newValue || v.id === newValue);
-    this.props.onChange(newValue, value);
+
+    this.props.onChange(selectedValue, option, event);
   }
 
   renderPlaceholder() {
-    if (this.state.showPlaceholder && this.props.placeholder) {
+    if (!this.props.placeholder) { return null; }
+
+    // Show empty option
+    if (this.props.allowEmpty) {
+      return (
+        <option value="null" default>
+          {this.props.emptyOptionText}
+        </option>
+      );
+    // Show placeholder option
+    } else if (this.props.selected === null) {
       let { placeholder } = this.props;
       if (typeof placeholder !== 'string') {
         placeholder = '';
       }
       return (
-        <option value="defaultplaceholder" default>
+        <option value="null" default>
           {placeholder}
         </option>
       );
