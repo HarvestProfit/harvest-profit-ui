@@ -59,7 +59,7 @@
     "lodash.snakecase": "^4.1.1",
     "lodash.tonumber": "^4.0.3",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
+    "react": "^16.2.0",
     "react-sortable-hoc": "^0.6.8",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^5.0.0-alpha.4"
@@ -84,7 +84,7 @@
     "jest": "^21.2.1",
     "jest-enzyme": "^4.0.1",
     "postcss-smart-import": "^0.7.5",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.2.0",
     "react-styleguidist": "^7.0.0",
     "webpack": "^3.8.1",
     "webpack-blocks": "^1.0.0"

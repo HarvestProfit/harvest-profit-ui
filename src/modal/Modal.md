@@ -4,13 +4,20 @@ initialState = { isOpen: false };
 <div>
   <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
-    <ModalHeader toggle={() => setState({ isOpen: false })}></ModalHeader>
+  <ModalSection>
+    <ModalHeader title="Hello There!"></ModalHeader>
     <ModalBody>
-      <h1>Hello there!</h1>
+      <h4>
+        Hey there!
+      </h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+      </p>
     </ModalBody>
     <ModalFooter>
-      Im a foot.
+      <Button float color onClick={() => alert('clicked me!')}>Footer Button</Button>
     </ModalFooter>
+    </ModalSection>
   </Modal>
 </div>
 ```
@@ -21,7 +28,9 @@ initialState = { isOpen: false };
 <div>
   <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
+    <ModalSection>
     <h1>Hello there!</h1>
+    </ModalSection>
   </Modal>
 </div>
 ```

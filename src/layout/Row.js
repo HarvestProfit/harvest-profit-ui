@@ -40,7 +40,7 @@ Row.propTypes = {
   /** if the children should fill the space */
   fill: PropTypes.bool,
   wrap: PropTypes.bool,
-  vAlign: PropTypes.oneOf(['center', 'bottom', 'top']),
+  vAlign: PropTypes.oneOf(['center', 'bottom', 'top', 'stretch']),
   hAlign: PropTypes.oneOf(['center', 'right', 'left', 'gap', 'pad']),
   style: PropTypes.shape({}),
   spaced: PropTypes.bool,

@@ -6,6 +6,10 @@ $panel-v2-body-color: $light-white;
 $panel-v2-box-shadow-color: rgba($true-black, 0.1);
 $panel-v2-contents-color: $true-white;
 
+$panel-section-v2-bg-color: $true-white;
+$panel-section-v2-unimportant-bg-color: $light-white;
+$panel-section-v2-important-bg-color: $light-black;
+
 .panel.v2 {
   background-color: $panel-v2-body-color;
   border: 0;
@@ -73,4 +77,31 @@ $panel-v2-contents-color: $true-white;
       }
     }
   }
+}
+
+.panel-section.v2 {
+  background: $panel-section-v2-bg-color;
+  padding: 15px 35px;
+
+  &.important {
+    font-size: 20px;
+  }
+
+  &.unimportant {
+    font-size: 11px;
+  }
+
+  &.colored {
+    &.important {
+      background: $panel-section-v2-important-bg-color;
+    }
+
+    &.unimportant {
+      background: $panel-section-v2-unimportant-bg-color;
+    }
+  }
+}
+
+.panel-spacer.v2 {
+  margin: 0 16px;
 }
