@@ -22,4 +22,17 @@ $input-v2-text-color: $light-black;
     background-color: $input-v2-focus-background-color;
     border-color: $input-v2-focus-border-color;
   }
+
+  &::placeholder {
+    font-style: italic;
+  }
+}
+
+
+input {
+  -webkit-font-smoothing: antialiased;
+
+  &::placeholder {
+    font-style: italic;
+  }
 }

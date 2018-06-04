@@ -22,6 +22,7 @@ import Switch from './inputs/Switch';
 
 import Column from './layout/Column';
 import Row from './layout/Row';
+import LabelValue from './layout/LabelValue';
 
 
 import Button from './misc/Button';
@@ -30,11 +31,14 @@ import Error from './misc/Error';
 
 import Modal from './modal/Modal';
 import ModalBody from './modal/ModalBody';
+import ModalSection from './modal/ModalSection';
 import ModalFooter from './modal/ModalFooter';
 import ModalHeader from './modal/ModalHeader';
 
 
 import Panel from './panel/Panel';
+import PanelSection from './panel/PanelSection';
+import PanelSpacer from './panel/PanelSpacer';
 import PanelTitle from './panel/PanelTitle';
 import PanelContents from './panel/PanelContents';
 
@@ -82,16 +86,20 @@ export {
 
   Column,
   Row,
+  LabelValue,
 
   Button,
   Error,
 
   Modal,
+  ModalSection,
   ModalBody,
   ModalFooter,
   ModalHeader,
 
   Panel,
+  PanelSection,
+  PanelSpacer,
   PanelTitle,
   PanelContents,
 

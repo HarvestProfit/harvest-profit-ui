@@ -41,4 +41,8 @@
   &.h-left {
     align-items: flex-start;
   }
+
+  &.h-stretch {
+    align-items: stretch;
+  }
 }

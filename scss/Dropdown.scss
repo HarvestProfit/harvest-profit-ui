@@ -9,6 +9,8 @@ $dropdown-menu-v2-option-hover-bg: $light-white;
 $dropdown-menu-v2-option-txt: $light-black;
 $dropdown-menu-v2-option-selected: $white;
 $dropdown-menu-v2-option-border: $white;
+$dropdown-menu-v2-placeholder-color: #aaaaaa;
+$dropdown-menu-v2-group-background-color: darken($light-white, 3%);
 
 .dropdown-toggle.v2 {
   display: flex;
@@ -16,6 +18,11 @@ $dropdown-menu-v2-option-border: $white;
 
   &::after {
     display: none;
+  }
+
+  button.no-selection {
+    color: $dropdown-menu-v2-placeholder-color;
+    font-style: italic;
   }
 }
 
@@ -33,6 +40,15 @@ $dropdown-menu-v2-option-border: $white;
     overflow-y: scroll;
     border-top: 1px solid $dropdown-menu-v2-option-border;
     margin-top: 0.5rem;
+
+    .group-title {
+      margin: 0;
+      background: $dropdown-menu-v2-group-background-color;
+      border-bottom: 1px solid $dropdown-menu-v2-option-border;
+      font-size: 12px;
+      font-weight: normal;
+      padding: 2px 12px;
+    }
   }
 
   .dropdown-item.v2 {
@@ -60,6 +76,12 @@ $dropdown-menu-v2-option-border: $white;
 
     &:not(:last-child) {
       border-bottom: 1px solid $dropdown-menu-v2-option-border;
+    }
+
+    &.select-none {
+      font-size: 12px;
+      font-style: italic;
+      padding-left: 12px;
     }
   }
 
