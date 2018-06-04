@@ -7,8 +7,8 @@ cache:
   directories:
   - node_modules
 script:
+  - yarn install
   - yarn run test-coverage
-  - yarn run build
 after_script:
   - yarn run report-coverage
 before_deploy:
