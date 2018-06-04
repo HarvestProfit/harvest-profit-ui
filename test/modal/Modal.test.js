@@ -88,4 +88,21 @@ describe('<Modal />', () => {
       expect(modal.find('div.modal').first().hasClass('large')).toEqual(true);
     });
   });
+
+  describe('modal class settings', () => {
+    it('should have a custom class when set', () => {
+      const toggle = jest.fn();
+      const modal = mount(
+        <Modal
+          className="super-awesome"
+          isOpen
+          large
+          toggle={toggle}
+        >
+          <h1>Hey</h1>
+        </Modal>,
+      );
+      expect(modal.find('div.modal').first().hasClass('super-awesome')).toEqual(true);
+    });
+  });
 });

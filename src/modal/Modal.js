@@ -12,6 +12,8 @@ export default class Modal extends PureComponent {
   static propTypes = {
     /** Most likely the modal header, body, or footer components, though anything is supported */
     children: PropTypes.node.isRequired,
+    /** Give the modal a custom class, or list of classes (space-separated) */
+    className: PropTypes.string,
     /** If the modal is open or not */
     isOpen: PropTypes.bool,
     /** The CB to change the modal open state */
@@ -25,6 +27,7 @@ export default class Modal extends PureComponent {
   }
 
   static defaultProps = {
+    className: '',
     isOpen: false,
     large: false,
     small: false,
@@ -58,8 +61,9 @@ export default class Modal extends PureComponent {
   }
 
   renderModal() {
+    // eslint-disable-next-line
     document.body.classList.toggle('modal-v2-noscroll', this.props.isOpen);
-    let modalClasses = 'modal v2';
+    let modalClasses = `modal v2 ${this.props.className}`;
     if (this.props.large) {
       modalClasses = `${modalClasses} large`;
     } else if (this.props.small) {

@@ -104,6 +104,7 @@ describe('<SearchableDropdownBase />', () => {
       filter.find('DropdownItem').simulate('click');
       expect(changeFunc.mock.calls.length).toEqual(1);
       expect(changeFunc.mock.calls[0][0]).toEqual([2]);
+      expect(changeFunc.mock.calls[0][1]).toEqual(objectValues[1]);
     });
   });
 
