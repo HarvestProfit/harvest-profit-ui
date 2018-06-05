@@ -46,7 +46,7 @@ describe('<Dropdown />', () => {
         values={optionsWithKeys}
       />,
     );
-    dropdown.simulate('change', { target: { value: optionsWithKeys[1].id } });
+    dropdown.simulate('change', { target: { value: optionsWithKeys[1].id.toString() } });
     expect(onChange.mock.calls.length).toEqual(1);
     expect(onChange.mock.calls[0][0]).toEqual(optionsWithKeys[1].id);
     expect(onChange.mock.calls[0][1]).toEqual(optionsWithKeys[1]);
@@ -78,7 +78,7 @@ describe('<Dropdown />', () => {
     });
   });
 
-  describe('placeholder', () => {
+  describe('placeholder and empty option', () => {
     it('should render a placeholder', () => {
       const onChange = jest.fn();
       const dropdown = shallow(
@@ -88,7 +88,49 @@ describe('<Dropdown />', () => {
           placeholder
         />,
       );
-      expect(dropdown.find('option').first().props().value).toEqual('defaultplaceholder');
+      expect(dropdown.find('option').first().props().value).toEqual('null');
+    });
+
+    it('should not render a placeholder', () => {
+      const onChange = jest.fn();
+      const dropdown = shallow(
+        <Dropdown
+          onChange={onChange}
+          values={optionsWithKeys}
+          selected={1}
+          placeholder
+        />,
+      );
+      expect(dropdown.find('option').first().props().value).not.toEqual('null');
+    });
+
+    it('should render a placeholder without an empty option', () => {
+      const onChange = jest.fn();
+      const dropdown = shallow(
+        <Dropdown
+          onChange={onChange}
+          values={optionsWithKeys}
+          placeholder
+          allowEmpty
+        />,
+      );
+      expect(dropdown.find('option').first().props().value).toEqual('null');
+      expect(dropdown.find('option').length).toEqual(3);
+    });
+
+    it('should render an empty option', () => {
+      const onChange = jest.fn();
+      const dropdown = shallow(
+        <Dropdown
+          onChange={onChange}
+          values={optionsWithKeys}
+          selected={1}
+          placeholder
+          allowEmpty
+        />,
+      );
+      expect(dropdown.find('option').first().props().value).toEqual('null');
+      expect(dropdown.find('option').length).toEqual(3);
     });
   });
 });
