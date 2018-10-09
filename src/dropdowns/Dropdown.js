@@ -68,9 +68,9 @@ export default class Dropdown extends PureComponent {
      * Or just use a simple array ['one', 'two', 'three'].
      */
     values: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
+      PropTypes.arrayOf(PropTypes.any),
       PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        id: PropTypes.any,
         text: PropTypes.string,
       })),
     ]).isRequired,
