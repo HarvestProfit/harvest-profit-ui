@@ -1,6 +1,11 @@
 Standard panel
 
 ```js
+import Panel from './Panel'
+import PanelTitle from './PanelTitle'
+import PanelContents from './PanelContents'
+;
+
 <Panel>
   <PanelTitle>Sample Panel</PanelTitle>
   <PanelContents>
@@ -11,6 +16,11 @@ Standard panel
 
 Sometimes you want the content to be padded correctly
 ```js
+import Panel from './Panel'
+import PanelTitle from './PanelTitle'
+import PanelContents from './PanelContents'
+;
+
 <Panel>
   <PanelTitle>Sample Panel</PanelTitle>
   <PanelContents padding>
@@ -21,6 +31,13 @@ Sometimes you want the content to be padded correctly
 
 Add more content to the header
 ```js
+import Row from '../layout/Row'
+
+import Panel from './Panel'
+import PanelTitle from './PanelTitle'
+import PanelContents from './PanelContents'
+;
+
 <Panel>
   <PanelTitle>
     <Row hAlign="gap">
@@ -36,6 +53,14 @@ Add more content to the header
 
 Panels can also be defined using sections instead of just titles and contents.  
 ```js
+import Row from '../layout/Row'
+
+import Panel from './Panel'
+import PanelTitle from './PanelTitle'
+import PanelSection from './PanelSection'
+import PanelContents from './PanelContents'
+;
+
 <Panel>
   <PanelSection>
     <Row hAlign="gap">
@@ -51,6 +76,14 @@ Panels can also be defined using sections instead of just titles and contents.
 
 Also color your sections
 ```js
+import Row from '../layout/Row'
+
+import Panel from './Panel'
+import PanelTitle from './PanelTitle'
+import PanelSection from './PanelSection'
+import PanelContents from './PanelContents'
+;
+
 <Panel>
   <PanelSection important colored>
     <Row hAlign="gap">
