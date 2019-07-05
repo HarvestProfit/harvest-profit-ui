@@ -4,7 +4,7 @@ import PureReactComponent from '../utilities/PureReactComponent';
 
 const TableContainer = PureReactComponent(props => (
   <div className="table-container">
-    {...props.children}
+    {props.children}
   </div>
 ));
 
