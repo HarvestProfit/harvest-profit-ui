@@ -4,6 +4,19 @@ component OR be nested under a `<TableGroup>` component.  For best results, the 
 options under your `<TableHeader>` component should be *exactly* the same as each `<TableRow>`.
 
 ```js
+import Table from './Table'
+import TableHeader from './TableHeader'
+import TableHeaderItem from './TableHeaderItem'
+import TableBody from './TableBody'
+import TableRow from './TableRow'
+import TableGroup from './TableGroup'
+import TableItem from './TableItem'
+import TableFooter from './TableFooter'
+import SortableTableBody from './SortableTableBody'
+import SortableTableHeaderItemHandle from './SortableTableHeaderItemHandle'
+import SortableTableItemHandle from './SortableTableItemHandle'
+;
+
 <Table>
   <TableHeader>
     <TableGroup>
