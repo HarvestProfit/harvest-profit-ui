@@ -9,6 +9,14 @@ Most layouts can be accomplished with either the `<Row />` or the `<Column />` c
 the following form example:
 
 ```js
+import Form from './src/forms/Form'
+import Column from './src/layout/Column'
+import Row from './src/layout/Row'
+import FormLabel from './src/forms/FormLabel'
+import InputString from './src/inputs/InputString'
+import Dropdown from './src/dropdowns/Dropdown'
+;
+
 
 <Form>
   <Row>
@@ -30,6 +38,16 @@ Or this panel:
 
 
 ```js
+import Form from './src/forms/Form'
+import Column from './src/layout/Column'
+import Row from './src/layout/Row'
+import FormLabel from './src/forms/FormLabel'
+import InputString from './src/inputs/InputString'
+import Dropdown from './src/dropdowns/Dropdown'
+import Panel from './src/panel/Panel'
+import PanelContents from './src/panel/PanelContents'
+
+;
 
 <Panel>
 <PanelContents>

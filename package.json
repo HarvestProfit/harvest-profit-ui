@@ -62,21 +62,23 @@
     "react": "^16.2.0",
     "react-sortable-hoc": "^0.6.8",
     "react-transition-group": "^2.2.1",
-    "reactstrap": "^5.0.0-alpha.4"
+    "reactstrap": "^8.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6",
-    "babel-eslint": "7",
-    "babel-jest": "^22.4.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-airbnb": "^2.4.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/cli": "^7",
+    "@babel/core": "^7",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/preset-react": "^7",
+    "@babel/preset-stage-2": "^7",
+    "@babel/runtime": "^7.0.0",
+    "@webpack-blocks/core": "^2.0.0",
+    "babel-eslint": "^10",
+    "babel-jest": "^24.8.0",
+    "babel-preset-airbnb": "^4.0.1",
     "coveralls": "^3.0.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
-    "eslint": "^4.9.0",
+    "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
@@ -85,8 +87,8 @@
     "jest-enzyme": "^4.0.1",
     "postcss-smart-import": "^0.7.5",
     "react-dom": "^16.2.0",
-    "react-styleguidist": "^7.0.0",
-    "webpack": "^3.8.1",
-    "webpack-blocks": "^1.0.0"
+    "react-styleguidist": "^9.0.0",
+    "webpack": "^4.0.0",
+    "webpack-blocks": "^2.0.0"
   }
 }
