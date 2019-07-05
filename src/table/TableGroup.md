@@ -2,6 +2,18 @@ Table groups provide tables with the ability to collapse down into a more conden
 version of itself.  For example, take the following table and reduce your screen size.
 
 ```js
+import Table from './Table'
+import TableHeader from './TableHeader'
+import TableHeaderItem from './TableHeaderItem'
+import TableBody from './TableBody'
+import TableRow from './TableRow'
+import TableItem from './TableItem'
+import TableFooter from './TableFooter'
+import SortableTableBody from './SortableTableBody'
+import SortableTableHeaderItemHandle from './SortableTableHeaderItemHandle'
+import SortableTableItemHandle from './SortableTableItemHandle'
+;
+
 <Table>
   <TableHeader>
     <TableHeaderItem size="small">Name</TableHeaderItem>
@@ -32,6 +44,19 @@ version of itself.  For example, take the following table and reduce your screen
 Now do the same with this table.
 
 ```js
+import Table from './Table'
+import TableHeader from './TableHeader'
+import TableHeaderItem from './TableHeaderItem'
+import TableBody from './TableBody'
+import TableRow from './TableRow'
+import TableGroup from './TableGroup'
+import TableItem from './TableItem'
+import TableFooter from './TableFooter'
+import SortableTableBody from './SortableTableBody'
+import SortableTableHeaderItemHandle from './SortableTableHeaderItemHandle'
+import SortableTableItemHandle from './SortableTableItemHandle'
+;
+
 <Table>
   <TableHeader>
     <TableGroup>
@@ -75,6 +100,19 @@ We can make that condensed column smaller as well using the *condensedSize* opti
 as well as play with the alignment.  We can even tell it to break at different times.
 
 ```js
+import Table from './Table'
+import TableHeader from './TableHeader'
+import TableHeaderItem from './TableHeaderItem'
+import TableBody from './TableBody'
+import TableRow from './TableRow'
+import TableGroup from './TableGroup'
+import TableItem from './TableItem'
+import TableFooter from './TableFooter'
+import SortableTableBody from './SortableTableBody'
+import SortableTableHeaderItemHandle from './SortableTableHeaderItemHandle'
+import SortableTableItemHandle from './SortableTableItemHandle'
+;
+
 <Table>
   <TableHeader>
     <TableGroup group="2" condensedSize="small" align="right">

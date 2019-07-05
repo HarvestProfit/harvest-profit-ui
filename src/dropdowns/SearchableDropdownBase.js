@@ -353,7 +353,7 @@ export default class SearchableDropdownBase extends PureComponent {
       <div style={{ display: 'inline-block' }} className={`searchable-dropdown v2 ${this.props.className}`}>
         <Dropdown
           isOpen={this.state.open}
-          toggle={() => this.toggleOpen()}
+          toggle={this.toggleOpen}
         >
           <DropdownToggle tag="div" className="dropdown-toggle v2">
             <DropdownToggleComponent

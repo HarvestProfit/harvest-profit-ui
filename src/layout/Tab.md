@@ -1,6 +1,11 @@
 Simple tab demo:
 
 ```js
+import Button from '../misc/Button'
+
+import Tabs from './Tabs'
+;
+
 initialState = {
   activeTab: 1
 };

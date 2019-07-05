@@ -1,9 +1,17 @@
 Modal Header with toggle button, title, and subtitle.
 ```js
+import Button from '../misc/Button'
+
+import Modal from './Modal'
+import ModalSection from './ModalSection'
+import ModalBody from './ModalBody'
+import ModalFooter from './ModalFooter'
+import ModalHeader from './ModalHeader'
+;
 initialState = { isOpen: false };
 
 <div>
-  <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
+  <Button color onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
     <ModalSection>
       <ModalHeader
@@ -20,10 +28,18 @@ initialState = { isOpen: false };
 
 Modal Header with custom children (Notice how the title and subtitle are ignored).
 ```js
+import Button from '../misc/Button'
+
+import Modal from './Modal'
+import ModalSection from './ModalSection'
+import ModalBody from './ModalBody'
+import ModalFooter from './ModalFooter'
+import ModalHeader from './ModalHeader'
+;
 initialState = { isOpen: false };
 
 <div>
-  <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
+  <Button color onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
     <ModalSection>
       <ModalHeader

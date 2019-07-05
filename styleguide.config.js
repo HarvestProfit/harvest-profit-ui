@@ -2,16 +2,28 @@ const path = require('path');
 const {
   babel,
   createConfig,
+  css,
   file,
   match,
   postcss,
   sass,
 } = require('webpack-blocks');
 
+const webpackConfig = createConfig([
+  babel(),
+  match(['*.scss', '!*node_modules*'], [
+    css(),
+    postcss(),
+    sass(),
+  ]),
+  match(['*.eot', '*.svg', '*.ttf', '*.woff', '*.woff2'], [
+    file(),
+  ]),
+]);
+
 module.exports = {
   assetsDir: 'assets',
   title: 'Harvest Profit UI',
-  showUsage: true,
   skipComponentsWithoutExample: true,
   template: {
     favicon: 'https://www.harvestprofit.com/favicon.ico',
@@ -65,14 +77,5 @@ module.exports = {
       components: 'src/misc/*.{js,jsx}',
     },
   ],
-  webpackConfig: createConfig([
-    babel(),
-    match('*.scss', [
-      postcss(),
-      sass(),
-    ]),
-    match(['*.eot', '*.svg', '*.ttf', '*.woff', '*.woff2'], [
-      file(),
-    ]),
-  ]),
+  webpackConfig,
 };

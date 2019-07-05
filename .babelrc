@@ -1,7 +1,0 @@
-{
-  "presets": [
-    "airbnb",
-    "react",
-    "stage-2"
-  ]
-}

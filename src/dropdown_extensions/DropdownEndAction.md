@@ -2,6 +2,9 @@
 Use a custom component to render at the end of the dropdown
 
 ```js
+import SearchableDropdown from '../dropdowns/SearchableDropdown'
+;
+
 const endCreate = () => (
   <DropdownEndAction
     text="+ Create New"

@@ -2,6 +2,8 @@
 Creates a custom option component with an edit button
 
 ```js
+import SearchableDropdown from '../dropdowns/SearchableDropdown'
+
 const option = props => (
   <EditableDropdownOption
     {...props}
