@@ -11,7 +11,7 @@ import ModalHeader from './ModalHeader'
 initialState = { isOpen: false };
 
 <div>
-  <Button color="primary" onClick={() => setState({ isOpen: true })}>Open Me!</Button>
+  <Button color onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
     <ModalSection>
       <ModalHeader
@@ -39,7 +39,7 @@ import ModalHeader from './ModalHeader'
 initialState = { isOpen: false };
 
 <div>
-  <Button color="primary" onClick={() => setState({ isOpen: true })}>Open Me!</Button>
+  <Button color onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
     <ModalSection>
       <ModalHeader

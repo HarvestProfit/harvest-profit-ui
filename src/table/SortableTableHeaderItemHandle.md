@@ -9,6 +9,7 @@ import TableRow from './TableRow'
 import TableItem from './TableItem'
 import TableFooter from './TableFooter'
 import SortableTableBody from './SortableTableBody'
+import SortableTableHeaderItem from './SortableTableHeaderItem'
 import SortableTableHeaderItemHandle from './SortableTableHeaderItemHandle'
 import SortableTableItemHandle from './SortableTableItemHandle'
 ;

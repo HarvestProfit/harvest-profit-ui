@@ -13,7 +13,7 @@ function toggleSaving() {
 }
 
 <div>
-    <Button color="primary" onClick={() => toggleSaving()}>Toggle Saving</Button>
+    <Button color onClick={() => toggleSaving()}>Toggle Saving</Button>
     <p>
     <Saving isSaving={state.isSaving} />
     </p>

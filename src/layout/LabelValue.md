@@ -19,6 +19,9 @@ Here is a simple stacked layout:
 
 You can change the importance of the label values
 ```js
+import Row from './Row'
+;
+
 <Row vAlign="bottom">
   <LabelValue
     label="Name"
@@ -43,6 +46,9 @@ You can change the importance of the label values
 
 Reverse the label and values
 ```js
+import Column from './Column'
+;
+
 <Column>
   <LabelValue
     label="Name"

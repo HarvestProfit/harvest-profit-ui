@@ -1,6 +1,12 @@
 A sample form layout
 
 ```js
+import Row from '../layout/Row'
+import InputString from '../inputs/InputString'
+
+import FormLabel from './FormLabel'
+import FormText from './FormText'
+;
 
 <Form>
   <Row>
