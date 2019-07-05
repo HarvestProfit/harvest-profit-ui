@@ -1,8 +1,17 @@
 ```js
+import Button from '../misc/Button'
+
+import Modal from './Modal'
+import ModalSection from './ModalSection'
+import ModalBody from './ModalBody'
+import ModalFooter from './ModalFooter'
+import ModalHeader from './ModalHeader'
+;
+
 initialState = { isOpen: false };
 
 <div>
-  <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
+  <Button color="primary" onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
   <ModalSection>
     <ModalHeader title="Hello There!"></ModalHeader>

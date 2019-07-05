@@ -6,10 +6,18 @@ Every modal is made up of modal sections.  You can define 3 different types of s
 
 Usually a modal will consist of no more than 2 sections.  For a simple modal, use just the default section
 ```js
+import Button from '../misc/Button'
+
+import Modal from './Modal'
+import ModalSection from './ModalSection'
+import ModalBody from './ModalBody'
+import ModalFooter from './ModalFooter'
+import ModalHeader from './ModalHeader'
+;
 initialState = { isOpen: false };
 
 <div>
-  <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
+  <Button color="primary" onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
     <ModalSection>
       <h1>Default section</h1>
@@ -20,10 +28,18 @@ initialState = { isOpen: false };
 
 For more complex modals, use main and sub sections.  Use a smaller modal size to fit all the sections on the screen.
 ```js
+import Button from '../misc/Button'
+
+import Modal from './Modal'
+import ModalSection from './ModalSection'
+import ModalBody from './ModalBody'
+import ModalFooter from './ModalFooter'
+import ModalHeader from './ModalHeader'
+;
 initialState = { isOpen: false };
 
 <div>
-  <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
+  <Button color="primary" onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal small isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
     <ModalSection main>
       <h1>Main section</h1>
@@ -40,10 +56,18 @@ initialState = { isOpen: false };
 
 You can change colors of the subsections as well by providing the `colored` option
 ```js
+import Button from '../misc/Button'
+
+import Modal from './Modal'
+import ModalSection from './ModalSection'
+import ModalBody from './ModalBody'
+import ModalFooter from './ModalFooter'
+import ModalHeader from './ModalHeader'
+;
 initialState = { isOpen: false };
 
 <div>
-  <button onClick={() => setState({ isOpen: true })}>Open Me!</button>
+  <Button color="primary" onClick={() => setState({ isOpen: true })}>Open Me!</Button>
   <Modal small isOpen={state.isOpen} toggle={() => setState({ isOpen: false })}>
     <ModalSection main>
       <h1>Main section</h1>
