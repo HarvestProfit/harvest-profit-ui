@@ -1,6 +1,9 @@
 Hello sup
 
 ```js
+import Button from '../misc/Button'
+;
+
 initialState = {
   isSaving: false,
 }
@@ -10,7 +13,7 @@ function toggleSaving() {
 }
 
 <div>
-    <Button onClick={() => toggleSaving()}>Toggle Saving</Button>
+    <Button color="primary" onClick={() => toggleSaving()}>Toggle Saving</Button>
     <p>
     <Saving isSaving={state.isSaving} />
     </p>

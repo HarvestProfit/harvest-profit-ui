@@ -15,6 +15,9 @@ Or add some details
 
 Or define your own
 ```js
+import Column from '../layout/Column'
+;
+
 <Error hideIcon>
   <Column>
     <p>I am a detailed error</p>
