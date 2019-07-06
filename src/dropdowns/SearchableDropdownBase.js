@@ -355,7 +355,7 @@ export default class SearchableDropdownBase extends PureComponent {
           isOpen={this.state.open}
           toggle={this.toggleOpen}
         >
-          <DropdownToggle tag="div" className="dropdown-toggle v2">
+          <DropdownToggle tag="div" caret={false}>
             <DropdownToggleComponent
               selectedValue={selectedValueText}
               hasSelection={hasSelection}

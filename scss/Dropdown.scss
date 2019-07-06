@@ -12,20 +12,6 @@ $dropdown-menu-v2-option-border: $white;
 $dropdown-menu-v2-placeholder-color: #aaaaaa;
 $dropdown-menu-v2-group-background-color: darken($light-white, 3%);
 
-.dropdown-toggle.v2 {
-  display: flex;
-  flex-flow: column;
-
-  &::after {
-    display: none;
-  }
-
-  button.no-selection {
-    color: $dropdown-menu-v2-placeholder-color;
-    font-style: italic;
-  }
-}
-
 .dropdown-menu.v2 {
   outline: none;
   overflow: hidden;
