@@ -1,6 +1,6 @@
 {
   "name": "harvest-profit-ui",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Harvest Profit UI Components",
   "main": "dist/index.js",
   "repository": "https://github.com/HarvestProfit/harvest-profit-ui",
@@ -59,7 +59,7 @@
     "lodash.snakecase": "^4.1.1",
     "lodash.tonumber": "^4.0.3",
     "prop-types": "^15.6.0",
-    "react": "^16.8.6",
+    "react": "^16.13.1",
     "react-sortable-hoc": "^0.6.8",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^8.0.0"
