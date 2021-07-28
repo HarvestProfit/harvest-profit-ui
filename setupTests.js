@@ -2,7 +2,7 @@ import './temporaryPolyfill';
 /* eslint-disable import/no-extraneous-dependencies, import/first */
 import 'jest-enzyme';
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 /* eslint-enable import/no-extraneous-dependencies, import/first */
 
 Enzyme.configure({ adapter: new Adapter() });
