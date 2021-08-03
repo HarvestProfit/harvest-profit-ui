@@ -56,7 +56,6 @@ import SortableTableHeaderItem from './table/SortableTableHeaderItem';
 import SortableTableItemHandle from './table/SortableTableItemHandle';
 import SortableTableHeaderItemHandle from './table/SortableTableHeaderItemHandle';
 
-import NumbersHelper from './utilities/NumbersHelper';
 import ImmutabilityHelper from './utilities/ImmutabilityHelper';
 
 TableBody.Sortable = SortableTableBody;
@@ -116,6 +115,5 @@ export {
   SortableTableItemHandle,
   SortableTableHeaderItemHandle,
 
-  NumbersHelper,
   ImmutabilityHelper,
 };
